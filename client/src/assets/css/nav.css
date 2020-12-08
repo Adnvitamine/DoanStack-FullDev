@@ -1,0 +1,193 @@
+.nav-item {
+  position: relative;
+  top: 0;
+  border-radius: 5px;
+  margin-right: 10px;
+  transition: box-shadow 2s, background-color 1s linear;
+}
+
+.nav-item:hover {
+  border-radius: 5px;
+  background-color: rgb(255, 238, 0);
+  box-shadow: 0 200px 100px -100px rgba(255, 189, 54, 0.5) inset,
+    5px -5px 10px rgba(63, 94, 251, 0.8), -5px 5px 10px rgba(252, 70, 107, 0.8);
+  margin-right: 10px;
+  transition: box-shadow 2s, background-color 1s linear;
+}
+
+.nav-item:active {
+  border-radius: 5px;
+  background-color: rgba(253, 175, 8, 0.8);
+  box-shadow: 5px -5px 10px rgba(255, 160, 87, 0.8),
+    -5px 5px 10px rgba(255, 195, 207, 0.8),
+    inset -8px 8px 17px rgba(219, 128, 0, 8),
+    inset 8px -8px 17px rgba(253, 175, 8, 0.8);
+  transition: box-shadow 3s, background-color 2s linear;
+}
+
+#fixedNavbar {
+  overflow: hidden;
+  background-color: rgba(255, 255, 255, 0);
+  position: fixed; /* Sticky/fixed navbar */
+  width: 100%;
+  top: 0; /* At the top */
+  z-index: 99;
+  height: 100px;
+  padding: 0px 10px 0px 10px;
+}
+
+#fixedNavbar a {
+  color: rgb(0, 162, 255);
+  font-family: OxygenBold;
+}
+
+#leftMenu {
+  position: relative;
+  top: -35px;
+}
+
+#rightMenu {
+  position: relative;
+  top: -35px;
+}
+
+.BrowserNavbar {
+  overflow: hidden;
+  border-radius: 0px;
+  position: fixed; /* Sticky/fixed navbar */
+  width: 100%;
+  z-index: 99;
+  top: 80px;
+}
+
+.BrowserNavbar p {
+  position: relative;
+  left: 0px;
+  display: inline-block;
+  margin-bottom: 0;
+  font-size: 18px;
+  font-weight: bolder;
+  background: linear-gradient(red, blue);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -webkit-animation: neon1 0.5s ease-in-out infinite alternate;
+  -moz-animation: neon1 0.5s ease-in-out infinite alternate;
+  animation: slide1 20s linear infinite;
+}
+
+.BrowserNavbar:hover p {
+  background: linear-gradient(orange, yellow);
+  /* clip hackery */
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: background 2s, font-size 2s;
+  font-size: 22px;
+  animation: slide1 20s linear infinite;
+}
+
+@keyframes slide1 {
+  from {
+    left: 0%;
+  }
+  to {
+    left: 95%;
+  }
+}
+
+@-webkit-keyframes neon1 {
+  from {
+    text-shadow: 0 0 10px #310385, 0 0 20px #745cff, 0 0 30px #ff0055,
+      0 0 40px #ffd53d, 0 0 70px #ffd53d;
+  }
+  to {
+    text-shadow: 0 0 5px #310385, 0 0 10px #745cff, 0 0 15px #ff0055,
+      0 0 20px #ffd53d, 0 0 35px #ffd53d;
+  }
+}
+
+@keyframes neon1 {
+  from {
+    text-shadow: 0 0 10px #745cff, 0 0 15px #fd0037, 0 0 20px #ffffff;
+  }
+  to {
+    text-shadow: 0 0 5px #745cff, 0 0 7px #fd0037, 0 0 10px #ffffff;
+  }
+}
+
+@-moz-keyframes neon1 {
+  from {
+    text-shadow: 0 0 10px #310385, 0 0 20px #745cff, 0 0 30px #ff0055,
+      0 0 40px #ffd53d, 0 0 70px #ffd53d;
+  }
+  to {
+    text-shadow: 0 0 5px #310385, 0 0 10px #745cff, 0 0 15px #ff0055,
+      0 0 20px #ffd53d, 0 0 35px #ffd53d;
+  }
+}
+
+.DoanStackLogo {
+  display: inline-flex;
+  position: relative;
+  top: -12px;
+  background: rgba(255, 255, 255, 0);
+  box-shadow: 5px 5px 6px rgba(51, 133, 164, 0.7),
+    -5px -5px 6px rgba(51, 133, 164, 0.7);
+  border-radius: 0px 0px 30px 0px;
+  padding-right: 10px;
+  transition: background 2s;
+  font-family: MontB;
+}
+
+.DoanStackLogo:hover {
+  box-shadow: 5px 5px 6px rgba(34, 101, 126, 0.7),
+    -5px -5px 6px rgba(39, 104, 128, 0.7);
+  transition: background 1s;
+}
+
+.DoanStackLogoImg {
+  background: url("../img/logo2.gif");
+  position: relative;
+  left: 0px;
+  width: 50px;
+  height: 50px;
+  z-index: 12;
+}
+.DoanStackLogoName p {
+  position: relative;
+  top: 5px;
+  font-size: 32px;
+  z-index: 11;
+  margin-bottom: 0px;
+  background: linear-gradient(red, blue);
+
+  /* clip hackery */
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: background 2s;
+}
+
+.DoanStackLogo:hover p {
+  background: linear-gradient(orange, yellow);
+  /* clip hackery */
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: background 2s, font-size 2s;
+  font-size: 35px;
+}
+#MobileMenu {
+  display: none;
+}
+
+#menuToggle a:hover {
+  color: tomato;
+}
+
+#MobileHome {
+  display: none;
+}
+#MobileBlog {
+  display: none;
+}
+#MobileShop {
+  display: none;
+}

@@ -1,0 +1,459 @@
+#productsList {
+  width: 100%;
+  padding-top: 120px;
+  padding-bottom: 20px;
+  transition: box-shadow 2s, background-color 2s linear;
+}
+
+#productsList:hover {
+  box-shadow: 0px 2px 0px rgba(255, 0, 0, 1), 0px 4px 0px rgba(6, 1, 255, 1),
+    0px -2px 0px rgba(6, 1, 255, 1), 0px -4px 0px rgba(255, 0, 0, 1);
+  width: 100%;
+  transition: box-shadow 2s, background-color 2s linear;
+}
+
+#productCreate {
+  width: 100%;
+  padding-bottom: 20px;
+  margin-bottom: 100px;
+  transition: box-shadow 2s, background-color 2s linear;
+}
+
+#productCreate:hover {
+  box-shadow: 0px 2px 0px rgba(255, 0, 0, 1), 0px 4px 0px rgba(6, 1, 255, 1),
+    0px -2px 0px rgba(6, 1, 255, 1), 0px -4px 0px rgba(255, 0, 0, 1);
+  width: 100%;
+  transition: box-shadow 2s, background-color 2s linear;
+}
+
+.inputImage {
+  border: 1px solid #dadad7;
+  background-color: white;
+}
+
+progress[value] {
+  /* Reset the default appearance */
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 20px;
+  margin-bottom: 10px;
+}
+
+progress[value]::-webkit-progress-bar {
+  background-color: #eee;
+  border-radius: 2px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
+}
+
+progress[value]::-webkit-progress-value {
+  background-image: -webkit-linear-gradient(
+      135deg,
+      transparent,
+      transparent 33%,
+      rgba(0, 0, 0, 0.1) 33%,
+      rgba(0, 0, 0, 0.1) 66%,
+      transparent 66%
+    ),
+    -webkit-linear-gradient(top, rgba(255, 255, 255, 0.25), rgba(0, 0, 0, 0.2)),
+    -webkit-linear-gradient(left, #09c, #ff0);
+
+  border-radius: 2px;
+  background-size: 35px 20px, 100% 100%, 100% 100%;
+}
+
+progress[value]::-webkit-progress-value:after {
+  /* Only webkit/blink browsers understand pseudo elements on pseudo classes. A rare phenomenon! */
+  content: "";
+  position: absolute;
+
+  width: 5px;
+  height: 5px;
+  top: 7px;
+  right: 7px;
+
+  background-color: white;
+  border-radius: 100%;
+}
+
+p[data-value] {
+  position: relative;
+
+  top: 38px;
+}
+
+/* The percentage will automatically fall in place as soon as we make the width fluid. Now making widths fluid. */
+
+p[data-value]:after {
+  content: attr(data-value) "%";
+  position: relative;
+}
+.uploadContainer {
+  margin: auto;
+  border-radius: 10px;
+  background: #f5f6f7;
+  box-shadow: -5px 5px 4px rgba(197, 227, 255, 0.5),
+    5px 0px 4px rgba(255, 195, 207, 0.5);
+  padding-bottom: 10px;
+  transition: box-shadow 2s;
+}
+
+.uploadContainer:hover {
+  margin: auto;
+  border-radius: 10px;
+  background: #f5f6f7;
+  box-shadow: -5px 5px 4px rgba(119, 132, 198, 0.5),
+    5px 0px 4px rgba(214, 47, 121, 0.5);
+  transition: box-shadow 2s;
+  padding-bottom: 10px;
+}
+
+.file-upload {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+
+  justify-content: space-between;
+  font-size: 1rem;
+}
+.form-group.preview img {
+  width: 100%;
+}
+.upbutton {
+  width: 5rem;
+  padding: 0.5rem;
+  background-color: #2767e9;
+  color: aliceblue;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.modal-title {
+  font-size: 2rem;
+}
+
+.productContainer {
+  min-height: 500px;
+  margin-bottom: 100px;
+}
+.productHeader {
+  position: relative;
+  padding-bottom: 25px;
+  margin-bottom: 25px;
+  border-bottom: 1px solid #dee2e6;
+}
+
+#ProductInfoBottom {
+  position: relative;
+  display: flex;
+  width: 60%;
+  flex-direction: row;
+  flex-wrap: wrap;
+  text-align: center;
+}
+
+#ProductInfoBottom div {
+  position: relative;
+  display: block;
+  font-size: 18px;
+  margin: auto;
+}
+
+#ProductInfoBottom div p {
+  text-align: center;
+  display: inline-block;
+  margin-bottom: 5px !important;
+  padding: 2px 7px 2px 7px;
+  margin-right: 5px;
+}
+
+#productPrice p {
+  display: inline-block;
+  text-align: center;
+  font-size: 25px;
+  color: rgb(204, 7, 7);
+  margin-top: 16px;
+}
+
+.productImage {
+  max-height: 300px;
+  max-width: 100%;
+  margin-right: 10px;
+}
+.productName {
+  font-size: 3rem;
+  position: relative;
+  top: 10px;
+}
+.productBody {
+  display: flex;
+  flex-direction: row;
+  padding-top: 20px;
+}
+
+.productGallery {
+  position: relative;
+  width: 300px;
+  height: 300px;
+}
+
+.productDescription {
+  width: 100%;
+  max-width: 777.78px;
+  padding: 0 var(--ck-spacing-standard) !important;
+  margin: auto;
+}
+.productDescription img {
+  max-width: 100%;
+}
+
+.productDescription h1 {
+  font-size: 34px;
+}
+
+.productDescription h2 {
+  font-size: 24px;
+}
+
+.productDescription figure img {
+  width: 100%;
+}
+.productDescription figure table {
+  width: 100%;
+  margin: auto;
+}
+.productDescription p {
+  width: 100%;
+  word-wrap: break-word;
+}
+
+@keyframes slidy {
+  0% {
+    left: 0%;
+  }
+  5% {
+    left: 0%;
+  }
+  10% {
+    left: 0%;
+  }
+  15% {
+    left: -100%;
+  }
+  20% {
+    left: -100%;
+  }
+  25% {
+    left: -100%;
+  }
+  30% {
+    left: -200%;
+  }
+  35% {
+    left: -200%;
+  }
+  40% {
+    left: -200%;
+  }
+  45% {
+    left: -300%;
+  }
+  50% {
+    left: -300%;
+  }
+  55% {
+    left: -300%;
+  }
+  60% {
+    left: -400%;
+  }
+  65% {
+    left: -400%;
+  }
+  70% {
+    left: -400%;
+  }
+  70% {
+    left: 0%;
+  }
+  100% {
+    left: 0%;
+  }
+}
+
+div#slider {
+  overflow: hidden;
+  max-width: 300px;
+  margin: auto;
+}
+.productBody #slider {
+  margin-top: 0 !important;
+}
+
+div#slider figure img {
+  margin-right: 0px;
+}
+
+div#slider figure {
+  position: relative;
+  display: inline-block;
+  height: 300px;
+  width: 600%;
+  margin: 0;
+  left: 0;
+  text-align: left;
+  font-size: 0;
+  animation: 15s slidy infinite;
+}
+
+#ProductStatusTrue {
+  color: #38fd01;
+  animation: colorStatusGreen 3s ease-in-out infinite;
+}
+@keyframes colorStatusGreen {
+  0% {
+    color: #38fd01;
+  }
+  50% {
+    color: #229203;
+  }
+  100% {
+    color: #38fd01;
+  }
+}
+
+#ProductStatusFalse {
+  color: #ad0000;
+}
+
+#miniStatusTrue {
+  color: #1c8000;
+  float: left;
+  margin-top: 5px;
+  margin-left: 5px;
+  border-right: 1px solid #dee2e6;
+  padding-right: 5px;
+  transition: color 1s;
+}
+
+.productCard:hover #miniStatusTrue {
+  color: #37ff00;
+  float: left;
+  margin-top: 5px;
+  margin-left: 5px;
+  border-right: 1px solid #dee2e6;
+  padding-right: 5px;
+  transition: color 1s;
+}
+
+#miniStatusFalse {
+  color: #ad0000;
+  float: left;
+  margin-top: 5px;
+  margin-left: 5px;
+  border-right: 1px solid #dee2e6;
+  padding-right: 5px;
+  transition: color 1s;
+}
+
+.productCard {
+  position: relative;
+  border-radius: 10px;
+  background: #f5f6f7;
+  box-shadow: -5px 5px 4px rgba(197, 227, 255, 0.5),
+    5px 0px 4px rgba(255, 195, 207, 0.5);
+  width: 336px;
+  display: inline-block;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  transition: box-shadow 2s;
+}
+
+.productCard:hover {
+  border-radius: 10px;
+  background: #f5f6f7;
+  box-shadow: -5px 5px 4px rgba(119, 132, 198, 0.5),
+    5px 0px 4px rgba(214, 47, 121, 0.5);
+  transition: box-shadow 2s;
+}
+
+.productCard:hover #miniProductStatusFalse {
+  color: #ff0000;
+  float: left;
+  margin-top: 5px;
+  margin-left: 5px;
+  border-right: 1px solid #dee2e6;
+  padding-right: 5px;
+  transition: color 1s;
+}
+
+.productCard:hover .productCardImage {
+  visibility: hidden;
+  opacity: 0;
+}
+
+.productCardName {
+  border-bottom: 1px solid #dee2e6;
+}
+
+.productCardName p {
+  width: 100%;
+  margin: 0;
+  font-size: 20px;
+  text-align: center;
+  word-wrap: break-word;
+}
+
+.productCardAction {
+  height: 50px;
+  padding-top: 10px;
+}
+
+.productCardPrice {
+  height: 40px;
+  font-size: 18px;
+  border-bottom: 1px solid #dee2e6;
+  padding-top: 5px;
+}
+
+.productCardDescription {
+  font-size: 16px;
+  height: 250px;
+  overflow: scroll;
+  padding: 0 var(--ck-spacing-standard) !important;
+  margin: auto;
+}
+
+.productCardDescription::-webkit-scrollbar {
+  width: 0 !important;
+}
+
+.productCardDescription div {
+  width: 100%;
+}
+
+.productCardDescription div img {
+  max-width: 100%;
+}
+
+.productCardDescription p {
+  width: 100%;
+  word-wrap: break-word;
+}
+
+.productCardImage {
+  position: absolute;
+  width: 100%;
+  height: 250px;
+  background: white;
+  z-index: 12;
+  border-bottom: 1px solid #dee2e6;
+  opacity: 1;
+  transition: visibility 1s, opacity 1s linear;
+}
+
+#productCardImage {
+  height: 250px;
+  width: 100%;
+  object-fit: contain;
+}

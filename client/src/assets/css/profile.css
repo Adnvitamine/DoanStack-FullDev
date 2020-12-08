@@ -1,0 +1,73 @@
+#ProfileFrame {
+  display: flex;
+  flex-direction: row;
+  padding-top: 120px;
+}
+#userProfile {
+  display: block;
+  margin-top: 0px;
+  min-width: 49%;
+  padding-bottom: 20px;
+  transition: box-shadow 2s;
+  text-align: center;
+}
+
+#userProfile:hover {
+  box-shadow: 0px 2px 0px rgba(255, 0, 0, 1), 0px 4px 0px rgba(6, 1, 255, 1),
+    0px -2px 0px rgba(6, 1, 255, 1), 0px -4px 0px rgba(255, 0, 0, 1);
+  padding-bottom: 20px;
+  transition: box-shadow 2s;
+}
+
+#profileCard {
+  position: relative;
+  border-radius: 10px;
+  background: #f5f6f7;
+  box-shadow: -5px 5px 4px rgba(197, 227, 255, 0.5),
+    5px 0px 4px rgba(255, 195, 207, 0.5);
+  width: 310px;
+  display: inline-block;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  transition: box-shadow 2s;
+}
+
+#profileCard p {
+  padding: 10px;
+  text-align: left;
+  margin: 0;
+}
+
+#profileCard h1 {
+  text-align: center;
+}
+
+#userEdit {
+  display: block;
+  min-width: 49%;
+  padding-bottom: 20px;
+  text-align: center;
+  transition: box-shadow 2s, background-color 2s linear;
+}
+
+#userEdit:hover {
+  box-shadow: 0px 2px 0px rgba(255, 0, 0, 1), 0px 4px 0px rgba(6, 1, 255, 1),
+    0px -2px 0px rgba(6, 1, 255, 1), 0px -4px 0px rgba(255, 0, 0, 1);
+  padding-bottom: 20px;
+  transition: box-shadow 2s, background-color 2s linear;
+}
+
+.editUserForm {
+  width: 340px;
+  border-radius: 10px;
+  background: #f5f6f7;
+  box-shadow: -5px 5px 4px rgba(197, 227, 255, 0.5),
+    5px 0px 4px rgba(255, 195, 207, 0.5);
+  padding: 25px 0px 25px 0px;
+  margin: auto;
+  margin-top: 20px;
+}
+
+.editUserForm form {
+  display: inline-block;
+}

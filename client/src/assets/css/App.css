@@ -1,0 +1,205 @@
+.App {
+  text-align: center;
+}
+
+.mainBoard {
+  min-height: 100vh;
+}
+
+.adminBoard {
+  width: 100%;
+}
+
+label {
+  display: block;
+  margin-top: 10px;
+}
+
+.card-container.card {
+  max-width: 350px !important;
+  padding: 40px 40px;
+}
+
+.card {
+  background-color: #f7f7f7;
+  padding: 20px 25px 30px;
+  margin: 0 auto 25px;
+  margin-top: 50px;
+  -moz-border-radius: 2px;
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
+  -moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+}
+
+.profile-img-card {
+  height: 100%;
+  width: 100%;
+  max-height: 96px;
+  max-width: 96px;
+  width: auto;
+  margin: 0 auto 10px;
+  display: block;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+}
+
+.ComponentTitle {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+
+  font-family: MontB;
+}
+
+.ComponentTitle div {
+  border-radius: 0px 0px 20px 20px;
+  padding: 0px 10px 0px 15px;
+
+  box-shadow: inset 0px -1px 4px #1101ff, inset -1px 0px 4px #ff2600;
+}
+
+.ComponentTitle div h1 {
+  font-size: 35px;
+  margin: 0px;
+  transition: font-size 1s;
+  text-align: center;
+}
+
+#articlesList:hover .ComponentTitle div h1 {
+  font-size: 40px;
+  background: linear-gradient(rgba(6, 2, 247, 1), rgb(255, 0, 0, 1));
+  /* clip hackery */
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: font-size 1s, background 1.5s;
+}
+
+#articleCreate:hover .ComponentTitle div h1 {
+  font-size: 40px;
+  background: linear-gradient(rgba(6, 2, 247, 1), rgb(255, 0, 0, 1));
+  /* clip hackery */
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: font-size 1s, background 1.5s;
+}
+
+#productsList:hover .ComponentTitle div h1 {
+  font-size: 50px;
+  background: linear-gradient(rgba(6, 2, 247, 1), rgb(255, 0, 0, 1));
+  /* clip hackery */
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: font-size 1s, background 1.5s;
+}
+
+#productCreate:hover .ComponentTitle div h1 {
+  font-size: 50px;
+  background: linear-gradient(rgba(6, 2, 247, 1), rgb(255, 0, 0, 1));
+  /* clip hackery */
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: font-size 1s, background 1.5s;
+}
+
+#userProfile:hover .ComponentTitle div h1 {
+  font-size: 50px;
+  background: linear-gradient(rgba(6, 2, 247, 1), rgb(255, 0, 0, 1));
+  /* clip hackery */
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: font-size 1s, background 1.5s;
+}
+
+#userEdit:hover .ComponentTitle div h1 {
+  font-size: 50px;
+  transition: font-size 1s;
+  background: linear-gradient(rgba(6, 2, 247, 1), rgb(255, 0, 0, 1));
+  /* clip hackery */
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: font-size 1s, background 1.5s;
+}
+
+#usersList:hover .ComponentTitle div h1 {
+  font-size: 50px;
+  background: linear-gradient(rgba(6, 2, 247, 1), rgb(255, 0, 0, 1));
+  /* clip hackery */
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: font-size 1s, background 1.5s;
+}
+
+.ComponentEmpty {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+
+  font-family: MontB;
+}
+
+.ComponentEmpty div {
+  border-radius: 5px;
+  padding: 5px 10px 5px 10px;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.modal-header {
+  background: #f5f6f7;
+}
+
+.modal-dialog {
+  margin-bottom: 600px !important;
+}
+
+.modal-footer {
+  background: #f5f6f7;
+}
+
+#TitleLink {
+  display: block;
+  margin: auto;
+  text-align: center;
+  position: fixed;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 1);
+  height: 80px;
+  padding-top: 20px;
+  z-index: 88;
+}
+
+#TitleLink h1 {
+  position: absolute;
+  display: inline-block;
+  width: 50%;
+  bottom: 0;
+  left: 50%;
+  padding-bottom: 5px;
+  margin-left: -25%;
+  margin-bottom: 0;
+  font-size: 1vw;
+  text-align: center;
+  background: linear-gradient(red, blue);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: fontSize 1s linear forwards;
+}
+
+@keyframes fontSize {
+  from {
+    font-size: 1vw;
+  }
+  to {
+    font-size: 2vw;
+  }
+}
+
+#Login {
+  padding-top: 120px;
+}
+
+#Register {
+  padding-top: 120px;
+}

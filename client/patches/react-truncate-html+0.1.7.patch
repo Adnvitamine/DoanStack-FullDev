@@ -1,0 +1,19 @@
+diff --git a/node_modules/react-truncate-html/index.js b/node_modules/react-truncate-html/index.js
+index 08f3586..9e2f2a9 100644
+--- a/node_modules/react-truncate-html/index.js
++++ b/node_modules/react-truncate-html/index.js
+@@ -92,12 +92,14 @@ var Truncate = function (_Component) {
+ 
+             var html = { __html: (0, _xss2.default)(__html) };
+             
++
+             return _react2.default.createElement('span', _extends({ ref: 'paragraph' }, passedProps, { dangerouslySetInnerHTML: html }));
+         }
+     }, {
+         key: 'componentDidUpdate',
+         value: function componentDidUpdate(prevProps) {
+             if (prevProps.dangerouslySetInnerHTML !== this.props.dangerouslySetInnerHTML) {
++                
+                 this.cached = this.refs.paragraph.innerHTML;
+                 this.add();
+             }

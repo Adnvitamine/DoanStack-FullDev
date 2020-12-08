@@ -1,0 +1,735 @@
+@media only screen and (max-width: 1000px) {
+  .articleCard {
+    width: 48%;
+  }
+  .productBody {
+    flex-direction: column;
+  }
+  #slider {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .productCard {
+    width: 336px;
+  }
+  #profileCard {
+    width: 310px;
+  }
+  .userCard {
+    width: 336px;
+  }
+  #TitleLink {
+    height: 100px;
+    padding-top: 70px;
+  }
+  .BrowserNavbar {
+    top: 105px;
+  }
+  #ShopBody {
+    padding-top: 150px !important;
+    width: 100% !important;
+  }
+  #BlogBody {
+    padding-top: 150px !important;
+  }
+  #articlesList {
+    padding-top: 150px;
+  }
+  #usersList {
+    padding-top: 150px;
+  }
+  #productsList {
+    padding-top: 150px;
+  }
+  #ProfileFrame {
+    flex-direction: column;
+    padding-top: 150px;
+  }
+  #userEdit {
+    margin-top: 50px;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .productBody {
+    flex-direction: column;
+  }
+
+  #MobileMenu {
+    display: block;
+    width: 100%;
+    position: absolute;
+  }
+  #menuToggle {
+    position: relative;
+    float: right;
+    top: -20px;
+    z-index: 1;
+
+    -webkit-user-select: none;
+    user-select: none;
+  }
+
+  #menuToggle a {
+    display: inline-block;
+    text-decoration: none;
+    color: #232323;
+
+    transition: color 0.3s ease;
+  }
+
+  #menuToggle a:hover {
+    color: tomato;
+  }
+
+  #menuToggle input {
+    position: absolute;
+    float: right;
+    width: 50px;
+    height: 40px;
+    top: 0px;
+    left: -10px;
+    border: 1px solid black;
+
+    cursor: pointer;
+
+    opacity: 0; /* hide this */
+    z-index: 2; /* and place it over the hamburger */
+
+    -webkit-touch-callout: none;
+  }
+
+  #menuToggle span {
+    display: block;
+    top: 5px;
+    left: 2px;
+    width: 33px;
+    height: 4px;
+    margin-bottom: 5px;
+    position: relative;
+
+    background: rgba(39, 104, 128, 1);
+    border-radius: 3px;
+
+    z-index: 1;
+
+    transform-origin: 4px 0px;
+
+    transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1),
+      background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), opacity 0.55s ease;
+  }
+
+  #menuToggle span:first-child {
+    transform-origin: 0% 0%;
+  }
+
+  #menuToggle span:nth-last-child(2) {
+    transform-origin: 0% 100%;
+  }
+
+  /* 
+     * Transform all the slices of hamburger
+     * into a crossmark.
+     */
+  #menuToggle input:checked ~ span {
+    opacity: 1;
+    transform: rotate(45deg) translate(-2px, -1px);
+    background: #fc2626;
+  }
+
+  /*
+     * But let's hide the middle one.
+     */
+  #menuToggle input:checked ~ span:nth-last-child(3) {
+    opacity: 0;
+    transform: rotate(0deg) scale(0.2, 0.2);
+  }
+
+  /*
+     * Ohyeah and the last one should go the other direction
+     */
+  #menuToggle input:checked ~ span:nth-last-child(2) {
+    transform: rotate(-45deg) translate(0, -1px);
+  }
+
+  #menu {
+    position: absolute;
+    top: -2px;
+    right: 0px;
+    display: flex;
+    flex-direction: row;
+    padding: 0px 50px 0px 20px;
+    margin: 0px 0px 0px 0px;
+    background: rgba(255, 255, 255, 0.8);
+    box-shadow: 5px 5px 6px rgba(51, 133, 164, 0.7),
+      -5px -5px 6px rgba(51, 133, 164, 0.7);
+    border-radius: 0px 0px 0px 30px;
+
+    list-style-type: none;
+    -webkit-font-smoothing: antialiased;
+    /* to stop flickering of text in safari */
+
+    transform-origin: 0% 0%;
+    transform: translate(150%, 0);
+
+    transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
+  }
+
+  .mobilenav-item {
+    text-align: center;
+    font-size: 18px;
+    margin-right: 10px;
+  }
+
+  .mobilenav-item .nav-link {
+    padding: 2px;
+    margin: auto;
+  }
+
+  .nav-item {
+    font-size: 1rem;
+  }
+
+  /*
+     * And let's slide it in from the left
+     */
+  #menuToggle input:checked ~ ul {
+    transform: none;
+  }
+
+  #LogoNav {
+    position: relative;
+    top: 0px;
+    left: 0px;
+  }
+  #rightMenu {
+    display: none;
+  }
+
+  #fixedNavbar {
+    height: 100px;
+    padding: 0px;
+  }
+
+  .BrowserNavbar {
+    top: 110px;
+  }
+
+  #Label {
+    top: 20px;
+    left: -10px;
+  }
+
+  #TitleLink {
+    height: 100px;
+    padding-top: 75px;
+  }
+  #TitleLink h1 {
+    width: 60%;
+    left: 50%;
+    margin-left: -30%;
+    font-size: 14px;
+    animation: fontSize2 1s linear forwards;
+  }
+  @keyframes fontSize2 {
+    from {
+      font-size: 14px;
+    }
+    to {
+      font-size: 20px;
+    }
+  }
+  #switch:checked + #FullFrame #TitleLink h1 {
+    font-size: 20px;
+    animation: fontSizeReverse2 1s linear reverse,
+      neon2 3s ease-in-out infinite alternate;
+  }
+  @keyframes fontSizeReverse2 {
+    from {
+      font-size: 20px;
+    }
+    to {
+      font-size: 14px;
+    }
+  }
+  #MoreProducts {
+    max-width: 15% !important;
+  }
+  #MoreProducts span {
+    display: none;
+  }
+  #MoreProducts .body .list {
+    flex-direction: column !important;
+  }
+  #MoreArticles {
+    max-width: 15% !important;
+  }
+  #MoreArticles span {
+    display: none;
+  }
+  #MoreArticles .body .list {
+    flex-direction: column !important;
+  }
+}
+
+@media only screen and (max-width: 805px) {
+  #Footer {
+    display: flex;
+    flex-direction: column;
+  }
+  .background {
+    width: 100%;
+  }
+  #contact-bar {
+    display: block;
+    width: 100%;
+  }
+  #FooterContact {
+    display: block;
+    margin: auto;
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .articleCard {
+    width: 365px;
+  }
+  .uploadContainer {
+    width: 100%;
+  }
+  .productCard {
+    width: 336px;
+  }
+  .productBody {
+    flex-direction: column;
+  }
+  .productDescription {
+    width: 100%;
+  }
+  #profileCard {
+    width: 336px;
+  }
+  #Label {
+    margin-left: auto;
+  }
+  #leftMenu {
+    display: none;
+  }
+
+  .nav-link {
+    font-size: 1rem;
+  }
+
+  #MobileHome {
+    display: inline-block;
+  }
+  #MobileBlog {
+    display: inline-block;
+  }
+  #MobileShop {
+    display: inline-block;
+  }
+  #TitleLink {
+    height: 110px;
+  }
+  #TitleLink h1 {
+    width: 70%;
+    left: 50%;
+    margin-left: -35%;
+    font-size: 12px;
+    animation: fontSize2 1s linear forwards;
+  }
+  @keyframes fontSize2 {
+    from {
+      font-size: 12px;
+    }
+    to {
+      font-size: 18px;
+    }
+  }
+  #switch:checked + #FullFrame #TitleLink h1 {
+    font-size: 18px;
+    animation: fontSizeReverse2 1s linear reverse,
+      neon2 3s ease-in-out infinite alternate;
+  }
+  @keyframes fontSizeReverse2 {
+    from {
+      font-size: 18px;
+    }
+    to {
+      font-size: 12px;
+    }
+  }
+}
+
+@media only screen and (max-width: 730px) {
+  #TitleLink {
+    height: 140px;
+    padding-top: 110px;
+  }
+  #menu {
+    width: 300px;
+    left: -250px;
+    flex-wrap: wrap;
+  }
+  #Label {
+    top: 40px;
+  }
+
+  .BrowserNavbar {
+    top: 145px;
+  }
+
+  .BrowserNavbar p {
+    font-size: 15px;
+  }
+
+  .BrowserNavbar p:hover {
+    font-size: 18px;
+  }
+  #ShopNav {
+    font-size: 14px !important;
+  }
+  #ShopNav ul li:hover {
+    font-size: 18px !important;
+  }
+  #BlogNav {
+    font-size: 14px !important;
+  }
+  #BlogNav ul li:hover {
+    font-size: 18px !important;
+  }
+  #ShopBody {
+    padding-top: 180px !important;
+  }
+  #BlogBody {
+    padding-top: 180px !important;
+  }
+  #articlesList {
+    padding-top: 180px;
+  }
+  #usersList {
+    padding-top: 180px;
+  }
+  #productsList {
+    padding-top: 180px;
+  }
+  #ProfileFrame {
+    padding-top: 180px;
+  }
+  #Login {
+    padding-top: 180px;
+  }
+  #Register {
+    padding-top: 180px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  #TitleLink h1 {
+    width: 85%;
+    left: 50%;
+    margin-left: -40%;
+    font-size: 12px;
+    animation: fontSize2 1s linear forwards;
+  }
+  @keyframes fontSize2 {
+    from {
+      font-size: 12px;
+    }
+    to {
+      font-size: 18px;
+    }
+  }
+  #BlogBody {
+    width: 100% !important;
+  }
+
+  .BrowserNavbar {
+    top: 140px;
+  }
+
+  .BrowserNavbar p {
+    font-size: 10px;
+    animation: slide1 10s linear infinite;
+  }
+
+  .BrowserNavbar p:hover {
+    font-size: 12px;
+    animation: slide1 10s linear infinite;
+  }
+  #BlogBody {
+    width: 100% !important;
+  }
+}
+
+@media only screen and (max-width: 550px) {
+  #menu {
+    width: 250px;
+    left: -200px;
+  }
+  .nav-link {
+    font-size: 12px;
+  }
+  #BlogBody {
+    width: 100% !important;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  #TitleLink {
+    height: 160px;
+    padding-top: 125px;
+  }
+  #TitleLink h1 {
+    width: 100%;
+    left: 50%;
+    margin-left: -50%;
+    font-size: 10px;
+    animation: fontSize2 1s linear forwards;
+  }
+  @keyframes fontSize2 {
+    from {
+      font-size: 10px;
+    }
+    to {
+      font-size: 16px;
+    }
+  }
+  #switch:checked + #FullFrame #TitleLink h1 {
+    font-size: 16px;
+    animation: fontSizeReverse2 1s linear reverse,
+      neon2 3s ease-in-out infinite alternate;
+  }
+  @keyframes fontSizeReverse2 {
+    from {
+      font-size: 16px;
+    }
+    to {
+      font-size: 10px;
+    }
+  }
+  .BrowserNavbar {
+    top: 155px;
+  }
+  #MoreArticles {
+    display: none;
+  }
+  #MoreProducts {
+    display: none;
+  }
+  #fixedNavbar {
+    height: 160px;
+  }
+  #BlogNav ul li {
+    padding: 0px 5px 0px 5px !important;
+    width: auto !important;
+  }
+  #ShopNav ul li {
+    padding: 0px 5px 0px 5px !important;
+    width: auto;
+  }
+
+  #LogoNav {
+    top: -20px;
+  }
+  #menuToggle {
+    top: -45px;
+  }
+  #menu {
+    width: 200px;
+    left: -150px;
+    padding: 0px 30px 0px 15px;
+  }
+  .nav-link {
+    padding: 1px !important;
+    font-size: 12px;
+  }
+  #Label {
+    top: 45px;
+  }
+  #BlogBody {
+    width: 100% !important;
+  }
+
+  #ShopBody {
+    padding-top: 180px !important;
+  }
+  #BlogBody {
+    padding-top: 180px !important;
+  }
+  #articlesList {
+    padding-top: 180px;
+  }
+  #usersList {
+    padding-top: 180px;
+  }
+  #productsList {
+    padding-top: 180px;
+  }
+  #ProfileFrame {
+    padding-top: 180px;
+  }
+  #Login {
+    padding-top: 180px;
+  }
+  #Register {
+    padding-top: 180px;
+  }
+}
+@media only screen and (max-width: 450px) {
+  #fixedNavbar {
+    height: 180px;
+  }
+  #LogoNav {
+    top: -40px;
+  }
+  #menuToggle {
+    top: -65px;
+  }
+  #menu {
+    width: 150px;
+    left: -100px;
+    padding: 0px 30px 0px 15px;
+  }
+  .nav-link {
+    padding: 1px !important;
+    font-size: 12px;
+  }
+  #Label {
+    top: 50px;
+  }
+  .BrowserNavbar {
+    display: none;
+  }
+  #MoreArticles {
+    display: none;
+  }
+  #MoreProducts {
+    display: none;
+  }
+  #ShopHomeProduct {
+    max-width: 100% !important;
+  }
+  #BlogHomeArticle {
+    max-width: 100% !important;
+  }
+  .uploadContainer {
+    width: 100%;
+  }
+  #TitleLink {
+    height: 185px;
+    padding-top: 155px;
+  }
+  #ShopBody {
+    padding-top: 200px !important;
+  }
+  #BlogBody {
+    padding-top: 200px !important;
+  }
+  #articlesList {
+    padding-top: 200px;
+  }
+  #usersList {
+    padding-top: 200px;
+  }
+  #productsList {
+    padding-top: 200px;
+  }
+  #ProfileFrame {
+    padding-top: 200px;
+  }
+  #Login {
+    padding-top: 200px;
+  }
+  #Register {
+    padding-top: 200px;
+  }
+  #ShopNav {
+    font-size: 10px !important;
+  }
+  #ShopNav ul li:hover {
+    font-size: 12px !important;
+  }
+  #BlogNav {
+    font-size: 10px !important;
+  }
+  #BlogNav ul li:hover {
+    font-size: 12px !important;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  #TitleLink h1 {
+    font-size: 10px;
+    animation: fontSize2 1s linear forwards;
+  }
+  @keyframes fontSize2 {
+    from {
+      font-size: 10px;
+    }
+    to {
+      font-size: 14px;
+    }
+  }
+  #switch:checked + #FullFrame #TitleLink h1 {
+    font-size: 14px;
+    animation: fontSizeReverse2 1s linear reverse,
+      neon2 3s ease-in-out infinite alternate;
+  }
+  @keyframes fontSizeReverse2 {
+    from {
+      font-size: 14px;
+    }
+    to {
+      font-size: 10px;
+    }
+  }
+  .DoanStackLogoName p {
+    font-size: 25px;
+  }
+  .articleCard {
+    width: 100%;
+  }
+  .userCard {
+    width: 100%;
+  }
+  .productCard {
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 350px) {
+  .DoanStackLogoName p {
+    font-size: 20px;
+  }
+  #TitleLink h1 {
+    width: 100%;
+    left: 50%;
+    margin-left: -50%;
+    font-size: 10px;
+    animation: fontSize2 1s linear forwards;
+  }
+  @keyframes fontSize2 {
+    from {
+      font-size: 10px;
+    }
+    to {
+      font-size: 12px;
+    }
+  }
+  #switch:checked + #FullFrame #TitleLink h1 {
+    font-size: 12px;
+    animation: fontSizeReverse2 1s linear reverse,
+      neon2 3s ease-in-out infinite alternate;
+  }
+  @keyframes fontSizeReverse2 {
+    from {
+      font-size: 12px;
+    }
+    to {
+      font-size: 10px;
+    }
+  }
+}

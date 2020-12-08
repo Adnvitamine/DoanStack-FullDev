@@ -1,0 +1,249 @@
+#articlesList {
+  width: 100%;
+  padding-bottom: 20px;
+  padding-top: 120px;
+  transition: box-shadow 2s, background-color 2s linear;
+}
+
+#articlesList:hover {
+  box-shadow: 0px 2px 0px rgba(255, 0, 0, 1), 0px 4px 0px rgba(6, 1, 255, 1),
+    0px -2px 0px rgba(6, 1, 255, 1), 0px -4px 0px rgba(255, 0, 0, 1);
+  width: 100%;
+  transition: box-shadow 2s, background-color 2s linear;
+}
+
+#articleCreate {
+  padding-bottom: 20px;
+  margin-bottom: 100px;
+  transition: box-shadow 2s, background-color 2s linear;
+}
+
+#articleCreate:hover {
+  box-shadow: 0px 2px 0px rgba(255, 0, 0, 1), 0px 4px 0px rgba(6, 1, 255, 1),
+    0px -2px 0px rgba(6, 1, 255, 1), 0px -4px 0px rgba(255, 0, 0, 1);
+  width: 100%;
+  transition: box-shadow 2s, background-color 2s linear;
+}
+
+#miniStatusTrue {
+  color: #1c8000;
+  float: left;
+  margin-top: 5px;
+  margin-left: 5px;
+  border-right: 1px solid #dee2e6;
+  padding-right: 5px;
+  transition: color 1s;
+}
+
+.articleCard:hover #miniStatusTrue {
+  color: #37ff00;
+  float: left;
+  margin-top: 5px;
+  margin-left: 5px;
+  border-right: 1px solid #dee2e6;
+  padding-right: 5px;
+  transition: color 1s;
+}
+
+.articleCard {
+  position: relative;
+  border-radius: 10px;
+  background: #f5f6f7;
+  box-shadow: -5px 5px 4px rgba(197, 227, 255, 0.5),
+    5px 0px 4px rgba(255, 195, 207, 0.5);
+  width: 30%;
+  display: inline-block;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  transition: box-shadow 2s;
+}
+
+.articleCard:hover {
+  border-radius: 10px;
+  background: #f5f6f7;
+  box-shadow: -5px 5px 4px rgba(119, 132, 198, 0.5),
+    5px 0px 4px rgba(214, 47, 121, 0.5);
+  transition: box-shadow 2s;
+}
+
+.articleCard:hover #miniarticleStatusFalse {
+  color: #ff0000;
+  float: left;
+  margin-top: 5px;
+  margin-left: 5px;
+  border-right: 1px solid #dee2e6;
+  padding-right: 5px;
+  transition: color 1s;
+}
+
+.articleCard:hover .articleCardImage {
+  visibility: hidden;
+  opacity: 0;
+}
+
+.articleCardName {
+  border-bottom: 1px solid #dee2e6;
+}
+
+.articleCardName p {
+  margin: 0;
+  font-size: 20px;
+}
+
+.articleCardAction {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.articleCardContent {
+  font-size: 16px;
+  height: 250px;
+  overflow: scroll;
+  padding: 0 var(--ck-spacing-standard) !important;
+  margin: auto;
+}
+
+.articleCardContent::-webkit-scrollbar {
+  width: 0 !important;
+}
+
+.articleCardContent div {
+  width: 100%;
+}
+
+.articleCardContent img {
+  width: 100%;
+}
+
+.articleCardContent p {
+  width: 100%;
+  word-wrap: break-word;
+}
+
+.articleCard .articleCardInfo {
+  height: 40px;
+  font-size: 18px;
+  border-bottom: 1px solid #dee2e6;
+  padding-top: 5px;
+}
+
+.articleCardImage {
+  position: absolute;
+  width: 100%;
+  height: 250px;
+  background: white;
+  z-index: 12;
+  opacity: 1;
+  transition: visibility 1s, opacity 1s linear;
+}
+
+#articleCardImage {
+  height: 250px;
+  object-fit: contain;
+}
+
+.articleContainer {
+  min-height: 500px;
+}
+.articleHeader {
+  border-bottom: 1px solid #dee2e6;
+}
+
+.articleImage {
+  height: 75%;
+  max-width: 100%;
+  margin-right: 10px;
+}
+.articleName {
+  font-size: 3rem;
+  position: relative;
+  top: 10px;
+}
+.articleBody {
+  display: flex;
+  flex-direction: row;
+  margin: auto;
+  width: 100%;
+  padding-top: 20px;
+}
+
+.articleContent {
+  width: 100%;
+  max-width: 777.78px;
+  padding: 0 var(--ck-spacing-standard) !important;
+  margin: auto;
+}
+
+.articleContent h1 {
+  font-size: 34px;
+}
+
+.articleContent h2 {
+  font-size: 24px;
+}
+
+.articleContent figure img {
+  width: 100%;
+}
+
+.articleContent p {
+  width: 100%;
+  word-wrap: break-word;
+}
+
+.ql-align-left {
+  text-align: left;
+}
+
+.ql-align-center {
+  text-align: center;
+}
+
+.ql-align-right {
+  text-align: right;
+}
+
+.ql-align-justify {
+  text-align: justify;
+}
+
+.articleGallery {
+  position: relative;
+  width: 300px;
+  height: 300px;
+}
+.image {
+  margin: 1em auto;
+}
+.image-style-align-right {
+  position: relative;
+  float: right;
+  margin-left: var(--ck-image-style-spacing);
+}
+.image-style-align-left {
+  position: relative;
+  float: left;
+  margin-right: var(--ck-image-style-spacing);
+}
+
+.quill {
+  width: 100%;
+  max-width: 780px;
+  margin: auto;
+}
+
+.ql-editor {
+  font-family: LatoReg;
+  font-size: 17px;
+  padding: 0 var(--ck-spacing-standard) !important;
+}
+
+.ql-editor h1 {
+  font-size: 34px !important;
+  margin-bottom: 0.5rem !important;
+}
+
+.ql-editor p {
+  margin-bottom: 1rem !important;
+  line-height: 1.65;
+}

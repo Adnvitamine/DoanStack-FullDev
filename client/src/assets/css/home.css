@@ -1,0 +1,212 @@
+ul {
+  position: relative;
+  list-style-type: none;
+}
+
+.list-item {
+  background: white;
+  color: #575757;
+  text-align: center;
+  height: 2.5em;
+  width: 4em;
+  line-height: 2.5em;
+  border-bottom: 1px solid #060606;
+  position: relative;
+  display: block;
+  text-decoration: none;
+  box-shadow: -2em 1.5em 0 #e1e1e1;
+  -webkit-transition: all 0.25s linear;
+  transition: all 0.25s linear;
+}
+
+.list-item:hover {
+  background: #ff6e42;
+  color: #fffcfb;
+  -webkit-transform: translate(0.9em, -0.9em);
+  transform: translate(0.9em, -0.9em);
+  -webkit-transition: all 0.25s linear;
+  transition: all 0.25s linear;
+  box-shadow: -2em 2em 0 #e1e1e1;
+}
+.list-item:hover:before,
+.list-item:hover:after {
+  -webkit-transition: all 0.25s linear;
+  transition: all 0.25s linear;
+}
+.list-item:hover:before {
+  background: #b65234;
+  width: 1em;
+  top: 0.5em;
+  left: -1em;
+}
+.list-item:hover:after {
+  background: #b65234;
+  width: 1em;
+  bottom: -2.5em;
+  left: 1em;
+  height: 4em;
+}
+.list-item:before,
+.list-item:after {
+  content: "";
+  position: absolute;
+  -webkit-transition: all 0.25s linear;
+  transition: all 0.25s linear;
+  width: 0.5em;
+}
+.list-item:after {
+  height: 4em;
+  background: #181818;
+  bottom: -2.25em;
+  left: 1.5em;
+  -webkit-transform: rotate(90deg) skew(0, 45deg);
+  transform: rotate(90deg) skew(0, 45deg);
+}
+.list-item:before {
+  height: 2.5em;
+  background: #121212;
+  top: 0.25em;
+  left: -0.5em;
+  -webkit-transform: skewY(-45deg);
+  transform: skewY(-45deg);
+}
+.list-item i {
+  color: white;
+}
+
+.homeBody {
+  position: relative;
+  width: 90%;
+  max-width: 1000px;
+  display: grid;
+  place-items: center;
+  background-color: rgba(255, 255, 255, 0);
+  margin: auto;
+  min-height: 100vh;
+}
+
+#InlineSVG_2 {
+  stroke-dashoffset: 4000;
+  stroke-dasharray: 4000;
+  animation: dash 4s ease-in-out 4ms forwards;
+  animation-delay: 1s;
+}
+
+@keyframes dash {
+  to {
+    stroke-dashoffset: 0;
+    visibility: hidden;
+  }
+}
+
+#ColorSVG {
+  visibility: hidden;
+  opacity: 0;
+  animation: visible 1s linear forwards;
+  animation-delay: 5s;
+}
+
+@keyframes visible {
+  to {
+    visibility: visible;
+    opacity: 1;
+  }
+}
+
+#BulleOne {
+  visibility: visible;
+  opacity: 1;
+  transition: visibility 0s linear;
+  transition: opacity 0s linear;
+  animation: fade 10s linear infinite;
+  animation-delay: 10s;
+}
+
+#RightArmUp {
+  visibility: visible;
+  opacity: 1;
+  transition: visibility 0s linear;
+  transition: opacity 0s linear;
+  animation: fade 10s linear infinite;
+  animation-delay: 10s;
+}
+
+#Mask {
+  visibility: visible;
+  opacity: 1;
+  transition: visibility 0s linear;
+  transition: opacity 0s linear;
+  animation: fade 10s linear infinite;
+  animation-delay: 10s;
+}
+
+#LeftArmDown {
+  visibility: visible;
+  opacity: 1;
+  transition: visibility 0s linear;
+  transition: opacity 0s linear;
+  animation: fade 10s linear infinite;
+  animation-delay: 10s;
+}
+
+@keyframes fade {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0;
+  }
+  60% {
+    transition: opacity 0s linear;
+    opacity: 1;
+  }
+  100% {
+    visibility: visible;
+    transition: visibility 0s linear;
+  }
+}
+
+#RightArmDown {
+  visibility: hidden;
+  opacity: 0;
+  animation: visible2 10s linear infinite;
+  animation-delay: 10s;
+}
+
+#LeftArmUp {
+  visibility: hidden;
+  opacity: 0;
+  animation: visible2 10s linear infinite;
+  animation-delay: 10s;
+}
+
+#BulleTwo {
+  visibility: hidden;
+  opacity: 0;
+  animation: visible2 10s linear infinite;
+  animation-delay: 10s;
+}
+
+#Smile {
+  visibility: hidden;
+  opacity: 0;
+  animation: visible2 10s linear infinite;
+  animation-delay: 10s;
+}
+
+@keyframes visible2 {
+  0% {
+    visibility: visible;
+    opacity: 1;
+  }
+  50% {
+    opacity: 1;
+  }
+  60% {
+    transition: opacity 0s linear;
+    opacity: 0;
+  }
+  100% {
+    visibility: hidden;
+  }
+}

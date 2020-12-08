@@ -1,0 +1,271 @@
+<div className="shopInfo">
+                <ul>
+                  <li>
+                    <strong>Title: </strong> {product.name}
+                  </li>
+                  <li>
+                    <strong>Vendor: </strong>
+                    {product.vendor_avatar === "null" && (
+                      <img
+                        src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"
+                        alt="profile-img"
+                        className="profile-img-card"
+                        style={{
+                          width: "20px",
+                          height: "20px",
+                          display: "inline-block",
+                          marginBottom: "0",
+                          marginRight: "2px",
+                        }}
+                      ></img>
+                    )}
+                    {product.vendor_avatar !== "null" && (
+                      <img
+                        src={product.vendor_avatar}
+                        className="profile-img-card"
+                        alt={product.vendor}
+                        style={{
+                          width: "20px",
+                          height: "20px",
+                          display: "inline-block",
+                          marginBottom: "0",
+                          marginRight: "2px",
+                        }}
+                      ></img>
+                    )}
+                    {product.vendor}
+                  </li>
+                  <li>
+                    <strong>Date: </strong>
+                    {new Intl.DateTimeFormat("nl-BE", {
+                      year: "numeric",
+                      month: "long",
+                      day: "2-digit",
+                    }).format(Date.parse(product.createdAt))}
+                  </li>
+                  <li>
+                    <strong>Tag: </strong>#{product.category}
+                  </li>
+                </ul>
+              </div>
+
+              <Link
+            to={`shop/${product.category}/${product.id}/${product.name}`}
+            id="Link"
+          >
+            
+          </Link>
+
+          <Link
+            to={`/shop/${product.category}/${product.id}/${product.name}`}
+            id="Link"
+          >
+
+          
+          </Link>
+
+          <div className="shopInfo">
+                <ul>
+                  <li>
+                    <strong>Name: </strong> {product.name}
+                  </li>
+                  <li>
+                    <strong>Vendor: </strong>
+                    {product.vendor_avatar === "null" && (
+                      <img
+                        src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"
+                        alt="profile-img"
+                        className="profile-img-card"
+                        style={{
+                          width: "20px",
+                          height: "20px",
+                          display: "inline-block",
+                          marginBottom: "0",
+                          marginRight: "2px",
+                        }}
+                      ></img>
+                    )}
+                    {product.vendor_avatar !== "null" && (
+                      <img
+                        src={product.vendor_avatar}
+                        className="profile-img-card"
+                        alt={product.vendor}
+                        style={{
+                          width: "20px",
+                          height: "20px",
+                          display: "inline-block",
+                          marginBottom: "0",
+                          marginRight: "2px",
+                        }}
+                      ></img>
+                    )}
+                    {product.vendor}
+                  </li>
+                  <li>
+                    <strong>Date: </strong>
+                    {new Intl.DateTimeFormat("nl-BE", {
+                      year: "numeric",
+                      month: "long",
+                      day: "2-digit",
+                    }).format(Date.parse(product.createdAt))}
+                  </li>
+                  <li>
+                    <strong>Tag: </strong>#{product.category}
+                  </li>
+                </ul>
+              </div>
+
+               <ul>
+                  <li>
+                    <strong>Writed by: </strong>
+                    <p>
+                      {products.vendor_avatar === "null" && (
+                        <img
+                          src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"
+                          alt="profile-img"
+                          className="profile-img-card"
+                          style={{
+                            width: "40px",
+                            height: "40px",
+                            display: "inline-block",
+                            marginBottom: "0",
+                            marginRight: "2px",
+                          }}
+                        ></img>
+                      )}
+                      {products.vendor_avatar !== "null" && (
+                        <img
+                          src={products.vendor_avatar}
+                          className="profile-img-card"
+                          alt={products.vendor}
+                          style={{
+                            width: "40px",
+                            height: "40px",
+                            display: "inline-block",
+                            marginBottom: "0",
+                            marginRight: "2px",
+                          }}
+                        ></img>
+                      )}
+                      {products.vendor}
+                    </p>
+                  </li>
+                  <li>
+                    <strong>Date: </strong>
+                    <p>
+                      {new Intl.DateTimeFormat("nl-BE", {
+                        year: "numeric",
+                        month: "long",
+                        day: "2-digit",
+                      }).format(dateformat)}
+                    </p>
+                  </li>
+                  <li>
+                    <strong>Tag: </strong>
+                    <p>#{products.category}</p>
+                  </li>
+                </ul>
+
+                <i className="fas fa-star" style={{ color: "orange" }}></i>
+                  <i className="fas fa-star" style={{ color: "orange" }}></i>
+                  <i className="fas fa-star" style={{ color: "orange" }}></i>
+                  <i className="fas fa-star" style={{ color: "orange" }}></i>
+                  <i className="fas fa-star"></i>
+
+                   const addition = (n1, n2, n3) => {
+    const add = n1 + n2;
+    setRating(add);
+    return add;
+  };
+
+  <input
+            type="radio"
+            name="radio"
+            value="1"
+            onChange={(e) => setRating(e.target.value)}
+          />
+          <span className="checkmark"></span>
+          <input
+            type="radio"
+            name="radio"
+            value="2"
+            onChange={(e) => setRating(e.target.value)}
+          />
+          <span className="checkmark"></span>
+          <input
+            type="radio"
+            name="radio"
+            value="3"
+            onChange={(e) => setRating(e.target.value)}
+          />
+          <span className="checkmark"></span>
+
+          <input
+            type="radio"
+            name="radio"
+            value="4"
+            onChange={(e) => setRating(e.target.value)}
+          />
+          <span className="checkmark"></span>
+          <input
+            type="radio"
+            name="radio"
+            value="5"
+            onChange={(e) => setRating(e.target.value)}
+          />
+          <span className="checkmark"></span>
+
+
+           <form onSubmit={onSubmitForm}>
+                <div className="productRatingBar">
+                  <div className="productSubmitRating">
+                    <input
+                      id="ProductInputFive"
+                      type="radio"
+                      name="radio"
+                      value="5"
+                      onChange={(e) => setRating(e.target.value)}
+                    />
+                    <input
+                      id="ProductInputFour"
+                      type="radio"
+                      name="radio"
+                      value="4"
+                      onChange={(e) => setRating(e.target.value)}
+                    />
+                    <input
+                      id="ProductInputThree"
+                      type="radio"
+                      name="radio"
+                      value="3"
+                      onChange={(e) => setRating(e.target.value)}
+                    />
+                    <input
+                      id="ProductInputTwo"
+                      type="radio"
+                      name="radio"
+                      value="2"
+                      onChange={(e) => setRating(e.target.value)}
+                    />
+                    <input
+                      id="ProductInputOne"
+                      type="radio"
+                      name="radio"
+                      value="1"
+                      onChange={(e) => setRating(e.target.value)}
+                    />
+                    <div className="productRating" id="ProductStarOne">
+                      <i className="fas fa-star" id="StarOne"></i>
+                      <i className="fas fa-star" id="StarTwo"></i>
+                      <i className="fas fa-star" id="StarThree"></i>
+                      <i className="fas fa-star" id="StarFour"></i>
+                      <i className="fas fa-star" id="StarFive"></i>
+                    </div>
+                  </div>
+                </div>
+                <button id="ProductRatingSubmit" className="btn btn-warning">
+                  <p>Send my rating</p>
+                </button>
+              </form>
+
+              https://www.youtube.com/watch?v=nxtaMdu55Ug

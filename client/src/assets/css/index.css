@@ -1,0 +1,839 @@
+@font-face {
+  font-family: Oxygen;
+  src: url(../fonts/Oxygen-Regular.ttf);
+}
+
+@font-face {
+  font-family: OxygenBold;
+  src: url(../fonts/Oxygen-Bold.ttf);
+}
+
+@font-face {
+  font-family: MontR;
+  src: url(../fonts/Montserrat-Regular.ttf);
+}
+
+@font-face {
+  font-family: MontB;
+  src: url(../fonts/Montserrat-Bold.ttf);
+}
+
+@font-face {
+  font-family: MontI;
+  src: url(../fonts/Montserrat-Italic.ttf);
+}
+
+@font-face {
+  font-family: MontIB;
+  src: url(../fonts/Montserrat-BoldItalic.ttf);
+}
+
+@font-face {
+  font-family: RobotR;
+  src: url(../fonts/Roboto-Regular.ttf);
+}
+
+@font-face {
+  font-family: RobotB;
+  src: url(../fonts/Roboto-Bold.ttf);
+}
+
+@font-face {
+  font-family: RobotI;
+  src: url(../fonts/Roboto-Italic.ttf);
+}
+
+@font-face {
+  font-family: RobotIB;
+  src: url(../fonts/Roboto-BoldItalic.ttf);
+}
+
+@font-face {
+  font-family: LatoReg;
+  src: url(../fonts/Lato-Regular.ttf);
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  --ck-z-default: 100;
+  --ck-z-modal: calc(var(--ck-z-default) + 999);
+}
+
+p {
+  text-align: left;
+}
+
+h1 {
+  font-size: 34px;
+  text-align: left;
+}
+
+h2 {
+  font-size: 24px;
+  text-align: left;
+}
+
+#root {
+  /*background: url("../img/w17.jpg") no-repeat center center fixed;*/
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  font-family: LatoReg;
+  font-size: 17px;
+  letter-spacing: 0.01rem;
+  line-height: 1.65;
+}
+#switch {
+  display: none;
+}
+
+#Label,
+.toggle {
+  height: 1rem;
+  border-radius: 100px;
+}
+#Label {
+  position: relative;
+  top: -30px;
+  left: 5px;
+  min-width: 100px;
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 100px;
+  margin: 0;
+  cursor: pointer;
+}
+.toggle {
+  position: absolute;
+  width: 50%;
+  background-color: #fff;
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.names {
+  font-size: 10px;
+  font-weight: bolder;
+  width: 65%;
+  margin-left: 17.5%;
+  margin-top: 0.5%;
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  user-select: none;
+}
+.dark {
+  opacity: 0.5;
+}
+
+#switch:checked + #FullFrame {
+  background-color: #000000;
+}
+
+#switch:checked + #FullFrame #fixedNavbar {
+  background-color: rgba(0, 0, 0, 0);
+  color: white;
+}
+#switch:checked + #FullFrame #TitleLink {
+  background-color: rgba(0, 0, 0, 1);
+}
+
+#switch:checked + #FullFrame #TitleLink h1 {
+  font-size: 2vw;
+  background: linear-gradient(rgba(6, 2, 247, 1), rgb(255, 0, 0, 1));
+  /* clip hackery */
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: fontSizeReverse 1s linear reverse,
+    neon2 3s ease-in-out infinite alternate;
+}
+#switch:checked + #FullFrame .mainBoard .homeBody #InlineSVG_2 {
+  stroke: white;
+}
+
+#switch:checked
+  + #FullFrame
+  .mainBoard
+  #ProfileFrame
+  #userProfile
+  .ComponentTitle
+  div {
+  box-shadow: inset 0px -1px 4px #ffe601, inset -1px 0px 4px #ff7300;
+}
+
+#switch:checked + #FullFrame .mainBoard #ShopBody #ShopNav ul li a {
+  color: white;
+  transition: color 4s ease-out;
+}
+
+#switch:checked + #FullFrame .mainBoard #ShopBody #ShopNav ul li a:hover {
+  color: rgb(255, 127, 7);
+  transition: color 0.5s ease-in-out;
+}
+
+#switch:checked + #FullFrame .mainBoard #BlogBody #BlogNav ul li a {
+  color: white;
+  transition: color 4s ease-out;
+}
+
+#switch:checked + #FullFrame .mainBoard #BlogBody #BlogNav ul li a:hover {
+  color: rgb(255, 127, 7);
+  transition: color 0.5s ease-in-out;
+}
+
+#switch:checked
+  + #FullFrame
+  .mainBoard
+  #BlogBody
+  #BlogHome
+  #MoreArticles
+  .header
+  p {
+  color: rgb(0, 162, 255);
+  transition: color 4s ease-out;
+}
+
+#switch:checked
+  + #FullFrame
+  .mainBoard
+  #BlogBody
+  #BlogHome
+  #MoreArticles
+  .body
+  .list:hover
+  .articleTitle {
+  font-size: 25px;
+  color: rgb(38, 253, 38);
+  transition: color 0.5s linear, font-size 0.5s ease-in-out;
+}
+#switch:checked
+  + #FullFrame
+  .mainBoard
+  #ShopBody
+  #ShopHome
+  #ShopHomeProducts
+  #ShopLink
+  .shopFrame
+  .shopInfo
+  .ratings
+  p {
+  color: white;
+}
+#switch:checked
+  + #FullFrame
+  .mainBoard
+  #ShopBody
+  #ShopHome
+  #ShopHomeProducts
+  .shopImg {
+  background-color: black;
+}
+#switch:checked
+  + #FullFrame
+  .mainBoard
+  #ShopBody
+  #ShopHome
+  #ShopHomeProducts
+  .shopBody {
+  color: white;
+}
+#switch:checked
+  + #FullFrame
+  .mainBoard
+  #ShopBody
+  #ShopHome
+  #MoreProducts
+  .body
+  .list
+  .productTitle {
+  color: white;
+  transition: color 1s linear;
+}
+
+#switch:checked
+  + #FullFrame
+  .mainBoard
+  #BlogBody
+  #BlogHome
+  #MoreArticles
+  .body
+  .list
+  .articleTitle {
+  color: white;
+  transition: color 1s linear;
+}
+
+#switch:checked + #FullFrame .mainBoard #BlogBody .articleSoloHeader {
+  color: white;
+}
+
+#switch:checked
+  + #FullFrame
+  .mainBoard
+  #ShopBody
+  .productSoloInfo
+  .productSoloRating
+  p {
+  color: white !important;
+}
+
+#switch:checked
+  + #FullFrame
+  .mainBoard
+  #ShopBody
+  .productSoloInfo
+  .productSoloQuantity
+  p {
+  color: white !important;
+}
+
+#switch:checked + #FullFrame .mainBoard #ShopBody .productSoloContent {
+  color: white;
+}
+
+#switch:checked
+  + #FullFrame
+  .mainBoard
+  #ShopBody
+  .productSoloContent
+  figure
+  table {
+  color: white;
+}
+
+#switch:checked + #FullFrame .mainBoard #ShopBody .rateThisProduct p {
+  color: white;
+}
+
+#switch:checked + #FullFrame .mainBoard #ShopBody .rateThisProduct:hover {
+  box-shadow: 0px 2px 0px rgba(255, 136, 0, 1), 0px 4px 0px rgba(255, 238, 0, 1),
+    0px -2px 0px rgba(255, 136, 0, 1), 0px -4px 0px rgba(255, 238, 0, 1);
+}
+
+#switch:checked
+  + #FullFrame
+  .mainBoard
+  #ShopBody
+  .rateThisProduct
+  .ComponentTitle
+  div {
+  box-shadow: inset 0px -1px 4px #ffe601, inset -1px 0px 4px #ff7300;
+}
+
+#switch:checked
+  + #FullFrame
+  .mainBoard
+  #ShopBody
+  .rateThisProduct
+  .ComponentTitle
+  div
+  h1 {
+  background: linear-gradient(rgba(255, 136, 0, 0.6), rgba(255, 238, 0, 0.6));
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: font-size 1s, text-shadow 5s;
+}
+
+#switch:checked
+  + #FullFrame
+  .mainBoard
+  #ShopBody
+  .rateThisProduct:hover
+  .ComponentTitle
+  div
+  h1 {
+  font-size: 50px;
+  background: linear-gradient(orange, yellow);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 30px rgba(255, 248, 0, 1), 0 0 35px rgba(255, 248, 0, 1),
+    0 0 40px rgba(255, 248, 0, 1);
+  transition: font-size 1s, text-shadow 5s;
+}
+
+#switch:checked + #FullFrame .mainBoard #ShopBody .reviewProduct:hover {
+  box-shadow: 0px 2px 0px rgba(255, 136, 0, 1), 0px 4px 0px rgba(255, 238, 0, 1),
+    0px -2px 0px rgba(255, 136, 0, 1), 0px -4px 0px rgba(255, 238, 0, 1);
+}
+
+#switch:checked
+  + #FullFrame
+  .mainBoard
+  #ShopBody
+  .reviewProduct
+  .ComponentTitle
+  div {
+  box-shadow: inset 0px -1px 4px #ffe601, inset -1px 0px 4px #ff7300;
+}
+
+#switch:checked
+  + #FullFrame
+  .mainBoard
+  #ShopBody
+  .reviewProduct
+  .ComponentTitle
+  div
+  h1 {
+  background: linear-gradient(rgba(255, 136, 0, 0.6), rgba(255, 238, 0, 0.6));
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: font-size 1s, text-shadow 5s;
+}
+
+#switch:checked
+  + #FullFrame
+  .mainBoard
+  #ShopBody
+  .reviewProduct:hover
+  .ComponentTitle
+  div
+  h1 {
+  font-size: 50px;
+  background: linear-gradient(orange, yellow);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 30px rgba(255, 248, 0, 1), 0 0 35px rgba(255, 248, 0, 1),
+    0 0 40px rgba(255, 248, 0, 1);
+  transition: font-size 1s, text-shadow 5s;
+}
+
+#switch:checked + #FullFrame .mainBoard #ShopBody .readReviews:hover {
+  box-shadow: 0px 2px 0px rgba(255, 136, 0, 1), 0px 4px 0px rgba(255, 238, 0, 1),
+    0px -2px 0px rgba(255, 136, 0, 1), 0px -4px 0px rgba(255, 238, 0, 1);
+}
+
+#switch:checked
+  + #FullFrame
+  .mainBoard
+  #ShopBody
+  .readReviews
+  .ComponentTitle
+  div {
+  box-shadow: inset 0px -1px 4px #ffe601, inset -1px 0px 4px #ff7300;
+}
+
+#switch:checked
+  + #FullFrame
+  .mainBoard
+  #ShopBody
+  .readReviews
+  .ComponentTitle
+  div
+  h1 {
+  background: linear-gradient(rgba(255, 136, 0, 0.6), rgba(255, 238, 0, 0.6));
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: font-size 1s, text-shadow 5s;
+}
+
+#switch:checked
+  + #FullFrame
+  .mainBoard
+  #ShopBody
+  .readReviews:hover
+  .ComponentTitle
+  div
+  h1 {
+  font-size: 50px;
+  background: linear-gradient(orange, yellow);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 30px rgba(255, 248, 0, 1), 0 0 35px rgba(255, 248, 0, 1),
+    0 0 40px rgba(255, 248, 0, 1);
+  transition: font-size 1s, text-shadow 5s;
+}
+
+#switch:checked + #FullFrame .mainBoard #BlogBody .commentArticle:hover {
+  box-shadow: 0px 2px 0px rgba(255, 136, 0, 1), 0px 4px 0px rgba(255, 238, 0, 1),
+    0px -2px 0px rgba(255, 136, 0, 1), 0px -4px 0px rgba(255, 238, 0, 1);
+}
+
+#switch:checked
+  + #FullFrame
+  .mainBoard
+  #BlogBody
+  .commentArticle
+  .ComponentTitle
+  div {
+  box-shadow: inset 0px -1px 4px #ffe601, inset -1px 0px 4px #ff7300;
+}
+
+#switch:checked
+  + #FullFrame
+  .mainBoard
+  #BlogBody
+  .commentArticle
+  .ComponentTitle
+  div
+  h1 {
+  background: linear-gradient(rgba(255, 136, 0, 0.6), rgba(255, 238, 0, 0.6));
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: font-size 1s, text-shadow 5s;
+}
+
+#switch:checked
+  + #FullFrame
+  .mainBoard
+  #BlogBody
+  .commentArticle:hover
+  .ComponentTitle
+  div
+  h1 {
+  font-size: 50px;
+  background: linear-gradient(orange, yellow);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 30px rgba(255, 248, 0, 1), 0 0 35px rgba(255, 248, 0, 1),
+    0 0 40px rgba(255, 248, 0, 1);
+  transition: font-size 1s, text-shadow 5s;
+}
+
+#switch:checked + #FullFrame .mainBoard #BlogBody .readComments:hover {
+  box-shadow: 0px 2px 0px rgba(255, 136, 0, 1), 0px 4px 0px rgba(255, 238, 0, 1),
+    0px -2px 0px rgba(255, 136, 0, 1), 0px -4px 0px rgba(255, 238, 0, 1);
+}
+
+#switch:checked
+  + #FullFrame
+  .mainBoard
+  #BlogBody
+  .readComments
+  .ComponentTitle
+  div {
+  box-shadow: inset 0px -1px 4px #ffe601, inset -1px 0px 4px #ff7300;
+}
+
+#switch:checked
+  + #FullFrame
+  .mainBoard
+  #BlogBody
+  .readComments
+  .ComponentTitle
+  div
+  h1 {
+  background: linear-gradient(rgba(255, 136, 0, 0.6), rgba(255, 238, 0, 0.6));
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: font-size 1s, text-shadow 5s;
+}
+
+#switch:checked
+  + #FullFrame
+  .mainBoard
+  #BlogBody
+  .readComments:hover
+  .ComponentTitle
+  div
+  h1 {
+  font-size: 50px;
+  background: linear-gradient(orange, yellow);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 30px rgba(255, 248, 0, 1), 0 0 35px rgba(255, 248, 0, 1),
+    0 0 40px rgba(255, 248, 0, 1);
+  transition: font-size 1s, text-shadow 5s;
+}
+
+#switch:checked + #FullFrame .mainBoard #BlogBody .articleSoloContent {
+  color: white;
+}
+#switch:checked + #FullFrame .mainBoard #BlogBody .blogFrame ul li {
+  color: white !important;
+}
+
+#switch:checked + #FullFrame .mainBoard #BlogBody .blogFrame .blogContent {
+  color: white !important;
+}
+
+#switch:checked + #FullFrame .mainBoard #BlogBody .blogFrame:hover {
+  box-shadow: inset 0px -1px 4px #ffe601, inset -1px 0px 4px #ff7300;
+}
+
+#switch:checked
+  + #FullFrame
+  .mainBoard
+  #ProfileFrame
+  #userProfile
+  .ComponentTitle
+  div
+  h1 {
+  background: linear-gradient(rgba(255, 136, 0, 0.6), rgba(255, 238, 0, 0.6));
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: font-size 1s, text-shadow 5s;
+}
+
+#switch:checked + #FullFrame .mainBoard #ProfileFrame #userProfile:hover {
+  box-shadow: 0px 2px 0px rgba(255, 136, 0, 1), 0px 4px 0px rgba(255, 238, 0, 1),
+    0px -2px 0px rgba(255, 136, 0, 1), 0px -4px 0px rgba(255, 238, 0, 1);
+}
+
+#switch:checked
+  + #FullFrame
+  .mainBoard
+  #ProfileFrame
+  #userProfile:hover
+  .ComponentTitle
+  div
+  h1 {
+  font-size: 50px;
+  background: linear-gradient(orange, yellow);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 30px rgba(255, 248, 0, 1), 0 0 35px rgba(255, 248, 0, 1),
+    0 0 40px rgba(255, 248, 0, 1);
+  transition: font-size 1s, text-shadow 5s;
+}
+
+#switch:checked
+  + #FullFrame
+  .mainBoard
+  #ProfileFrame
+  #userEdit
+  .ComponentTitle
+  div {
+  box-shadow: inset 0px -1px 4px #ffe601, inset -1px 0px 4px #ff7300;
+}
+
+#switch:checked
+  + #FullFrame
+  .mainBoard
+  #ProfileFrame
+  #userEdit
+  .ComponentTitle
+  div
+  h1 {
+  background: linear-gradient(rgba(255, 136, 0, 0.6), rgba(255, 238, 0, 0.6));
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: font-size 1s, text-shadow 5s;
+}
+
+#switch:checked + #FullFrame .mainBoard #ProfileFrame #userEdit:hover {
+  box-shadow: 0px 2px 0px rgba(255, 136, 0, 1), 0px 4px 0px rgba(255, 238, 0, 1),
+    0px -2px 0px rgba(255, 136, 0, 1), 0px -4px 0px rgba(255, 238, 0, 1);
+}
+
+#switch:checked
+  + #FullFrame
+  .mainBoard
+  #ProfileFrame
+  #userEdit:hover
+  .ComponentTitle
+  div
+  h1 {
+  font-size: 50px;
+  background: linear-gradient(orange, yellow);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 30px rgba(255, 248, 0, 1), 0 0 35px rgba(255, 248, 0, 1),
+    0 0 40px rgba(255, 248, 0, 1);
+  transition: font-size 1s, text-shadow 5s;
+}
+
+#switch:checked + #FullFrame .mainBoard #articlesList .ComponentTitle div {
+  box-shadow: inset 0px -1px 4px #ffe601, inset -1px 0px 4px #ff7300;
+}
+
+#switch:checked + #FullFrame .mainBoard #articlesList .ComponentTitle div h1 {
+  background: linear-gradient(rgba(255, 136, 0, 0.6), rgba(255, 238, 0, 0.6));
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: font-size 1s, text-shadow 5s;
+}
+
+#switch:checked + #FullFrame .mainBoard #articlesList:hover {
+  box-shadow: 0px 2px 0px rgba(255, 136, 0, 1), 0px 4px 0px rgba(255, 238, 0, 1),
+    0px -2px 0px rgba(255, 136, 0, 1), 0px -4px 0px rgba(255, 238, 0, 1);
+}
+
+#switch:checked
+  + #FullFrame
+  .mainBoard
+  #articlesList:hover
+  .ComponentTitle
+  div
+  h1 {
+  font-size: 50px;
+  background: linear-gradient(orange, yellow);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 30px rgba(255, 248, 0, 1), 0 0 35px rgba(255, 248, 0, 1),
+    0 0 40px rgba(255, 248, 0, 1);
+  transition: font-size 1s, text-shadow 5s;
+}
+
+#switch:checked + #FullFrame .mainBoard #articleCreate:hover {
+  box-shadow: 0px 2px 0px rgba(255, 136, 0, 1), 0px 4px 0px rgba(255, 238, 0, 1),
+    0px -2px 0px rgba(255, 136, 0, 1), 0px -4px 0px rgba(255, 238, 0, 1);
+}
+
+#switch:checked + #FullFrame .mainBoard #articleCreate .ComponentTitle div {
+  box-shadow: inset 0px -1px 4px #ffe601, inset -1px 0px 4px #ff7300;
+}
+
+#switch:checked + #FullFrame .mainBoard #articleCreate .ComponentTitle div h1 {
+  background: linear-gradient(rgba(255, 136, 0, 0.6), rgba(255, 238, 0, 0.6));
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: font-size 1s, text-shadow 5s;
+}
+
+#switch:checked
+  + #FullFrame
+  .mainBoard
+  #articleCreate:hover
+  .ComponentTitle
+  div
+  h1 {
+  font-size: 50px;
+  background: linear-gradient(orange, yellow);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 30px rgba(255, 248, 0, 1), 0 0 35px rgba(255, 248, 0, 1),
+    0 0 40px rgba(255, 248, 0, 1);
+  transition: font-size 1s, text-shadow 5s;
+}
+
+#switch:checked + #FullFrame .mainBoard #productCreate:hover {
+  box-shadow: 0px 2px 0px rgba(255, 136, 0, 1), 0px 4px 0px rgba(255, 238, 0, 1),
+    0px -2px 0px rgba(255, 136, 0, 1), 0px -4px 0px rgba(255, 238, 0, 1);
+}
+
+#switch:checked + #FullFrame .mainBoard #productCreate .ComponentTitle div {
+  box-shadow: inset 0px -1px 4px #ffe601, inset -1px 0px 4px #ff7300;
+}
+
+#switch:checked + #FullFrame .mainBoard #productCreate .ComponentTitle div h1 {
+  background: linear-gradient(rgba(255, 136, 0, 0.6), rgba(255, 238, 0, 0.6));
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: font-size 1s, text-shadow 5s;
+}
+
+#switch:checked
+  + #FullFrame
+  .mainBoard
+  #productCreate:hover
+  .ComponentTitle
+  div
+  h1 {
+  font-size: 50px;
+  background: linear-gradient(orange, yellow);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 30px rgba(255, 248, 0, 1), 0 0 35px rgba(255, 248, 0, 1),
+    0 0 40px rgba(255, 248, 0, 1);
+  transition: font-size 1s, text-shadow 5s;
+}
+
+#switch:checked + #FullFrame .mainBoard #productsList:hover {
+  box-shadow: 0px 2px 0px rgba(255, 136, 0, 1), 0px 4px 0px rgba(255, 238, 0, 1),
+    0px -2px 0px rgba(255, 136, 0, 1), 0px -4px 0px rgba(255, 238, 0, 1);
+}
+
+#switch:checked + #FullFrame .mainBoard #productsList .ComponentTitle div {
+  box-shadow: inset 0px -1px 4px #ffe601, inset -1px 0px 4px #ff7300;
+}
+
+#switch:checked + #FullFrame .mainBoard #productsList .ComponentTitle div h1 {
+  background: linear-gradient(rgba(255, 136, 0, 0.6), rgba(255, 238, 0, 0.6));
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: font-size 1s, text-shadow 5s;
+}
+
+#switch:checked
+  + #FullFrame
+  .mainBoard
+  #productsList:hover
+  .ComponentTitle
+  div
+  h1 {
+  font-size: 50px;
+  background: linear-gradient(orange, yellow);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 30px rgba(255, 248, 0, 1), 0 0 35px rgba(255, 248, 0, 1),
+    0 0 40px rgba(255, 248, 0, 1);
+  transition: font-size 1s, text-shadow 5s;
+}
+
+#switch:checked + #FullFrame .mainBoard #usersList:hover {
+  box-shadow: 0px 2px 0px rgba(255, 136, 0, 1), 0px 4px 0px rgba(255, 238, 0, 1),
+    0px -2px 0px rgba(255, 136, 0, 1), 0px -4px 0px rgba(255, 238, 0, 1);
+}
+
+#switch:checked + #FullFrame .mainBoard #usersList .ComponentTitle div h1 {
+  background: linear-gradient(rgba(255, 136, 0, 0.6), rgba(255, 238, 0, 0.6));
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: font-size 1s, text-shadow 5s;
+}
+
+#switch:checked + #FullFrame .mainBoard #usersList .ComponentTitle div {
+  box-shadow: inset 0px -1px 4px #ffe601, inset -1px 0px 4px #ff7300;
+}
+
+#switch:checked
+  + #FullFrame
+  .mainBoard
+  #usersList:hover
+  .ComponentTitle
+  div
+  h1 {
+  font-size: 50px;
+  background: linear-gradient(orange, yellow);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 30px rgba(255, 248, 0, 1), 0 0 35px rgba(255, 248, 0, 1),
+    0 0 40px rgba(255, 248, 0, 1);
+  transition: font-size 1s, text-shadow 5s;
+}
+
+@keyframes fontSizeReverse {
+  from {
+    font-size: 2vw;
+  }
+  to {
+    font-size: 1vw;
+  }
+}
+
+@keyframes neon2 {
+  to {
+    background: linear-gradient(orange, yellow);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 30px rgba(255, 248, 0, 1), 0 0 35px rgba(255, 248, 0, 1),
+      0 0 40px rgba(255, 248, 0, 1), 0 0 45px rgba(255, 248, 0, 1),
+      0 0 50px rgba(255, 248, 0, 1), 0 0 55px rgba(255, 248, 0, 1),
+      0 0 60px rgba(255, 248, 0, 1), 0 0 70px rgba(255, 248, 0, 1);
+  }
+}
+
+#switch:checked + #FullFrame #fixedNavbar .toggle {
+  transform: translateX(100%);
+  background-color: #34323d;
+}
+
+#switch:checked + #FullFrame #fixedNavbar .dark {
+  opacity: 1;
+}
+#switch:checked + #FullFrame #fixedNavbar .light {
+  opacity: 0.5;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+iframe {
+  height: 500px;
+}

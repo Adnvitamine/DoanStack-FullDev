@@ -1,0 +1,67 @@
+#Footer {
+  display: flex;
+  flex-direction: column;
+  min-height: 100px;
+  box-shadow: 0px 2px 0px rgba(255, 0, 0, 1), 0px 4px 0px rgba(6, 1, 255, 1),
+    0px -2px 0px rgba(100, 100, 100, 0.719),
+    0px -4px 0px rgba(155, 155, 155, 0.733);
+  transition: box-shadow 2s;
+  background-color: rgb(0, 0, 0, 0);
+}
+
+#Footer:hover {
+  box-shadow: 0px 2px 0px rgba(255, 0, 0, 1), 0px 4px 0px rgba(6, 1, 255, 1),
+    0px -2px 0px rgba(6, 1, 255, 1), 0px -4px 0px rgba(255, 0, 0, 1);
+  transition: box-shadow 2s;
+}
+
+#contact-bar {
+  display: inline-block;
+  width: 80%;
+}
+
+#contact-bar ul {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: row;
+}
+
+#contact-bar ul li {
+  font-size: 2rem;
+  margin: auto;
+}
+
+#contact-bar ul li a {
+  color: rgba(197, 2, 2, 0.767);
+  text-decoration: none;
+  animation: changesize 5s ease-in-out infinite;
+}
+
+@keyframes changesize {
+  0% {
+    font-size: 2rem;
+    color: rgba(255, 0, 98, 0.767);
+  }
+  50% {
+    font-size: 3rem;
+    color: rgba(38, 0, 252, 0.767);
+  }
+  100% {
+    font-size: 2rem;
+    color: rgba(255, 0, 98, 0.767);
+  }
+}
+
+#contact-bar ul li:hover {
+  -webkit-transform: scale(1.3);
+  -ms-transform: scale(1.3);
+  transform: scale(1.3);
+}
+
+#FooterContact {
+  display: block;
+  margin: auto;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  width: 80%;
+}
