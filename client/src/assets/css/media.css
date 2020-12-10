@@ -451,12 +451,12 @@
   }
 
   .BrowserNavbar p {
-    font-size: 10px;
+    font-size: 14px;
     animation: slide1 10s linear infinite;
   }
 
   .BrowserNavbar p:hover {
-    font-size: 12px;
+    font-size: 16px;
     animation: slide1 10s linear infinite;
   }
   #BlogBody {
@@ -601,7 +601,7 @@
     top: 50px;
   }
   .BrowserNavbar {
-    display: none;
+    margin-top: 20px;
   }
   #MoreArticles {
     display: none;
@@ -708,28 +708,28 @@
     width: 100%;
     left: 50%;
     margin-left: -50%;
-    font-size: 10px;
+    font-size: 15px;
     animation: fontSize2 1s linear forwards;
   }
   @keyframes fontSize2 {
     from {
-      font-size: 10px;
+      font-size: 15px;
     }
     to {
-      font-size: 12px;
+      font-size: 18px;
     }
   }
   #switch:checked + #FullFrame #TitleLink h1 {
-    font-size: 12px;
+    font-size: 18px;
     animation: fontSizeReverse2 1s linear reverse,
       neon2 3s ease-in-out infinite alternate;
   }
   @keyframes fontSizeReverse2 {
     from {
-      font-size: 12px;
+      font-size: 18px;
     }
     to {
-      font-size: 10px;
+      font-size: 15px;
     }
   }
 }
