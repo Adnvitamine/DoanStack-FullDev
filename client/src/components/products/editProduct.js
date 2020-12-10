@@ -53,7 +53,7 @@ const EditProduct = ({ product }) => {
       console.log(value);
     }
     axios
-      .post("http://localhost:8080/upload", formData, {
+      .post("/upload", formData, {
         onUploadProgress: (ProgressEvent) => {
           let progress = Math.round(
             (ProgressEvent.loaded / ProgressEvent.total) * 100
@@ -65,7 +65,7 @@ const EditProduct = ({ product }) => {
         console.log(res);
         getSoloFile({
           name: res.data.name,
-          path: "http://localhost:8080" + res.data.path,
+          path: "" + res.data.path,
         });
 
         //const path = res.data.path;
@@ -107,7 +107,7 @@ const EditProduct = ({ product }) => {
     }
     //formData.append('file', file); // appending file
     axios
-      .post("http://localhost:8080/multiupload", formData, {
+      .post("/multiupload", formData, {
         onUploadProgress: (ProgressEvent) => {
           let progress = Math.round(
             (ProgressEvent.loaded / ProgressEvent.total) * 100
@@ -121,7 +121,7 @@ const EditProduct = ({ product }) => {
         const array = [];
         for (let i = 0; i < res.data.length; i++) {
           console.log(res.data[i].filename);
-          array.push("http://localhost:8080/" + res.data[i].filename);
+          array.push("/" + res.data[i].filename);
         }
         setPathurl(array);
         /*  
@@ -165,10 +165,10 @@ const EditProduct = ({ product }) => {
           price,
           status,
           category,
-          quantity,
+          quantity
         };
         const response = await fetch(
-          `http://localhost:8080/api/products/${product.id}`,
+          `/api/products/${product.id}`,
           {
             method: "PUT",
             headers: { "Content-Type": "application/json" },
@@ -194,9 +194,10 @@ const EditProduct = ({ product }) => {
           price,
           status,
           category,
+          quantity
         };
         const response = await fetch(
-          `http://localhost:8080/api/products/${product.id}`,
+          `/api/products/${product.id}`,
           {
             method: "PUT",
             headers: { "Content-Type": "application/json" },
@@ -222,7 +223,7 @@ const EditProduct = ({ product }) => {
         try {
           const body = { path, vendor_id, product_id };
           const response = await fetch(
-            "http://localhost:8080/api/productimgs",
+            "/api/productimgs",
             {
               method: "POST",
               headers: { "Content-Type": "application/json" },

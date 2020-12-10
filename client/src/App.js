@@ -29,8 +29,6 @@ import Profile from "./components/profile.component";
 import BoardUser from "./components/board-user.component";
 import BoardModerator from "./components/board-moderator.component";
 import BoardAdmin from "./components/board-admin.component";
-import AboutMe from "./components/aboutMe.component";
-import ContactMe from "./components/contactMe.component";
 import Blog from "./components/blog.component";
 import Shop from "./components/shop.component";
 import Footer from "./components/footer/footer";
@@ -168,12 +166,12 @@ class App extends Component {
                           </Link>
                         </li>
                         <li className="mobilenav-item" id="MobileBlog">
-                          <Link to={"/"} className="nav-link">
+                          <Link to={"/blog"} className="nav-link">
                             Blog
                           </Link>
                         </li>
                         <li className="mobilenav-item" id="MobileShop">
-                          <Link to={"/"} className="nav-link">
+                          <Link to={"/shop"} className="nav-link">
                             Shop
                           </Link>
                         </li>
@@ -268,8 +266,6 @@ class App extends Component {
                   <Route path="/user" component={BoardUser} />
                   <Route path="/mod" component={BoardModerator} />
                   <Route path="/admin" component={BoardAdmin} />
-                  <Route path="/contact" component={ContactMe} />
-                  <Route path="/about" component={AboutMe} />
                 </Switch>
               </div>
               <Footer />

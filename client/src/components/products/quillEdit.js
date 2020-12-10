@@ -18,6 +18,7 @@ const QuillEdit = ({ product }) => {
   const [status, setStatus] = useState(product.status);
   const [price, setPrice] = useState(product.price);
   const [category, setCategory] = useState();
+  const [quantity, setQuantity] = useState(product.quantity);
 
   // SOLO: Uploaded Solo File
   const [solofile, setSoloFile] = useState();
@@ -57,7 +58,7 @@ const QuillEdit = ({ product }) => {
       console.log(value);
     }
     axios
-      .post("http://localhost:8080/upload", formData, {
+      .post("/upload", formData, {
         onUploadProgress: (ProgressEvent) => {
           let progress = Math.round(
             (ProgressEvent.loaded / ProgressEvent.total) * 100
@@ -68,7 +69,7 @@ const QuillEdit = ({ product }) => {
       .then((res) => {
         getSoloFile({
           name: res.data.name,
-          path: "http://localhost:8080" + res.data.path,
+          path: "" + res.data.path,
         });
 
         //const path = res.data.path;
@@ -109,7 +110,7 @@ const QuillEdit = ({ product }) => {
     }
     //formData.append('file', file); // appending file
     axios
-      .post("http://localhost:8080/multiupload", formData, {
+      .post("/multiupload", formData, {
         onUploadProgress: (ProgressEvent) => {
           let progress = Math.round(
             (ProgressEvent.loaded / ProgressEvent.total) * 100
@@ -121,7 +122,7 @@ const QuillEdit = ({ product }) => {
         const array = [];
         for (let i = 0; i < res.data.length; i++) {
           console.log(res.data[i].filename);
-          array.push("http://localhost:8080/" + res.data[i].filename);
+          array.push("/" + res.data[i].filename);
         }
         setPathurl(array);
         /*  
@@ -164,9 +165,10 @@ const QuillEdit = ({ product }) => {
           price,
           status,
           category,
+          quantity
         };
         const response = await fetch(
-          `http://localhost:8080/api/products/${product.id}`,
+          `/api/products/${product.id}`,
           {
             method: "PUT",
             headers: { "Content-Type": "application/json" },
@@ -190,9 +192,10 @@ const QuillEdit = ({ product }) => {
           price,
           status,
           category,
+          quantity
         };
         const response = await fetch(
-          `http://localhost:8080/api/products/${product.id}`,
+          `/api/products/${product.id}`,
           {
             method: "PUT",
             headers: { "Content-Type": "application/json" },
@@ -216,7 +219,7 @@ const QuillEdit = ({ product }) => {
         try {
           const body = { path, vendor_id, product_id };
           const response = await fetch(
-            "http://localhost:8080/api/productimgs",
+            "/api/productimgs",
             {
               method: "POST",
               headers: { "Content-Type": "application/json" },
@@ -304,6 +307,7 @@ const QuillEdit = ({ product }) => {
                   setPrice(product.price);
                   setStatus(product.status);
                   setVendor(product.vendor);
+                  setQuantity(product.quantity);
                 }}
               >
                 <i className="far fa-times-circle"></i>
@@ -430,7 +434,7 @@ const QuillEdit = ({ product }) => {
 
               <form className="mt-2">
                 <div className="form-row">
-                  <div className="form-group col-md-6">
+                  <div className="form-group col-md-4">
                     <div className="input-group ">
                       <div className="input-group-prepend">
                         <span className="input-group-text">Name:</span>
@@ -444,7 +448,7 @@ const QuillEdit = ({ product }) => {
                     </div>
                   </div>
 
-                  <div className="form-group col-md-6">
+                  <div className="form-group col-md-4">
                     <div className="input-group ">
                       <div className="input-group-prepend">
                         <span className="input-group-text">Vendor:</span>
@@ -455,6 +459,22 @@ const QuillEdit = ({ product }) => {
                         value={vendor}
                         onChange={(e) => setVendor(e.target.value)}
                       ></input>
+                    </div>
+                  </div>
+
+                  <div className="form-group col-md-4">
+                    <div className="input-group">
+                      <div className="input-group-prepend">
+                        <span className="input-group-text">Quantity</span>
+                      </div>
+                      <input
+                        type="number"
+                        min="0"
+                        step="1"
+                        value={quantity}
+                        onChange={(e) => setQuantity(e.target.value)}
+                        className="form-control"
+                      />
                     </div>
                   </div>
                 </div>
@@ -511,7 +531,7 @@ const QuillEdit = ({ product }) => {
                   <div className="form-group col-md-4">
                     <div className="input-group ">
                       <div className="input-group-prepend">
-                        <span className="input-group-text">Categpry:</span>
+                        <span className="input-group-text">Category:</span>
                       </div>
                       <select
                         className="form-control"

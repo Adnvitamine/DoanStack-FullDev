@@ -8,7 +8,7 @@ const UserActivity = ({ user_id }) => {
     const getProducts = async () => {
       try {
         const response = await fetch(
-          `http://localhost:8080/api/products/vendor_id/${user_id}`
+          `/api/products/vendor_id/${user_id}`
         );
         const jsonData = await response.json();
         setProducts(jsonData);
@@ -23,7 +23,7 @@ const UserActivity = ({ user_id }) => {
     const getArticles = async () => {
       try {
         const response = await fetch(
-          `http://localhost:8080/api/articles/author_id/${user_id}`
+          `/api/articles/author_id/${user_id}`
         );
         const jsonData = await response.json();
         setArticles(jsonData);

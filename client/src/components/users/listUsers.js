@@ -11,7 +11,7 @@ const ListUsers = () => {
 
   const deleteUser = async (id) => {
     try {
-      const deleteUser = await fetch(`http://localhost:8080/api/users/${id}`, {
+      const deleteUser = await fetch(`/api/users/${id}`, {
         method: "DELETE",
       });
       //window.location="/";
@@ -26,7 +26,7 @@ const ListUsers = () => {
   useEffect(() => {
     const getUsers = async () => {
       try {
-        const response = await fetch(`http://localhost:8080/api/users`);
+        const response = await fetch(`/api/users`);
         const jsonData = await response.json();
 
         setUsers(jsonData);

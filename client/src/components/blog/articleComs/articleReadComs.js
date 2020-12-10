@@ -7,7 +7,7 @@ const ArticleReadComs = ({ articleId, articleName }) => {
     const getArticleComments = async () => {
       try {
         const response = await fetch(
-          `http://localhost:8080/api/articleComs/article_id/${articleId}`
+          `/api/articleComs/article_id/${articleId}`
         );
         const jsonData = await response.json();
         setArticle_comments(jsonData);
@@ -18,8 +18,8 @@ const ArticleReadComs = ({ articleId, articleName }) => {
     getArticleComments();
   }, [articleId]);
 
-  let test = new Date();
-  let dateformat = Date.parse(test.toString(article_comments.createdAt));
+  //let test = new Date();
+ // let dateformat = Date.parse(article_comments.createdAt);
 
   return (
     <Fragment>
@@ -92,7 +92,7 @@ const ArticleReadComs = ({ articleId, articleName }) => {
                     year: "numeric",
                     month: "long",
                     day: "2-digit",
-                  }).format(dateformat)}
+                  }).format(Date.parse(comment.createdAt))}
                 </b>
               </p>
             </div>

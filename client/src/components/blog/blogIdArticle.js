@@ -13,7 +13,7 @@ const BlogIdArticle = ({ articleId, currentUser }) => {
     const getArticle = async () => {
       try {
         const response = await fetch(
-          `http://localhost:8080/api/articles/${articleId}`
+          `/api/articles/${articleId}`
         );
         const jsonData = await response.json();
         setArticle(jsonData);
@@ -28,7 +28,7 @@ const BlogIdArticle = ({ articleId, currentUser }) => {
     const getListArticles = async () => {
       try {
         const response = await fetch(
-          `http://localhost:8080/api/articles/post/${article.category}`
+          `/api/articles/post/${article.category}`
         );
         const jsonData = await response.json();
         setListArticles(jsonData);

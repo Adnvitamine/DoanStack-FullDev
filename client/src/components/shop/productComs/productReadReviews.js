@@ -7,7 +7,7 @@ const ProductReadReviews = ({ productId, productName }) => {
     const getProductReviews = async () => {
       try {
         const response = await fetch(
-          `http://localhost:8080/api/productcoms/product_id/${productId}`
+          `/api/productcoms/product_id/${productId}`
         );
         const jsonData = await response.json();
         setProduct_reviews(jsonData);
@@ -18,8 +18,8 @@ const ProductReadReviews = ({ productId, productName }) => {
     getProductReviews();
   }, [productId]);
 
-  let test = new Date();
-  let dateformat = Date.parse(test.toString(product_reviews.createdAt));
+  //let test = new Date();
+  //let dateformat = Date.parse(test.toString(product_reviews.createdAt));
 
   return (
     <Fragment>
@@ -92,7 +92,7 @@ const ProductReadReviews = ({ productId, productName }) => {
                     year: "numeric",
                     month: "long",
                     day: "2-digit",
-                  }).format(dateformat)}
+                  }).format(Date.parse(review.createdAt))}
                 </b>
               </p>
             </div>

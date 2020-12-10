@@ -10,7 +10,7 @@ const ListArticles = ({ currentUser }) => {
   const deleteArticle = async (id) => {
     try {
       const deleteArticle = await fetch(
-        `http://localhost:8080/api/articles/${id}`,
+        `/api/articles/${id}`,
         {
           method: "DELETE",
         }
@@ -27,7 +27,7 @@ const ListArticles = ({ currentUser }) => {
     const getArticles = async () => {
       try {
         const response = await fetch(
-          `http://localhost:8080/api/articles/author_id/${currentUser.id}`
+          `/api/articles/author_id/${currentUser.id}`
         );
         const jsonData = await response.json();
         setArticles(jsonData);

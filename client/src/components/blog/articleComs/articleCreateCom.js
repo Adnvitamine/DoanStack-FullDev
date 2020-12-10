@@ -22,7 +22,7 @@ const ArticleCreateCom = ({ articleId, user }) => {
         email,
         content,
       };
-      const response = await fetch("http://localhost:8080/api/articlecoms", {
+      const response = await fetch("/api/articlecoms", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(body),

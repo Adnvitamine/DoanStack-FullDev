@@ -51,7 +51,7 @@ const CreateProduct = ({ currentUser }) => {
     const formData = new FormData();
     formData.append("file", file); // appending file
     axios
-      .post("http://localhost:8080/upload", formData, {
+      .post("/upload", formData, {
         onUploadProgress: (ProgressEvent) => {
           let progress = Math.round(
             (ProgressEvent.loaded / ProgressEvent.total) * 100
@@ -63,7 +63,7 @@ const CreateProduct = ({ currentUser }) => {
         console.log(res);
         getFile({
           name: res.data.name,
-          path: "http://localhost:8080" + res.data.path,
+          path: "" + res.data.path,
         });
 
         //const path = res.data.path;
@@ -113,7 +113,7 @@ const CreateProduct = ({ currentUser }) => {
         category,
         image,
       };
-      const response = await fetch("http://localhost:8080/api/products", {
+      const response = await fetch("/api/products", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(body),

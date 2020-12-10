@@ -18,7 +18,7 @@ const ShopIdProduct = ({ productId, currentUser }) => {
     const getProduct = async () => {
       try {
         const response = await fetch(
-          `http://localhost:8080/api/products/${productId}`
+          `/api/products/${productId}`
         );
         const jsonData = await response.json();
         setProduct(jsonData);
@@ -33,7 +33,7 @@ const ShopIdProduct = ({ productId, currentUser }) => {
     const getListProducts = async () => {
       try {
         const response = await fetch(
-          `http://localhost:8080/api/products/shop/${product.category}`
+          `/api/products/shop/${product.category}`
         );
         const jsonData = await response.json();
         setListProducts(jsonData);
@@ -48,7 +48,7 @@ const ShopIdProduct = ({ productId, currentUser }) => {
     const getProductimgs = async () => {
       try {
         const response = await fetch(
-          `http://localhost:8080/api/productimgs/product_id/${productId}`
+          `/api/productimgs/product_id/${productId}`
         );
         const jsonData = await response.json();
 

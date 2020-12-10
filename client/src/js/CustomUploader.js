@@ -34,7 +34,7 @@ class MyUploadAdapter {
           // Send the request.
           //this.xhr.send( data );
           axios
-            .post("http://localhost:8080/ckeditorupload", data, {
+            .post("/ckeditorupload", data, {
               headers: {
                 "Content-Type": "multipart/form-data",
               },

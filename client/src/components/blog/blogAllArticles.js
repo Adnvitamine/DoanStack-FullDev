@@ -9,8 +9,10 @@ const BlogAllArticles = ({ currentUser }) => {
   useEffect(() => {
     const getAllArticles = async () => {
       try {
+        
         const response = await fetch(
-          `http://localhost:8080/api/articles/post/published/true`
+          `/api/articles/post/published/true`,
+          
         );
         const jsonData = await response.json();
         setAllArticles(jsonData);

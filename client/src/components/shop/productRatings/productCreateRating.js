@@ -11,7 +11,7 @@ const ProductCreateRating = ({ productId, userId }) => {
   const deleteUserRating = async (id) => {
     try {
       const deleteUserRating = await fetch(
-        `http://localhost:8080/api/productRatings/${id}`,
+        `/api/productRatings/${id}`,
         {
           method: "DELETE",
         }
@@ -27,7 +27,7 @@ const ProductCreateRating = ({ productId, userId }) => {
     const getUserRating = async () => {
       try {
         const response = await fetch(
-          `http://localhost:8080/api/productRatings/product_id/${productId}/author_id/${userId}`
+          `/api/productRatings/product_id/${productId}/author_id/${userId}`
         );
         const jsonData = await response.json();
 
@@ -50,7 +50,7 @@ const ProductCreateRating = ({ productId, userId }) => {
         author_id,
         rating,
       };
-      const response = await fetch("http://localhost:8080/api/productRatings", {
+      const response = await fetch("/api/productRatings", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(body),

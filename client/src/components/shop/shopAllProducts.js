@@ -10,7 +10,7 @@ const ShopAllProducts = ({ currentUser }) => {
     const getAllProducts = async () => {
       try {
         const response = await fetch(
-          `http://localhost:8080/api/products/shop/status/true`
+          `/api/products/shop/status/true`
         );
         const jsonData = await response.json();
         setAllProducts(jsonData);

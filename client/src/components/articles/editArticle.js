@@ -47,7 +47,7 @@ const EditArcticle = ({ article }) => {
     formData.append("file", file); // appending file
     //for (var value of formData.values()) {console.log(value);}
     axios
-      .post("http://localhost:8080/upload", formData, {
+      .post("/upload", formData, {
         onUploadProgress: (ProgressEvent) => {
           let progress = Math.round(
             (ProgressEvent.loaded / ProgressEvent.total) * 100
@@ -58,7 +58,7 @@ const EditArcticle = ({ article }) => {
       .then((res) => {
         getFile({
           name: res.data.name,
-          path: "http://localhost:8080" + res.data.path,
+          path: "" + res.data.path,
         });
 
         //const path = res.data.path;
@@ -85,7 +85,7 @@ const EditArcticle = ({ article }) => {
           author_avatar,
         };
         const response = await fetch(
-          `http://localhost:8080/api/articles/${article.id}`,
+          `/api/articles/${article.id}`,
           {
             method: "PUT",
             headers: { "Content-Type": "application/json" },
@@ -114,7 +114,7 @@ const EditArcticle = ({ article }) => {
           author_avatar,
         };
         const response = await fetch(
-          `http://localhost:8080/api/articles/${article.id}`,
+          `/api/articles/${article.id}`,
           {
             method: "PUT",
             headers: { "Content-Type": "application/json" },

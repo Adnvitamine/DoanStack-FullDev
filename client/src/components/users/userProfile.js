@@ -10,7 +10,7 @@ const UserBoard = ({ currentUser }) => {
     const getUsers = async () => {
       try {
         const response = await fetch(
-          `http://localhost:8080/api/user/user_id/${currentUser.id}`
+          `/api/user/user_id/${currentUser.id}`
         );
         const jsonData = await response.json();
 
@@ -27,7 +27,7 @@ const UserBoard = ({ currentUser }) => {
     const getProducts = async () => {
       try {
         const response = await fetch(
-          `http://localhost:8080/api/products/vendor_id/${currentUser.id}`
+          `/api/products/vendor_id/${currentUser.id}`
         );
         const jsonData = await response.json();
 
@@ -45,7 +45,7 @@ const UserBoard = ({ currentUser }) => {
     const getArticles = async () => {
       try {
         const response = await fetch(
-          `http://localhost:8080/api/articles/author_id/${currentUser.id}`
+          `/api/articles/author_id/${currentUser.id}`
         );
         const jsonData = await response.json();
 

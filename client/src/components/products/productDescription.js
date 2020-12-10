@@ -18,7 +18,7 @@ const ProductDescription = ({ product }) => {
     const getProductimgs = async () => {
       try {
         const response = await fetch(
-          `http://localhost:8080/api/productimgs/product_id/${product.id}`
+          `/api/productimgs/product_id/${product.id}`
         );
         const jsonData = await response.json();
 

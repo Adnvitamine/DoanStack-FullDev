@@ -36,7 +36,7 @@ const EditUser = ({ currentUser }) => {
     const formData = new FormData();
     formData.append("file", file); // appending file
     axios
-      .post("http://localhost:8080/upload", formData, {
+      .post("/upload", formData, {
         onUploadProgress: (ProgressEvent) => {
           let progress = Math.round(
             (ProgressEvent.loaded / ProgressEvent.total) * 100
@@ -48,7 +48,7 @@ const EditUser = ({ currentUser }) => {
         console.log(res);
         getFile({
           name: res.data.filename,
-          path: "http://localhost:8080" + res.data.path,
+          path: "" + res.data.path,
         });
         //setAvatar(data.path);
 
@@ -63,7 +63,7 @@ const EditUser = ({ currentUser }) => {
     try {
       const body = { username, email, password, avatar };
       const response = await fetch(
-        `http://localhost:8080/api/user/${currentUser.id}`,
+        `/api/user/${currentUser.id}`,
         {
           method: "PUT",
           headers: { "Content-type": "application/json" },

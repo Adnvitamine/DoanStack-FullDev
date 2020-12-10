@@ -11,7 +11,7 @@ const BlogArticlesCateg = ({ category }) => {
     const getAllArticles = async () => {
       try {
         const response = await fetch(
-          `http://localhost:8080/api/articles/post/${category}`
+          `/api/articles/post/${category}`
         );
         const jsonData = await response.json();
         setAllArticles(jsonData);

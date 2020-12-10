@@ -12,7 +12,7 @@ const ListProducts = ({ currentUser }) => {
   const deleteProduct = async (id) => {
     try {
       const deleteProduct = await fetch(
-        `http://localhost:8080/api/products/${id}`,
+        `/api/products/${id}`,
         {
           method: "DELETE",
         }
@@ -30,7 +30,7 @@ const ListProducts = ({ currentUser }) => {
     const getProducts = async () => {
       try {
         const response = await fetch(
-          `http://localhost:8080/api/products/vendor_id/${currentUser.id}`
+          `/api/products/vendor_id/${currentUser.id}`
         );
         const jsonData = await response.json();
 

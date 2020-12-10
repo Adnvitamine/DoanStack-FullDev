@@ -9,7 +9,7 @@ const ProductRatings = ({ productId }) => {
     const getProductRatings = async () => {
       try {
         const response = await fetch(
-          `http://localhost:8080/api/productRatings/product_id/${productId}`
+          `/api/productRatings/product_id/${productId}`
         );
         const jsonData = await response.json();
 

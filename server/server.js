@@ -5,6 +5,7 @@ const bodyParser = require("body-parser");
 //const fileUpload = require('express-fileupload');
 //const morgan = require('morgan');
 const multer = require("multer");
+const path = require('path');
 //const fs = require('fs');
 //const multiparty = require('connect-multiparty');
 //const MultipartyMiddleware = multiparty({uploadDir:'./public'});
@@ -16,12 +17,21 @@ const cors = require("cors");
 
 const app = express();
 // middle ware
+/*
 app.use(express.static("public")); //to access the files in public folder
-var corsOptions = {
-  origin: "http://localhost:8081",
-};
+*/
+/*
+app.use(express.static(__dirname + '/public'));
+*/
+app.use(express.static("public"));
 
-app.use(cors(corsOptions));
+/*var corsOptions = {
+  origin: "http://localhost:8080",
+};
+corsOptions
+*/
+
+app.use(cors());
 
 //app.use(fileUpload());
 const db = require("./models/");
@@ -30,6 +40,7 @@ const Role = db.role;
 db.sequelize
   .sync({
     /*force: true,*/
+    
   })
   .then(() => {
     console.log(
@@ -54,6 +65,7 @@ function initial() {
     id: 3,
     name: "admin",
   });
+
 }
 
 /*
@@ -78,9 +90,34 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json({ limit: "800kb" }));
 
 // simple route
+/*app.get('/*', function(req, res) {
+  res.sendFile(path.join(__dirname, '../public/index.html'), function(err) {
+    if (err) {
+      res.status(500).send(err)
+    }
+  })
+})*/
+
+/*
 app.get("/", (req, res) => {
   res.json({ message: "Welcome to DoanStack application." });
-});
+});*/
+
+/*app.use((req, res, next) => {
+  res.append('Access-Control-Allow-Origin', ['*']);
+  res.append('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+  res.append('Access-Control-Allow-Headers', 'Content-Type, x-access-token, Origin, Accept');
+  next();
+});*/
+
+/*
+app.get('/*', (req, res) => {
+  res.sendFile(__dirname + '/public/index.html');
+});*/
+
+
+
+
 require("./routes/auth.routes")(app);
 require("./routes/user.routes")(app);
 require("./routes/product.routes")(app);
@@ -166,7 +203,7 @@ app.post("/ckeditorupload", upload, function (req, res) {
         '    "fileName": "' +
         req.file.filename +
         '",\n' +
-        '    "url": "http://localhost:8080/' +
+        '    "url": "/' +
         req.file.filename +
         '"\n' +
         "}";
@@ -202,6 +239,11 @@ app.post("/ckeditorupload", upload, function (req, res) {
             }
         });
     });*/
+
+
+    app.get('*', function(req, res) {
+      res.sendFile( path.join(__dirname, 'public/index.html') );
+    });
 
 // set port, listen for requests
 const PORT = process.env.PORT || 8080;
