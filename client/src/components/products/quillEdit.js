@@ -69,7 +69,7 @@ const QuillEdit = ({ product }) => {
       .then((res) => {
         getSoloFile({
           name: res.data.name,
-          path: "" + res.data.path,
+          path: res.data.path,
         });
 
         //const path = res.data.path;
@@ -120,9 +120,8 @@ const QuillEdit = ({ product }) => {
       })
       .then((res) => {
         const array = [];
-        for (let i = 0; i < res.data.length; i++) {
-          console.log(res.data[i].filename);
-          array.push("/" + res.data[i].filename);
+        for (let i = 0; i < res.data.data.length; i++) {
+          array.push(res.data.data[i].url);
         }
         setPathurl(array);
         /*  

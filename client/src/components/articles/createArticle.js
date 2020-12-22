@@ -64,7 +64,7 @@ const CreateArticle = ({ currentUser }) => {
       .then((res) => {
         getFile({
           name: res.data.name,
-          path: "" + res.data.path,
+          path: res.data.path,
         });
         console.log(data);
         //const path = res.data.path;

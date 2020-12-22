@@ -63,7 +63,7 @@ const CreateProduct = ({ currentUser }) => {
         console.log(res);
         getFile({
           name: res.data.name,
-          path: "" + res.data.path,
+          path: res.data.path,
         });
 
         //const path = res.data.path;

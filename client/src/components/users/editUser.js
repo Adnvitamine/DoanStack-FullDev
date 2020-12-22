@@ -48,7 +48,7 @@ const EditUser = ({ currentUser }) => {
         console.log(res);
         getFile({
           name: res.data.filename,
-          path: "" + res.data.path,
+          path: res.data.path,
         });
         //setAvatar(data.path);
 
