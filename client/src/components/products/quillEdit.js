@@ -110,7 +110,7 @@ const QuillEdit = ({ product }) => {
     }
     //formData.append('file', file); // appending file
     axios
-      .post("/multiupload", formData, {
+      .post("/multiuploads", formData, {
         onUploadProgress: (ProgressEvent) => {
           let progress = Math.round(
             (ProgressEvent.loaded / ProgressEvent.total) * 100
