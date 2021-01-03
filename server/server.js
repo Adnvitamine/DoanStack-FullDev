@@ -6,20 +6,12 @@ const { uploader } = require ('cloudinary');
 const { multerUpload, dataUri, upload } = require("./middlewares/multer");
 const fs = require('fs');
 const path = require('path');
+// require('newrelic');
 
 
 const app = express();
 
 app.use(cors({origin: '*'}));
-
-// middle ware
-/*
-app.use(express.static("public")); //to access the files in public folder
-*/
-/*
-app.use(express.static(__dirname + '/public'));
-*/
-app.use(express.static("public"));
 
 /*var corsOptions = {
   origin: "http://localhost:8080",
@@ -27,9 +19,8 @@ app.use(express.static("public"));
 corsOptions
 */
 
+app.use(express.static("public"));
 
-
-//app.use(fileUpload());
 const db = require("./models/");
 const Role = db.role;
 
@@ -99,7 +90,7 @@ app.post('/upload', multerUpload, (req, res) => {
   
 });
 
-app.post('/multiuploads', upload.array('file'), async(req, res)=>{
+app.post('/multiuploads', upload.array('file', 5), async(req, res)=>{
 const uploader = async (path) => await cloudinary.uploads(path, 'uploads');
 
 const urls = [];
@@ -117,9 +108,8 @@ for(const file of files){
 res.status(200).json({
   message: "Images Uploaded Successfully",
   data: urls
-}).catch((err) => res.status(400).json({
-  message: 'something went wrong while processing your request',
-  data: {err}}))
+});
+
 })
 
 app.post('/uploadfiles', multerUpload, (req, res) => {
