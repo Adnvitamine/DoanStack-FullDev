@@ -27,22 +27,10 @@ const BlogAllArticles = ({ currentUser }) => {
     <Fragment>
       {allArticles.map((article) => (
         <div className="blogFrame" key={article.id}>
-          <div className="blogImg">
-            <img
-              src={article.image}
-              alt={article.titre}
-              style={{ width: "100%" }}
-            ></img>
-          </div>
-          <Link
-            to={`/${article.category}/${article.id}/${article.title}`}
-            id="Link"
-          >
-            <div className="blogBody">
-              <div className="blogInfo">
+          <div className="blogInfo">
                 <ul>
                   <li>
-                  <p>by 
+                    <b>by 
                     {article.author_avatar === "null" && (
                       <img
                         src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"
@@ -71,26 +59,40 @@ const BlogAllArticles = ({ currentUser }) => {
                         }}
                       ></img>
                     )}
-                    {article.author}</p>
+                    {article.author}</b>
+                  </li>
+                  
+                  <li>
+                    <b>#{article.category}</b>
                   </li>
                   <li>
-                  <p>#{article.category}</p>
-                  </li>
-                  <li>
-                  <p>
+                    <b>
                     {new Intl.DateTimeFormat("nl-BE", {
                       year: "numeric",
                       month: "long",
                       day: "2-digit",
-                    }).format(Date.parse(article.createdAt))}</p>
+                    }).format(Date.parse(article.createdAt))}</b>
                   </li>
                 </ul>
               </div>
+          <div className="blogArticle"><div className="blogImg">
+            <img
+              src={article.image}
+              alt={article.titre}
+              style={{ width: "100%" }}
+            ></img>
+          </div>
+          <Link
+            to={`/blog/${article.category}/${article.id}/${article.title}`}
+            id="Link"
+          >
+            <div className="blogBody">
+              
               <div className="blogContent">
                 <div dangerouslySetInnerHTML={{ __html: article.content }} />
               </div>
             </div>
-          </Link>
+          </Link></div>
         </div>
       ))}
     </Fragment>
