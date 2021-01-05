@@ -5,13 +5,13 @@ const EditUser = ({ currentUser }) => {
   const [username, setUsername] = useState(currentUser.username);
   const [email, setEmail] = useState(currentUser.email);
   const [password, setPassword] = useState(currentUser.password);
-  const [avatar, setAvatar] = useState();
+  //const [avatar, setAvatar] = useState();
   const [preview, setPreview] = useState();
 
   // UploadAvatar
   const [file, setFile] = useState(""); // storing the uploaded file
 
-  // storing the recived file from backend
+  // getting the received file from backend
   const [data, getFile] = useState({ name: "", path: "" });
   const [progress, setProgess] = useState(0); // progess bar
   const el = useRef(); // accessing input element
@@ -59,7 +59,10 @@ const EditUser = ({ currentUser }) => {
 
   // Update user function
   const UpdateUser = async (e) => {
-    e.preventDefault();
+    console.log(data.path);
+    if(data.path === ""){
+      const avatar = currentUser.avatar;
+      e.preventDefault();
     try {
       const body = { username, email, password, avatar };
       const response = await fetch(
@@ -70,10 +73,59 @@ const EditUser = ({ currentUser }) => {
           body: JSON.stringify(body),
         }
       );
+      
+      const update_localStorage = {
+        id: currentUser.id,
+        username: username,
+        avatar: avatar,
+        email: email,
+        password: password,
+        passwordcrypt: currentUser.passwordcrypt,
+        roles: currentUser.roles,
+        accessToken: currentUser.accessToken,
+      }
+
+      localStorage.setItem("user", JSON.stringify(update_localStorage));
+
       window.location = "";
       console.log(response);
+      
     } catch (err) {
       console.error(err.message);
+    }
+    }else{
+      const avatar = data.path;
+      e.preventDefault();
+    try {
+      const body = { username, email, password, avatar };
+      const response = await fetch(
+        `/api/user/${currentUser.id}`,
+        {
+          method: "PUT",
+          headers: { "Content-type": "application/json" },
+          body: JSON.stringify(body),
+        }
+      );
+
+      const update_localStorage = {
+        id: currentUser.id,
+        username: username,
+        avatar: avatar,
+        email: email,
+        password: password,
+        passwordcrypt: currentUser.passwordcrypt,
+        roles: currentUser.roles,
+        accessToken: currentUser.accessToken,
+      }
+
+      localStorage.setItem("user", JSON.stringify(update_localStorage));
+      
+      window.location = "";
+      console.log(response);
+
+    } catch (err) {
+      console.error(err.message);
+    }
     }
   };
 
