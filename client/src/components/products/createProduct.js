@@ -337,7 +337,7 @@ const CreateProduct = ({ currentUser }) => {
             <div className="form-group col-md-2">
               <div className="input-group">
                 <div className="input-group-prepend">
-                  <span className="input-group-text">$</span>
+                  <span className="input-group-text">€</span>
                 </div>
                 <input
                   type="number"
