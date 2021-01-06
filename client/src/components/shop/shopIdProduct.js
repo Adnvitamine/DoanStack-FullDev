@@ -1,18 +1,23 @@
 import React, { Fragment, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { useHistory } from "react-router";
 import ShopViewImage from "./shopViewImage";
 import ShopViewImages from "./shopViewImages";
 import ProductRatings from "./productRatings/productRatings";
 import ProductCreateRating from "./productRatings/productCreateRating";
 import ProductCreateReview from "./productComs/productCreateReview";
 import ProductReadReviews from "./productComs/productReadReviews";
+import ShopLogin from "./shopLogin";
 
 const ShopIdProduct = ({ productId, currentUser }) => {
   //const id =
+  const history = useHistory();
   const [user] = useState(currentUser);
   const [product, setProduct] = useState([]);
   const [listProducts, setListProducts] = useState([]);
   const [productimgs, setProductimgs] = useState([]);
+  const [click1, setClick1] = useState();
+  const [click2, setClick2] = useState();
 
   useEffect(() => {
     const getProduct = async () => {
@@ -62,11 +67,27 @@ const ShopIdProduct = ({ productId, currentUser }) => {
     //console.log(productimgs);
   }, [productId]);
 
-  //const productPath = `/${product.category}/${product.id}/${product.name}`;
+  const back = () =>{
+    history.goBack();
+  }
 
-  //console.log(productPath);
-  //let test = new Date();
-  //let dateformat = Date.parse(test.toString(product.createdAt));
+  const activeClick1 = () =>{
+    setClick1("true");
+    setClick2("false");
+  }
+
+  const activeClick2 = () =>{
+    setClick2("true");
+    setClick1("false");
+  }
+  let clickStatus1;
+  let clickStatus2;
+  if(click1==="true"){
+    clickStatus1 = <ShopLogin></ShopLogin>;
+  }
+  if(click2==="true"){
+    clickStatus2 = <ShopLogin></ShopLogin>;
+  }
 
   return (
     <Fragment>
@@ -174,13 +195,13 @@ const ShopIdProduct = ({ productId, currentUser }) => {
         <div id="ShopNav">
           <ul>
             <li>
-              <Link to="/">
+              <Link to="/shop">
                 <b>All</b>
               </Link>
             </li>
             <li>
               {(product.category === "Cosmetic" && (
-                <Link to="/Cosmetic" style={{ color: "rgb(0, 162, 255)" }}>
+                <Link to="/shop/Cosmetic" style={{ color: "rgb(0, 162, 255)" }}>
                   <b>Cosmetic</b>
                 </Link>
               )) || (
@@ -191,44 +212,44 @@ const ShopIdProduct = ({ productId, currentUser }) => {
             </li>
             <li>
               {(product.category === "Fashion" && (
-                <Link to="/Fashion" style={{ color: "rgb(0, 162, 255)" }}>
+                <Link to="/shop/Fashion" style={{ color: "rgb(0, 162, 255)" }}>
                   <b>Fashion</b>
                 </Link>
               )) || (
-                <Link to="/Fashion">
+                <Link to="/shop/Fashion">
                   <b>Fashion</b>
                 </Link>
               )}
             </li>
             <li>
               {(product.category === "PC" && (
-                <Link to="/PC" style={{ color: "rgb(0, 162, 255)" }}>
-                  <b>PC</b>
+                <Link to="/shop/PC" style={{ color: "rgb(0, 162, 255)" }}>
+                  <b>Pc</b>
                 </Link>
               )) || (
-                <Link to="/PC">
-                  <b>PC</b>
+                <Link to="/shop/PC">
+                  <b>Pc</b>
                 </Link>
               )}
             </li>
             <li>
               {(product.category === "Estate" && (
-                <Link to="/Estate" style={{ color: "rgb(0, 162, 255)" }}>
+                <Link to="/shop/Estate" style={{ color: "rgb(0, 162, 255)" }}>
                   <b>Estate</b>
                 </Link>
               )) || (
-                <Link to="/Estate">
+                <Link to="/shop/Estate">
                   <b>Estate</b>
                 </Link>
               )}
             </li>
             <li>
               {(product.category === "Services" && (
-                <Link to="/Services" style={{ color: "rgb(0, 162, 255)" }}>
+                <Link to="/shop/Services" style={{ color: "rgb(0, 162, 255)" }}>
                   <b>Services</b>
                 </Link>
               )) || (
-                <Link to="/Services">
+                <Link to="/shop/Services">
                   <b>Services</b>
                 </Link>
               )}
@@ -237,13 +258,7 @@ const ShopIdProduct = ({ productId, currentUser }) => {
         </div>
         <div id="ShopHome">
           <div className="backbutton" style={{ marginBottom: "10px" }}>
-            <Link
-              to={`/${product.category}`}
-              className="btn btn-warning"
-              style={{ color: "white", textDecoration: "none" }}
-            >
-              Back
-            </Link>
+          <button type="button" className="btn btn-warning" onClick={back} style={{ color: "white", textDecoration: "none"}}>Back</button>
           </div>
           <div id="MoreProducts">
             <div className="header">
@@ -255,35 +270,31 @@ const ShopIdProduct = ({ productId, currentUser }) => {
             <div className="body">
               {listProducts.map((listproduct) => (
                 <Link
-                  to={`/${listproduct.category}/${listproduct.id}/${listproduct.name}`}
+                  to={`/shop/${listproduct.category}/${listproduct.id}/${listproduct.name}`}
                   key={listproduct.id}
                 >
-                  <div className="list">
-                    {listproduct.name !== product.name && (
+                  {listproduct.id !== product.id && (
+                    <div className="list">
                       <div className="productImg">
                         <span>
                           <img
-                            src={listproduct.image}
-                            alt={listproduct.name}
+                          src={listproduct.image}
+                          alt={listproduct.name}
                           ></img>
                         </span>
                       </div>
-                    )}
-
-                    <div className="productTitle">
-                      {listproduct.name !== product.name && (
+                      <div className="productTitle">
+                    
                         <b>{listproduct.name}</b>
-                      )}
-                      {listproduct.name !== product.name && (
+                  
                         <ProductRatings productId={listproduct.id} />
-                      )}
-                      {listproduct.name !== product.name && (
+                  
                         <p style={{ textAlign: "center", color: "#b12704" }}>
                           € {listproduct.price}
                         </p>
-                      )}
+                      </div>
                     </div>
-                  </div>
+                  )}
                 </Link>
               ))}
             </div>
@@ -373,11 +384,14 @@ const ShopIdProduct = ({ productId, currentUser }) => {
                 </div>
               </div>
               {user === "Visitor" && (
-                <p>Please <a href="/login">sign in</a> to evaluate this product</p>
+                <p>To rate this product, please: &nbsp;
+                  <button type="button" className="btn btn-warning" onClick={activeClick1}>Sign in</button>
+                </p>
               )}
               {user.username && (
                 <ProductCreateRating productId={productId} userId={user.id} />
               )}
+              {clickStatus1}
             </div>
             <div className="reviewProduct">
               <div className="ComponentTitle">
@@ -385,10 +399,15 @@ const ShopIdProduct = ({ productId, currentUser }) => {
                   <h1>Write a review</h1>
                 </div>
               </div>
-              {user === "Visitor" && <p>Please <a href="/login">sign in</a> to write a review</p>}
+              {user === "Visitor" && (
+                <p>To write a review, please: &nbsp;
+                  <button type="button" className="btn btn-warning" onClick={activeClick2}>Sign in</button> 
+                </p>
+              )}
               {user.username && (
                 <ProductCreateReview productId={productId} user={user} />
               )}
+              {clickStatus2}
             </div>
             <div className="readReviews">
               <ProductReadReviews
