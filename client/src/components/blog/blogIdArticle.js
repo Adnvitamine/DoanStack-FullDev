@@ -9,6 +9,7 @@ import BlogLogin from "./blogLogin";
 
 const BlogIdArticle = ({ articleId, currentUser }) => {
   //const id =
+  const history = useHistory();
   const [user] = useState(currentUser);
   const [article, setArticle] = useState([]);
   const [listArticles, setListArticles] = useState([]);

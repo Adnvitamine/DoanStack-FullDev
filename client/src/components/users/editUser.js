@@ -247,7 +247,7 @@ const EditUser = ({ currentUser }) => {
                             </div>*/}
 
             <div className="wrap">
-              <button id="createButton" onClick={(e) => setAvatar(data.path)}>
+              <button id="createButton">
                 <i className="fas fa-plus"></i>
                 <p>Save Profile</p>
               </button>
