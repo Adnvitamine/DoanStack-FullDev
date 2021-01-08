@@ -109,17 +109,17 @@ class App extends Component {
                       <ul id="menu">
                         <li className="mobilenav-item" id="MobileHome">
                           <Link to={"/home"} className="nav-link">
-                            Home
+                            HOME
                           </Link>
                         </li>
                         <li className="mobilenav-item" id="MobileBlog">
                           <Link to={"/blog"} className="nav-link">
-                            Blog
+                            BLOG
                           </Link>
                         </li>
                         <li className="mobilenav-item" id="MobileShop">
                           <Link to={"/shop"} className="nav-link">
-                            Shop
+                            SHOP
                           </Link>
                         </li>
 
