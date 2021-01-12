@@ -511,6 +511,7 @@ class QuillEditor extends React.Component {
     "indent",
     "link",
     "image",
+    "video",
     "color",
     "background",
     "code-block"
