@@ -2,11 +2,8 @@ import React, { Fragment, useState, useRef } from "react";
 import axios from "axios";
 import { CKEditor } from "@ckeditor/ckeditor5-react";
 import InlineEditor from "@ckeditor/ckeditor5-build-inline";
-//import InlineEditor from "@ckeditor/ckeditor5-build-inline";
 import CustomUpload from "../../js/CustomUploader";
 
-//import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
-//const sanitizeHtml = require('sanitize-html');
 
 const EditArcticle = ({ article }) => {
   const [title, setTitle] = useState(article.title);

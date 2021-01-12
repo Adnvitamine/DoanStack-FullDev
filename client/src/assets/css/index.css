@@ -65,31 +65,23 @@ body {
   min-width: 320px;
 }
 
-p {
-  text-align: left;
-}
-
-h1 {
-  font-size: 34px;
-  text-align: left;
-}
-
-h2 {
-  font-size: 24px;
-  text-align: left;
-}
-
 #root {
   /*background: url("../img/w17.jpg") no-repeat center center fixed;*/
+  width: 100%;
+  background-color: #e9f3fb;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  font-family: LatoReg;
+  font-family: "Open Sans";
   font-size: 17px;
   letter-spacing: 0.01rem;
-  line-height: 1.65;
 }
+
+#FullFrame {
+  padding: 0 var(--ck-spacing-standard) !important;
+}
+
 #switch {
   display: none;
 }
@@ -107,6 +99,8 @@ h2 {
   background-color: rgba(0, 0, 0, 0.1);
   border-radius: 100px;
   margin: 0;
+  margin-right: 50px;
+  z-index: 140;
   cursor: pointer;
 }
 .toggle {
@@ -143,7 +137,7 @@ h2 {
   background-color: rgba(0, 0, 0, 1);
 }
 
-#switch:checked + #FullFrame #TitleLink h1 {
+#switch:checked + #FullFrame #TitleLink h2 {
   font-size: 2vw;
   background: linear-gradient(rgba(6, 2, 247, 1), rgb(255, 0, 0, 1));
   /* clip hackery */
@@ -197,7 +191,9 @@ h2 {
   color: rgb(255, 127, 7);
   transition: color 0.5s ease-in-out;
 }
-
+#switch:checked + #FullFrame .mainBoard #BlogBody #BlogHome .dataFilter b {
+  color: white;
+}
 #switch:checked
   + #FullFrame
   .mainBoard
@@ -288,7 +284,6 @@ h2 {
 #switch:checked + #FullFrame .mainBoard #BlogBody .articleSoloHeader {
   color: white;
 }
-
 #switch:checked
   + #FullFrame
   .mainBoard
@@ -298,7 +293,6 @@ h2 {
   p {
   color: white !important;
 }
-
 #switch:checked + #FullFrame .mainBoard #ShopBody .productSoloContent {
   color: white;
 }
@@ -354,7 +348,7 @@ h2 {
   .ComponentTitle
   div
   h1 {
-  font-size: 50px;
+  font-size: 40px;
   background: linear-gradient(orange, yellow);
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -400,7 +394,7 @@ h2 {
   .ComponentTitle
   div
   h1 {
-  font-size: 50px;
+  font-size: 40px;
   background: linear-gradient(orange, yellow);
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -446,7 +440,7 @@ h2 {
   .ComponentTitle
   div
   h1 {
-  font-size: 50px;
+  font-size: 40px;
   background: linear-gradient(orange, yellow);
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -492,7 +486,7 @@ h2 {
   .ComponentTitle
   div
   h1 {
-  font-size: 50px;
+  font-size: 40px;
   background: linear-gradient(orange, yellow);
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -538,7 +532,7 @@ h2 {
   .ComponentTitle
   div
   h1 {
-  font-size: 50px;
+  font-size: 40px;
   background: linear-gradient(orange, yellow);
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -589,7 +583,7 @@ h2 {
   .ComponentTitle
   div
   h1 {
-  font-size: 50px;
+  font-size: 40px;
   background: linear-gradient(orange, yellow);
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -635,7 +629,7 @@ h2 {
   .ComponentTitle
   div
   h1 {
-  font-size: 50px;
+  font-size: 40px;
   background: linear-gradient(orange, yellow);
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -667,7 +661,7 @@ h2 {
   .ComponentTitle
   div
   h1 {
-  font-size: 50px;
+  font-size: 40px;
   background: linear-gradient(orange, yellow);
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -699,7 +693,7 @@ h2 {
   .ComponentTitle
   div
   h1 {
-  font-size: 50px;
+  font-size: 40px;
   background: linear-gradient(orange, yellow);
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -731,7 +725,7 @@ h2 {
   .ComponentTitle
   div
   h1 {
-  font-size: 50px;
+  font-size: 40px;
   background: linear-gradient(orange, yellow);
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -763,7 +757,7 @@ h2 {
   .ComponentTitle
   div
   h1 {
-  font-size: 50px;
+  font-size: 40px;
   background: linear-gradient(orange, yellow);
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -795,7 +789,7 @@ h2 {
   .ComponentTitle
   div
   h1 {
-  font-size: 50px;
+  font-size: 40px;
   background: linear-gradient(orange, yellow);
   background-clip: text;
   -webkit-text-fill-color: transparent;

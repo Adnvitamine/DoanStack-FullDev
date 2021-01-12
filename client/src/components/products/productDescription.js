@@ -1,38 +1,8 @@
-import React, { Fragment, useEffect, useState } from "react";
-//var sanitizeHtml = require('sanitize-html');
+import React, { Fragment } from "react";
 
 //
 const ProductDescription = ({ product }) => {
-  /*.replace(/&lt;/g, '<')
-      .replace(/&gt;/g, '>')
-      .replace(/&#8221;/g, '"')
-      .replace(/&#8220;/g, '"')
-      .replace(' </ iframe', '</iframe')
-
-    
-  */
-
-  const [productimgs, setProductimgs] = useState([]);
-
-  useEffect(() => {
-    const getProductimgs = async () => {
-      try {
-        const response = await fetch(
-          `/api/productimgs/product_id/${product.id}`
-        );
-        const jsonData = await response.json();
-
-        setProductimgs(jsonData);
-      } catch (err) {
-        console.error(err.message);
-      }
-    };
-
-    getProductimgs();
-    //console.log(productimgs);
-  }, [product.id]);
-
-  //var a = '<figure class="media"><oembed url="https://www.youtube.com/watch?v=VCqA52XQlys"></oembed></figure>';
+  
   return (
     <Fragment>
       <div className="productContainer">
@@ -134,20 +104,6 @@ const ProductDescription = ({ product }) => {
           </div>
         </div>
         <div className="productBody">
-          <div id="slider">
-            <figure>
-              {productimgs.slice(0, 5).map((productimg) => (
-                <img
-                  src={productimg.path}
-                  key={productimg.id}
-                  className="productImage"
-                  alt=""
-                  style={{ width: "300px", height: "300px" }}
-                />
-              ))}
-            </figure>
-          </div>
-
           <div
             className="productDescription"
             dangerouslySetInnerHTML={{ __html: product.description }}

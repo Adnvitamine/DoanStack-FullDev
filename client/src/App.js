@@ -10,7 +10,6 @@ import "./assets/css/editor.css";
 import "./assets/css/buttons.css";
 import "./assets/css/products.css";
 import "./assets/css/users.css";
-import "./assets/css/all.css";
 import "./assets/css/profile.css";
 import "./assets/css/home.css";
 import "./assets/css/articles.css";
@@ -47,7 +46,12 @@ class App extends Component {
       showModeratorBoard: false,
       showAdminBoard: false,
       currentUser: undefined,
+      isToggleOn: true
     };
+
+    this.handleClick = this.handleClick.bind(this);
+    this.handleClickTrue = this.handleClickTrue.bind(this);
+ 
   }
 
   componentDidMount() {
@@ -62,6 +66,19 @@ class App extends Component {
     }
   }
 
+  handleClick() {
+    this.setState(state => ({
+      isToggleOn: !state.isToggleOn
+    }));
+    
+  }
+
+  handleClickTrue() {
+    this.setState(state => ({
+      isToggleOn: true
+    }));
+  }
+
   logOut() {
     AuthService.logout();
   }
@@ -74,7 +91,7 @@ class App extends Component {
             <input id="switch" type="checkbox" />
             <div id="FullFrame">
               <nav className="navbar navbar-expand" id="fixedNavbar">
-                <Link to={"/"} className="navbar-brand" id="LogoNav">
+                <Link to={"/"} id="LogoNav">
                   <div className="DoanStackLogo">
                     <div className="DoanStackLogoImg"></div>
                     <div className="DoanStackLogoName">
@@ -101,30 +118,30 @@ class App extends Component {
                 </div>
                 <div id="MobileMenu">
                   <div id="menuToggle">
-                    <input type="checkbox" />
+                    {this.state.isToggleOn ? <input type="checkbox" id="menuToggleInput"></input>:<input type="checkbox" id="menuToggleInput1" onClick={this.handleClickTrue}></input>}
                     <span></span>
                     <span></span>
                     <span></span>
                     {currentUser ? (
-                      <ul id="menu">
-                        <li className="mobilenav-item" id="MobileHome">
+                      <ul id={this.state.isToggleOn ? "menu":"menu1"}>
+                        <li className="mobilenav-item" id="MobileHome" onClick={this.handleClick}>
                           <Link to={"/home"} className="nav-link">
-                            HOME
+                            Home
                           </Link>
                         </li>
-                        <li className="mobilenav-item" id="MobileBlog">
+                        <li className="mobilenav-item" id="MobileBlog" onClick={this.handleClick}>
                           <Link to={"/blog"} className="nav-link">
-                            BLOG
+                            Blog
                           </Link>
                         </li>
-                        <li className="mobilenav-item" id="MobileShop">
+                        <li className="mobilenav-item" id="MobileShop" onClick={this.handleClick}>
                           <Link to={"/shop"} className="nav-link">
-                            SHOP
+                            Shop
                           </Link>
                         </li>
 
                         {showModeratorBoard && (
-                          <li className="mobilenav-item">
+                          <li className="mobilenav-item" onClick={this.handleClick}>
                             <Link to={"/mod"} className="nav-link">
                               Mod
                             </Link>
@@ -132,26 +149,27 @@ class App extends Component {
                         )}
 
                         {currentUser && (
-                          <li className="mobilenav-item">
+                          <li className="mobilenav-item" onClick={this.handleClick}>
                             <Link to={"/user"} className="nav-link">
                               User
                             </Link>
                           </li>
                         )}
-
+                        
                         {showAdminBoard && (
-                          <li className="mobilenav-item">
+                          <li className="mobilenav-item"  onClick={this.handleClick}>
                             <Link to={"/admin"} className="nav-link">
                               Admin
                             </Link>
                           </li>
                         )}
-                        <li className="mobilenav-item">
-                          <Link to={"/profile"} className="nav-link">
+
+                        <li className="mobilenav-item" onClick={this.handleClick}>
+                          <Link to={"/profile"} className="nav-link" >
                             {currentUser.username}
                           </Link>
                         </li>
-                        <li className="mobilenav-item">
+                        <li className="mobilenav-item" onClick={this.handleClick}>
                           <a
                             href="/login"
                             className="nav-link"
@@ -163,27 +181,27 @@ class App extends Component {
                       </ul>
                     ) : (
                       <ul id="menu">
-                        <li className="mobilenav-item" id="MobileHome">
+                        <li className="mobilenav-item" id="MobileHome" onClick={this.handleClick}>
                           <Link to={"/home"} className="nav-link">
                             Home
                           </Link>
                         </li>
-                        <li className="mobilenav-item" id="MobileBlog">
+                        <li className="mobilenav-item" id="MobileBlog" onClick={this.handleClick}>
                           <Link to={"/blog"} className="nav-link">
                             Blog
                           </Link>
                         </li>
-                        <li className="mobilenav-item" id="MobileShop">
+                        <li className="mobilenav-item" id="MobileShop" onClick={this.handleClick}>
                           <Link to={"/shop"} className="nav-link">
                             Shop
                           </Link>
                         </li>
-                        <li className="mobilenav-item">
+                        <li className="mobilenav-item" onClick={this.handleClick}>
                           <Link to={"/register"} className="nav-link">
                             Register
                           </Link>
                         </li>
-                        <li className="mobilenav-item">
+                        <li className="mobilenav-item" onClick={this.handleClick}>
                           <Link to={"/login"} className="nav-link">
                             Login
                           </Link>
