@@ -37,7 +37,7 @@ class ShopHome extends Component {
     return (
       <Fragment>
         <div className="BrowserNavbar">
-          <p>My Eshop project. You can rate and review products.</p>
+          <p>My Eshop project with ratings & reviews</p>
         </div>
         <div id="TitleLink">
           <h2>Shop</h2>
@@ -46,7 +46,7 @@ class ShopHome extends Component {
           <div id="ShopNav">
             <ul>
               <li>
-                <Link to="/shop" style={{ color: "rgb(0, 162, 255)" }}>
+                <Link to="/shop" style={{ fontSize: "20px",color: "rgb(0, 162, 255)" }}>
                   <b>All</b>
                 </Link>
               </li>

@@ -37,7 +37,7 @@ class BlogHome extends Component {
     return (
       <Fragment>
         <div className="BrowserNavbar">
-          <p>How I build this PERNstack web application and more.</p>
+          <p>All my topics about PERNstack Application.</p>
         </div>
         <div id="TitleLink">
           <h2>Blog</h2>
@@ -46,7 +46,7 @@ class BlogHome extends Component {
           <div id="BlogNav">
             <ul>
               <li>
-                <Link to="/blog" style={{ color: "rgb(0, 162, 255)" }}>
+                <Link to="/blog" style={{ fontSize: "20px",color: "rgb(0, 162, 255)" }}>
                   <b>All</b>
                 </Link>
               </li>
