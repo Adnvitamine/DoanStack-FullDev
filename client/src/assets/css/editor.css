@@ -9,6 +9,10 @@
   margin: auto;
 }
 
+.ck.ck-toolbar .ck.ck-toolbar__items {
+  flex-flow: row wrap !important;
+}
+
 .editor p {
   margin: 0;
   padding: 0;
