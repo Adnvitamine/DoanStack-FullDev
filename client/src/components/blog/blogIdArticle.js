@@ -53,6 +53,9 @@ const BlogIdArticle = ({ articleId, currentUser }) => {
 
   return (
     <Fragment>
+    <div id="TitleLink">
+      <h2>{article.title}</h2>
+    </div>
       <div className="BrowserNavbar">
         {user === "Visitor" && (
           <p>
@@ -151,9 +154,6 @@ const BlogIdArticle = ({ articleId, currentUser }) => {
           </p>
         )}
       </div>
-      <div id="TitleLink">
-        <h2>{article.title}</h2>
-      </div>
       <div id="BlogBody">
         <div id="BlogNav">
           <ul>
@@ -164,7 +164,7 @@ const BlogIdArticle = ({ articleId, currentUser }) => {
             </li>
             <li>
               {(article.category === "News" && (
-                <Link to="/blog/News" style={{ color: "rgb(0, 162, 255)" }}>
+                <Link to="/blog/News" style={{ fontSize: "18px",color: "rgb(0, 162, 255)" }}>
                   <b>News</b>
                 </Link>
               )) || (
@@ -175,7 +175,7 @@ const BlogIdArticle = ({ articleId, currentUser }) => {
             </li>
             <li>
               {(article.category === "FrontEnd" && (
-                <Link to="/blog/FrontEnd" style={{ color: "rgb(0, 162, 255)" }}>
+                <Link to="/blog/FrontEnd" style={{ fontSize: "18px",color: "rgb(0, 162, 255)" }}>
                   <b>FrontEnd</b>
                 </Link>
               )) || (
@@ -186,7 +186,7 @@ const BlogIdArticle = ({ articleId, currentUser }) => {
             </li>
             <li>
               {(article.category === "BackEnd" && (
-                <Link to="/blog/BackEnd" style={{ color: "rgb(0, 162, 255)" }}>
+                <Link to="/blog/BackEnd" style={{ fontSize: "18px",color: "rgb(0, 162, 255)" }}>
                   <b>BackEnd</b>
                 </Link>
               )) || (
@@ -197,7 +197,7 @@ const BlogIdArticle = ({ articleId, currentUser }) => {
             </li>
             <li>
               {(article.category === "Life" && (
-                <Link to="/blog/Life" style={{ color: "rgb(0, 162, 255)" }}>
+                <Link to="/blog/Life" style={{ fontSize: "18px",color: "rgb(0, 162, 255)" }}>
                   <b>Life</b>
                 </Link>
               )) || (
@@ -208,7 +208,7 @@ const BlogIdArticle = ({ articleId, currentUser }) => {
             </li>
             <li>
               {(article.category === "Others" && (
-                <Link to="/blog/Others" style={{ color: "rgb(0, 162, 255)" }}>
+                <Link to="/blog/Others" style={{ fontSize: "18px",color: "rgb(0, 162, 255)" }}>
                   <b>Others</b>
                 </Link>
               )) || (

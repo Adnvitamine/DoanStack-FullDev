@@ -49,10 +49,10 @@ export default class BoardAdmin extends Component {
       return (
         <Fragment>
           <div className="BrowserNavbar">
-            <p>"Manage registered users" - DoanStack.be</p>
-          </div>
           <div id="TitleLink">
             <h2>ADMIN PANEL</h2>
+          </div>
+            <p>"Manage registered users" - DoanStack.be</p>
           </div>
           <Users />
         </Fragment>

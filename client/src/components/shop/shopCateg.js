@@ -14,14 +14,14 @@ class shopCateg extends Component {
   render() {
     return (
       <Fragment>
+      <div id="TitleLink">
+        <h2>{this.props.match.params.category}</h2>
+      </div>
         <div className="BrowserNavbar">
           <p>
             All our best {this.props.match.params.category}'s deals -
             DoanStack.be
           </p>
-        </div>
-        <div id="TitleLink">
-          <h2>{this.props.match.params.category}</h2>
         </div>
         <div id="ShopBody">
           <div id="ShopNav">
@@ -33,7 +33,7 @@ class shopCateg extends Component {
               </li>
               <li>
                 {(this.props.match.params.category === "Cosmetic" && (
-                  <Link to="/shop/Cosmetic" style={{ fontSize: "20px",color: "rgb(0, 162, 255)" }}>
+                  <Link to="/shop/Cosmetic" style={{ fontSize: "18px",color: "rgb(0, 162, 255)" }}>
                     <b>Cosmetic</b>
                   </Link>
                 )) || (
@@ -44,7 +44,7 @@ class shopCateg extends Component {
               </li>
               <li>
                 {(this.props.match.params.category === "Fashion" && (
-                  <Link to="/shop/Fashion" style={{ fontSize: "20px",color: "rgb(0, 162, 255)" }}>
+                  <Link to="/shop/Fashion" style={{ fontSize: "18px",color: "rgb(0, 162, 255)" }}>
                     <b>Fashion</b>
                   </Link>
                 )) || (
@@ -55,7 +55,7 @@ class shopCateg extends Component {
               </li>
               <li>
                 {(this.props.match.params.category === "PC" && (
-                  <Link to="/shop/PC" style={{ fontSize: "20px",color: "rgb(0, 162, 255)" }}>
+                  <Link to="/shop/PC" style={{ fontSize: "18px",color: "rgb(0, 162, 255)" }}>
                     <b>Pc</b>
                   </Link>
                 )) || (
@@ -66,7 +66,7 @@ class shopCateg extends Component {
               </li>
               <li>
                 {(this.props.match.params.category === "Estate" && (
-                  <Link to="/shop/Estate" style={{ fontSize: "20px",color: "rgb(0, 162, 255)" }}>
+                  <Link to="/shop/Estate" style={{ fontSize: "18px",color: "rgb(0, 162, 255)" }}>
                     <b>Estate</b>
                   </Link>
                 )) || (
@@ -77,7 +77,7 @@ class shopCateg extends Component {
               </li>
               <li>
                 {(this.props.match.params.category === "Services" && (
-                  <Link to="/shop/Services" style={{ fontSize: "20px",color: "rgb(0, 162, 255)" }}>
+                  <Link to="/shop/Services" style={{ fontSize: "18px",color: "rgb(0, 162, 255)" }}>
                     <b>Services</b>
                   </Link>
                 )) || (

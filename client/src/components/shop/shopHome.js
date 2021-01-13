@@ -36,17 +36,17 @@ class ShopHome extends Component {
     const { currentUser } = this.state;
     return (
       <Fragment>
+      <div id="TitleLink">
+        <h2>Shop</h2>
+      </div>
         <div className="BrowserNavbar">
           <p>My Eshop project with ratings & reviews</p>
-        </div>
-        <div id="TitleLink">
-          <h2>Shop</h2>
         </div>
         <div id="ShopBody">
           <div id="ShopNav">
             <ul>
               <li>
-                <Link to="/shop" style={{ fontSize: "20px",color: "rgb(0, 162, 255)" }}>
+                <Link to="/shop" style={{ fontSize: "18px",color: "rgb(0, 162, 255)" }}>
                   <b>All</b>
                 </Link>
               </li>
