@@ -39,13 +39,9 @@
 }
 
 #ShopNav ul li a:hover {
-  color: rgb(38, 253, 38);
-  transition: color 0.5s ease-in-out;
-}
-
-#ShopNav ul li:hover {
   font-size: 18px;
-  transition: font-size 0.5s linear;
+  color: rgb(38, 253, 38);
+  transition: color 0.5s ease-in-out, font-size 0.5s linear;
 }
 
 #ShopHome {
@@ -253,7 +249,9 @@
 
 .productSoloContent {
   width: 100%;
-  padding: 0 var(--ck-spacing-standard) !important;
+  max-width: 778px;
+  border: 1px solid rgba(255, 255, 255, 0);
+  background-color: white;
   margin: auto;
   border-radius: 5px;
 }
@@ -352,15 +350,16 @@
 #ImageFrame {
   position: relative;
   display: grid;
+  width: 100%;
   place-items: center;
   margin-bottom: 10px;
-  min-height: 300px;
-  min-width: 300px;
+
   overflow: hidden;
 }
 #ImageFrame img {
-  width: 100%;
-  max-width: 450px;
+  max-width: 50%;
+
+  min-width: 265px;
   height: auto !important;
 }
 #ShopProductZoom {

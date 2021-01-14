@@ -3,7 +3,6 @@
   top: 0;
   border-radius: 5px;
   margin-right: 10px;
-  background-color: #e9f3fb;
   transition: box-shadow 2s, background-color 1s linear;
 }
 
@@ -30,8 +29,9 @@
   width: 100%;
   top: 0; /* At the top */
   z-index: 150;
-  height: 100px;
-  padding: 0px 10px 0px 10px;
+  height: 40px;
+  background-color: #e9f3fb;
+  padding: 0;
 }
 
 #fixedNavbar a {
@@ -41,7 +41,6 @@
 
 #leftMenu {
   position: relative;
-  top: -35px;
 }
 
 #leftMenu li:first-child {
@@ -50,12 +49,11 @@
 
 #rightMenu {
   position: relative;
-  top: -35px;
 }
 
 .BrowserNavbar {
   overflow: hidden;
-  border-radius: 0px;
+  border-radius: 0px; /* Sticky/fixed navbar */
   width: 100%;
   z-index: 99;
 }
@@ -69,7 +67,8 @@
   -webkit-text-fill-color: transparent;
   -webkit-animation: neon1 0.5s ease-in-out infinite alternate;
   -moz-animation: neon1 0.5s ease-in-out infinite alternate;
-  animation: slide1 25s linear infinite, neon 0.5s ease-in-out infinite;
+  animation: neon 0.5s ease-in-out infinite alternate,
+    slide1 25s linear infinite;
 }
 
 .BrowserNavbar:hover p {
@@ -128,7 +127,6 @@
 .DoanStackLogo {
   display: inline-flex;
   position: relative;
-  top: -20px;
   background: rgba(255, 255, 255, 0);
   box-shadow: 5px 5px 6px rgba(51, 133, 164, 0.7),
     -5px -5px 6px rgba(51, 133, 164, 0.7);

@@ -104,10 +104,12 @@ const ProductDescription = ({ product }) => {
           </div>
         </div>
         <div className="productBody">
+          <div className="productDescription">
           <div
             className="productDescription"
             dangerouslySetInnerHTML={{ __html: product.description }}
           />
+          </div>
         </div>
       </div>
     </Fragment>

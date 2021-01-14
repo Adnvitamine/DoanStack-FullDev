@@ -327,7 +327,7 @@ const ShopIdProduct = ({ productId, currentUser }) => {
               </div>
             </div>
             <div className="productSoloContent">
-              <div className="productDescription" dangerouslySetInnerHTML={{ __html: product.description }} />
+              <div className="ql-editor" dangerouslySetInnerHTML={{ __html: product.description }} />
             </div>
             <div className="rateThisProduct">
               <div className="ComponentTitle">

@@ -163,7 +163,7 @@ label {
 }
 
 .modal-dialog {
-  margin-bottom: 600px !important;
+  margin: 0;
 }
 
 .modal-footer {
