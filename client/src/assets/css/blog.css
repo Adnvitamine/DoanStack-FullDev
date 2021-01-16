@@ -133,6 +133,7 @@
   width: 80%;
   display: flex;
   flex-direction: column;
+  background-color: white;
   padding: 10px;
   border-radius: 0px 0px 30px 0px;
   overflow: hidden;
@@ -156,10 +157,16 @@
 .blogImg {
   display: grid;
   place-items: center;
-  min-height: 300px;
   width: 100%;
+  max-height: 270px;
   max-width: 300px;
+  margin: auto;
   overflow: hidden;
+}
+
+.blogImg img {
+  max-height: 270px;
+  object-fit: contain;
 }
 
 #Link {
@@ -184,6 +191,7 @@
 }
 
 .blogInfo ul {
+  box-shadow: inset 0px -1px 4px #1101ff, inset -1px 0px 4px #ff2600;
   padding-left: 0;
   display: flex;
   flex-direction: row;
@@ -251,7 +259,7 @@
   width: 100%;
   max-width: 778px;
   margin: auto;
-  border: 1px solid rgba(255, 255, 255, 0);
+  border: 1px solid rgba(182, 182, 182, 0.877);
   background-color: white;
   padding-top: 25px;
 }

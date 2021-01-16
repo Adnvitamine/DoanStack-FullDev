@@ -1,23 +1,8 @@
 import React, { Fragment } from "react";
-//var sanitizeHtml = require('sanitize-html');
 
 //
 const ArticleContent = ({ article }) => {
-  /*.replace(/&lt;/g, '<')
-      .replace(/&gt;/g, '>')
-      .replace(/&#8221;/g, '"')
-      .replace(/&#8220;/g, '"')
-      .replace(' </ iframe', '</iframe')
-
-    
-  */
-
-  /*const [articleimgs, setArticleimgs] = useState([]);
-
-
-
-    
-
+  /*
  useEffect(()=>{
 
      const getArticleimgs = async() =>{
@@ -39,7 +24,6 @@ const ArticleContent = ({ article }) => {
  ,  [article.id]
  );*/
 
-  //var a = '<figure class="media"><oembed url="https://www.youtube.com/watch?v=VCqA52XQlys"></oembed></figure>';
   return (
     <Fragment>
       <div className="articleContainer">

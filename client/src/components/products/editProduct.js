@@ -1,10 +1,8 @@
-import React, { Fragment, useState, useRef } from "react";
+import { Fragment, useState, useRef } from "react";
 import axios from "axios";
 import { CKEditor } from "@ckeditor/ckeditor5-react";
 import InlineEditor from "@ckeditor/ckeditor5-build-inline";
-//import InlineEditor from "@ckeditor/ckeditor5-build-inline";
 import CustomUpload from "../../js/CustomUploader";
-//import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 
 //const sanitizeHtml = require('sanitize-html');
 
@@ -121,28 +119,7 @@ const EditProduct = ({ product }) => {
           array.push(res.data.data[i].url);
         }
         setPathurl(array);
-        /*  
-          
-          if(!res.data){
-          setDatas({
-                file: null
-            })
-        }else{
-         
-         for (let i = 0; i < res.data.length; i++) {
-             //previews.push(files[i]);
-             //array.push(files[i]);
-             datas.push(res.data[i]);    
-         }
-         //console.log(previews);
-
-         
-        }*/
-        //getFile({ name: res.data.name,
-        //       path: 'http://localhost:8080' + res.data.path
-        //   });
-
-        //const path = res.data.path;
+        
       })
       .catch((err) => console.log(err));
   };
@@ -485,7 +462,7 @@ const EditProduct = ({ product }) => {
                     onChange={(event, editor) => {
                       const data = editor.getData();
                       setDescription(data);
-                      console.log(data);
+                      console.log(event, editor, data);
                     }}
                     onBlur={(event, editor) => {
                       console.log("Blur.", editor);
