@@ -107,7 +107,7 @@ const CreateArticle = ({ currentUser }) => {
 
   return (
     <Fragment>
-      <div className="container text-center mt-5" id="articleCreate">
+      <div id="articleCreate">
         <div className="ComponentTitle">
           <div>
             {" "}

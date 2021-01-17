@@ -63,10 +63,16 @@ const ShopIdProduct = ({ productId, currentUser }) => {
   let clickStatus1;
   let clickStatus2;
   if(click1==="true"){
-    clickStatus1 = <ShopLogin></ShopLogin>;
+    clickStatus1 = <Fragment>
+    <div className="BrowserNavbar">
+        <p>Sign in to rate this product</p>
+    </div><ShopLogin></ShopLogin></Fragment>;
   }
   if(click2==="true"){
-    clickStatus2 = <ShopLogin></ShopLogin>;
+    clickStatus2 = <Fragment>
+    <div className="BrowserNavbar">
+        <p>Sign in to review this product</p>
+    </div><ShopLogin></ShopLogin></Fragment>;
   }
 
   return (
@@ -106,7 +112,7 @@ const ShopIdProduct = ({ productId, currentUser }) => {
                 }}
               ></img>
             )}{" "}
-            {product.vendor}. Sign in to comment" - DoanStack.be
+            {product.vendor}. Sign in to rate or review product"
           </p>
         )}
         {user.username && (
@@ -361,12 +367,10 @@ const ShopIdProduct = ({ productId, currentUser }) => {
               )}
               {clickStatus2}
             </div>
-            <div className="readReviews">
               <ProductReadReviews
                 productId={productId}
                 productName={product.name}
               />
-            </div>
           </div>
         </div>
       </div>
