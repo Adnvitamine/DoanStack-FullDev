@@ -238,38 +238,6 @@ const BlogIdArticle = ({ articleId, currentUser }) => {
               Back
             </button>
           </div>
-          <div id="MoreArticles">
-            <div className="header">
-              <span className="empty"> </span>
-              <p>
-                <b>Related Posts</b>
-              </p>
-            </div>
-            <div className="body">
-              {listArticles.map((listarticle) => (
-                 <Link
-                 to={`/blog/${listarticle.category}/${listarticle.id}/${listarticle.title}`}
-                 key={listarticle.id}
-               >
-                 { listarticle.id !== article.id && (
-                  <div className="list">
-                     <div className="articleImg">
-                       <span className="profile-img-card">
-                         <img
-                           className="profile-img-card"
-                           src={listarticle.image}
-                           alt={listarticle.title}
-                         ></img>
-                       </span>
-                     </div>
-                   <div className="articleTitle">
-                       <b>{listarticle.title}</b>
-                   </div>
-                 </div>)}
-               </Link>
-              ))}
-            </div>
-          </div>
           <div id="BlogHomeArticle">
             <div className="articleSoloHeader">
               <div id="ImageFrame">
@@ -334,6 +302,22 @@ const BlogIdArticle = ({ articleId, currentUser }) => {
             </div>
             <div className="articleSoloContent">
               <div className="ql-editor" dangerouslySetInnerHTML={{ __html: article.content }} />
+            </div>
+            <div className="relatedArticles">
+            <div className="ComponentTitle">
+                <div>
+                  <h1>Related posts</h1>
+                </div>
+              </div>
+              <ul>
+                  {listArticles.map((listarticle)=>(
+                    <Link to={`/blog/${listarticle.category}/${listarticle.id}/${listarticle.title}`} style={{ textDecoration: "none"}}>
+                        { listarticle.id !== article.id && (
+                          <li><p>{listarticle.title}</p></li>
+                        )}
+                    </Link>
+                  ))}
+                </ul>
             </div>
             <div className="commentArticle">
               <div className="ComponentTitle">
