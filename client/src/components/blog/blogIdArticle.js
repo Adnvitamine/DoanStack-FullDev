@@ -243,7 +243,6 @@ const BlogIdArticle = ({ articleId, currentUser }) => {
               <div id="ImageFrame">
                 <img
                   src={article.image}
-                  style={{ height: "500px" }}
                   alt={article.title}
                 ></img>
               </div>
@@ -311,7 +310,7 @@ const BlogIdArticle = ({ articleId, currentUser }) => {
               </div>
               <ul>
                   {listArticles.map((listarticle)=>(
-                    <Link to={`/blog/${listarticle.category}/${listarticle.id}/${listarticle.title}`} style={{ textDecoration: "none"}}>
+                    <Link to={`/blog/${listarticle.category}/${listarticle.id}/${listarticle.title}`} key={listarticle.id} style={{ textDecoration: "none"}}>
                         { listarticle.id !== article.id && (
                           <li><p>{listarticle.title}</p></li>
                         )}
