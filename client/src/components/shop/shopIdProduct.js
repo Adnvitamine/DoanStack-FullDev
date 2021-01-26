@@ -1,12 +1,12 @@
 import { Fragment, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useHistory } from "react-router";
-import ShopViewImage from "./shopViewImage";
 import ProductRatings from "./productRatings/productRatings";
 import ProductCreateRating from "./productRatings/productCreateRating";
 import ProductCreateReview from "./productComs/productCreateReview";
 import ProductReadReviews from "./productComs/productReadReviews";
 import ShopLogin from "./shopLogin";
+import ImageGallery from 'react-image-gallery';
 
 const ShopIdProduct = ({ productId, currentUser }) => {
   //const id =
@@ -14,6 +14,8 @@ const ShopIdProduct = ({ productId, currentUser }) => {
   const [user] = useState(currentUser);
   const [product, setProduct] = useState([]);
   const [listProducts, setListProducts] = useState([]);
+  const [productimgs, setProductimgs] = useState([]);
+  const images = [];
   const [click1, setClick1] = useState();
   const [click2, setClick2] = useState();
 
@@ -46,6 +48,35 @@ const ShopIdProduct = ({ productId, currentUser }) => {
     };
     getListProducts();
   }, [product.category]);
+
+  useEffect(()=>{
+    const getProductimgs = async () =>{
+      try{
+        const response = await fetch(
+          `/api/productimgs/product_id/${productId}`
+        );
+        const jsonData = await response.json();
+        setProductimgs(jsonData);
+      } catch(err){
+        console.error(err.message);
+      }
+    };
+    getProductimgs();
+
+  }, [productId]);
+
+  useEffect(()=>{
+    images.push({
+      original: product.image,
+      thumbnail: product.image
+    });
+    for( let i= 0; i < productimgs.length; i++){
+      images.push({
+        original: productimgs[i].path,
+        thumbnail: productimgs[i].path
+      });
+    }
+  })
 
   const back = () =>{
     history.goBack();
@@ -248,13 +279,7 @@ const ShopIdProduct = ({ productId, currentUser }) => {
           </div>
           <div id="ShopHomeProduct">
             <div className="productSoloHeader">
-              <div id="ImageFrame">
-                <ShopViewImage product={product} productImage={product.image} />
-                <img
-                  src={product.image}
-                  alt={product.name}
-                ></img>
-              </div>
+              <ImageGallery showBullets={true} showIndex={true} slideOnThumbnailOver={true} items={images} />
                 <div className="productSoloInfo">
                 <div className="productSoloName">
                   <p>{product.name}</p>
