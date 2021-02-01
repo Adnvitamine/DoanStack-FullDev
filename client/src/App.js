@@ -18,6 +18,8 @@ import "./assets/css/nav.css";
 import "./assets/css/blog.css";
 import "./assets/css/shop.css";
 import "./assets/css/media.css";
+import "./assets/css/footer.css";
+import "./assets/css/contact.css";
 
 //import './css/line-awesome.css';
 
@@ -30,6 +32,7 @@ import SignIn from "./components/signin.component";
 import Home from "./components/home.component";
 import Profile from "./components/profile.component";
 import BoardUser from "./components/board-user.component";
+import BoardMail from "./components/board-mail.component";
 import BoardModerator from "./components/board-moderator.component";
 import BoardAdmin from "./components/board-admin.component";
 import Blog from "./components/blog.component";
@@ -158,6 +161,14 @@ class App extends Component {
                             </Link>
                           </li>
                         )}
+
+                        {currentUser && !showAdminBoard && (
+                          <li className="mobilenav-item" onClick={this.handleClick}>
+                            <Link to={"/mail"} className="nav-link">
+                              Mail
+                            </Link>
+                          </li>
+                        )}
                         
                         {showAdminBoard && (
                           <li className="mobilenav-item"  onClick={this.handleClick}>
@@ -233,6 +244,14 @@ class App extends Component {
                       </li>
                     )}
                     
+                    {currentUser && !showAdminBoard && (
+                      <li className="nav-item">
+                        <Link to={"/mail"} className="nav-link">
+                          Mail
+                        </Link>
+                      </li>
+                    )}
+
                     {showAdminBoard && (
                       <li className="nav-item">
                         <Link to={"/admin"} className="nav-link">
@@ -292,6 +311,7 @@ class App extends Component {
                   <Route exact path="/login" component={SignIn} />
                   <Route exact path="/profile" component={Profile} />
                   <Route path="/user" component={BoardUser} />
+                  <Route path="/mail" component={BoardMail} />
                   <Route path="/mod" component={BoardModerator} />
                   <Route path="/admin" component={BoardAdmin} />
                 </Switch>

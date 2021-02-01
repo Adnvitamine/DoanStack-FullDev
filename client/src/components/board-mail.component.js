@@ -1,10 +1,9 @@
 import { Fragment, Component } from "react";
 import authService from "../services/auth.service";
 import UserService from "../services/user.service";
-import CreateArticle from "./articles/createArticle";
-import ListArticles from "./articles/listArticles";
+import MailBox from "./mails/mailbox";
 
-export default class BoardModerator extends Component {
+export default class BoardMail extends Component {
   constructor(props) {
     super(props);
 
@@ -15,7 +14,7 @@ export default class BoardModerator extends Component {
   }
 
   componentDidMount() {
-    UserService.getModeratorBoard().then(
+    UserService.getUserBoard().then(
       (response) => {
         this.setState({
           content: response.data,
@@ -46,28 +45,19 @@ export default class BoardModerator extends Component {
           <div></div>
         </Fragment>
       );
-    } else if (currentUser.roles[1] === "Role: MODERATOR") {
-      return (
-        <Fragment>
-        <div id="TitleLink">
-          <h2>MOD PANEL</h2>
-        </div>
-          <div className="BrowserNavbar">
-            <p>
-              "Manage all your posts here" - DoanStack.be
-              {/*this.state.content*/}
-            </p>
-          </div>
-          <ListArticles currentUser={currentUser} />
-          <CreateArticle currentUser={currentUser} />
-        </Fragment>
-      );
     } else {
       return (
         <Fragment>
+        <div id="TitleLink">
+          <h2>Mail</h2>
+        </div>
           <div className="BrowserNavbar">
-            <p>No role permission</p>
+            <p>
+              "Manage all your products here" - DoanStack.be
+              {/*this.state.content*/}
+            </p>
           </div>
+          <MailBox currentUser={currentUser} />
         </Fragment>
       );
     }

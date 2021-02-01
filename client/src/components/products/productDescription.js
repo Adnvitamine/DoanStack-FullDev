@@ -1,19 +1,49 @@
-import { Fragment } from "react";
+import { Fragment, useEffect, useState } from "react";
+import ImageGallery from 'react-image-gallery';
 
-//
 const ProductDescription = ({ product }) => {
-  
+  const [productimgs, setProductimgs] = useState([]);
+  const images = [];
+
+  useEffect(() => {
+    const getProductimgs = async () => {
+      try {
+        const response = await fetch(
+          `/api/productimgs/product_id/${product.id}`
+        );
+        const jsonData = await response.json();
+
+        setProductimgs(jsonData);
+      } catch (err) {
+        console.error(err.message);
+      }
+    };
+
+    getProductimgs();
+    //console.log(productimgs);
+  }, [product.id]);
+
+  useEffect(()=>{
+    images.push({
+      original: product.image,
+      thumbnail: product.image
+    });
+
+    for (let i = 0; i < productimgs.length; i++) {
+      //previews.push(files[i]);
+      //array.push(files[i]);
+      images.push({
+        original: productimgs[i].path,
+        thumbnail: productimgs[i].path
+      });
+    }
+  });
+
   return (
     <Fragment>
       <div className="productContainer">
         <div className="productHeader">
-          <a href={product.image}>
-            <img
-              src={product.image}
-              alt={product.name}
-              className="productImage"
-            />
-          </a>
+          <ImageGallery showBullets={true} showIndex={true} slideOnThumbnailOver={true} items={images}  />
           <div className="productName">{product.name}</div>
           <div
             id="ProductInfo"

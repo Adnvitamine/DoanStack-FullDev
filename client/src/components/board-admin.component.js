@@ -1,7 +1,9 @@
 import { Component, Fragment } from "react";
 import UserService from "../services/user.service";
-import Users from "./users/users";
 import authService from "../services/auth.service";
+import ListUsers from "./users/listUsers";
+import MailBox from "./mails/mailbox";
+
 
 export default class BoardAdmin extends Component {
   constructor(props) {
@@ -54,7 +56,8 @@ export default class BoardAdmin extends Component {
           </div>
             <p>"Manage registered users" - DoanStack.be</p>
           </div>
-          <Users />
+          <ListUsers />
+          <MailBox currentUser={currentUser} />
         </Fragment>
       );
     } else {
