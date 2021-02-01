@@ -7,15 +7,15 @@ import CustomUpload from "../../js/CustomUploader";
 //const sanitizeHtml = require('sanitize-html');
 
 const EditProduct = ({ product }) => {
-  const [name, setName] = useState(product.name);
   const [product_id] = useState(product.id);
+  const [name, setName] = useState(product.name);
   const [vendor_id] = useState(product.vendor_id);
   const [vendor, setVendor] = useState(product.vendor);
   const [description, setDescription] = useState(product.description);
   const [price, setPrice] = useState(product.price);
   const [quantity, setQuantity] = useState(product.quantity);
-  const [category, setCategory] = useState();
   const [status, setStatus] = useState(product.status);
+  const [category, setCategory] = useState(product.category);
 
   // SOLO: Uploaded Solo File
   const [solofile, setSoloFile] = useState();
@@ -311,37 +311,26 @@ const EditProduct = ({ product }) => {
         </div>
       ));
     }
-    //imgPreview = <img src={previews.file}></img>;
-    //console.log(previews);
   };
 
-  /*let pathPreview;
-   if (pathurl) {
-       console.log(pathurl);
-       for (let i = 0; i < pathurl.length; i++) {
-       pathPreview = pathurl.map(index=>(<div key={index}><img src={index} alt=""></img></div>));
-        }
-   //datasPreview = <p>{datas}</p>;
-   
-}*/
 let galeriePreview;
   if (pathurl) {
     for (let i = 0; i < pathurl.length; i++) {
       galeriePreview = pathurl.map((index) => (
         <div className="galeryItem" key={index} style={{ position: "relative" ,maxWidth: "130px", margin: "5px"}}>
-                    <button
-                      className="tinyDeleteButton"
-                      onClick={() => deleteImgUpload(index)}
-                      style={{ position: "absolute", right:"0"}}
-                    ><i className="far fa-trash-alt"></i>
-                    </button>
-                    <img
-                      src={index}
-                      className="galeryImage"
-                      alt=""
-                      style={{ maxWidth: "130px", height: "auto", border: "1px solid rgb(189, 184, 184)" }}
-                    />
-                  </div>
+          <button
+            className="tinyDeleteButton"
+            onClick={() => deleteImgUpload(index)}
+            style={{ position: "absolute", right:"0"}}
+          ><i className="far fa-trash-alt"></i>
+          </button>
+          <img
+            src={index}
+            className="galeryImage"
+            alt=""
+            style={{ maxWidth: "130px", height: "auto", border: "1px solid rgb(189, 184, 184)" }}
+          />
+        </div>
       ));
     }
   }
@@ -384,16 +373,6 @@ let galeriePreview;
                 <p style={{ textAlign: "center" }}>
                   Change your product image:
                 </p>
-                {/*
-                        <div className="form-group preview">
-                            {imgPreview}
-                        </div>
-
-                        <div className="form-group">
-                            <input type="file" className="form-control" onChange={uploadSingleFile} />
-                        </div>
-                        
-                        */}
 
                 <div className="file-upload">
                   <input
@@ -408,8 +387,6 @@ let galeriePreview;
                     style={{ width: `${soloprogress}%` }}
                     data-value={soloprogress}
                   ></p>
-
-                  {/* displaying received image*/}
                   <progress
                     max="100"
                     value={soloprogress}
@@ -423,38 +400,18 @@ let galeriePreview;
                   </progress>
                   <div className="form-group preview">
                     {soloimgPreview}
-
-                    {/*
-                                            previews &&
-                                            previews.map((file, index) => (
-                                                <li className="list-group-item" key={index}>
-                                                {file.name}
-                                                </li>
-                                            ))
-                                        */}
-                    {/*data.path && <img src={data.path} alt={data.name} />*/}
                   </div>
                 </div>
-
                 <button id="uploadButton" onClick={soloUploadFile}>
                   <i className="fas fa-upload"></i>
                   <p>Upload</p>
                 </button>
               </div>
+
               <div className="uploadContainer" style={{ marginTop: "20px" }}>
                 <p style={{ textAlign: "center" }}>
                   Add more images for your product (max:5!)
                 </p>
-                {/*
-                                    <div className="form-group preview">
-                                        {imgPreview}
-                                    </div>
-
-                                    <div className="form-group">
-                                        <input type="file" className="form-control" onChange={uploadSingleFile} />
-                                    </div>
-                                    
-                                    */}
                 <div className="file-upload">
                 <p>Your product galery</p>
                   <div className="productGalery" style={{ width: "100%", backgroundColor: " #414141", display: "flex", flexDirection: "row", flexWrap: "wrap", border: "1px solid rgb(189, 184, 184)", marginBottom: "10px", justifyContent: "center"}}>
@@ -491,7 +448,6 @@ let galeriePreview;
                     style={{ width: `${progress}%` }}
                     data-value={progress}
                   ></p>
-                  {/* displaying received image*/}
                   <progress
                     max="100"
                     value={progress}
@@ -503,14 +459,6 @@ let galeriePreview;
                   </progress>
                   <div className="form-group preview">
                     {imgPreview}
-                    {/*{pathPreview}
-                                        previews &&
-                                        previews.map((file, index) => (
-                                            <li className="list-group-item" key={index}>
-                                            {file.name}
-                                            </li>
-                                        ))*/}
-                    {/*data.path && <img src={data.path} alt={data.name} />*/}
                   </div>
                 </div>
 
@@ -566,9 +514,6 @@ let galeriePreview;
                     </div>
                   </div>
                 </div>
-                {/*<label className="mt-2">Product Description</label>        
-                            <textarea className="form-control" value={description} onChange={e => setDescription(e.target.value)}></textarea>
-                            */}
                 <div className="editor">
                   <CKEditor
                     editor={InlineEditor}
@@ -643,12 +588,12 @@ let galeriePreview;
                         className="form-control"
                         onChange={(e) => setCategory(e.target.value)}
                       >
-                        <option value="others">Choose..</option>
-                        <option>Cosmetic</option>
-                        <option>Fashion</option>
-                        <option>PC</option>
-                        <option>Estate</option>
-                        <option>Services</option>
+                        <option value={category} >{category}</option>
+                        {category !== "Cosmetic" && (<option>Cosmetic</option>)}
+                        {category !== "Fashion" && (<option>Fashion</option>)}
+                        {category !== "PC" && (<option>PC</option>)}
+                        {category !== "Estate" && (<option>Estate</option>)}
+                        {category !== "Services" && (<option>Services</option>)}
                       </select>
                     </div>
                   </div>
