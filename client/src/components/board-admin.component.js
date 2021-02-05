@@ -1,11 +1,12 @@
-import { Component, Fragment } from "react";
+import React from "react";
+import { Fragment } from "react";
 import UserService from "../services/user.service";
 import authService from "../services/auth.service";
 import ListUsers from "./users/listUsers";
 import MailBox from "./mails/mailbox";
 
 
-export default class BoardAdmin extends Component {
+export default class BoardAdmin extends React.Component {
   constructor(props) {
     super(props);
 
@@ -56,7 +57,7 @@ export default class BoardAdmin extends Component {
           </div>
             <p>"Manage registered users" - DoanStack.be</p>
           </div>
-          <ListUsers />
+          <ListUsers currentUser={currentUser} />
           <MailBox currentUser={currentUser} />
         </Fragment>
       );

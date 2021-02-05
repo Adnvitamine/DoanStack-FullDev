@@ -4,7 +4,7 @@ import UserActivity from "./userActivity";
 //import EditUser from "./editUser";
 //import Truncate from 'react-truncate-html';
 
-const ListUsers = () => {
+const ListUsers = ({currentUser}) => {
   const [users, setUsers] = useState([]);
 
   // DELETE PRODUCT FUNCTION
@@ -110,12 +110,12 @@ const ListUsers = () => {
               ))}
             </div>
 
-            <div className="userCardAction">
+            {currentUser.roles[2]==="Role: ADMIN" && (<div className="userCardAction">
               <button className="miniDeleteButton" onClick={() => deleteUser(user.id)}>
                 <i className="far fa-trash-alt"></i>
                 <p>Delete</p>
               </button>
-            </div>
+            </div>)}
           </div>
 
           /*
