@@ -16,11 +16,7 @@ const BlogAllArticles = ({ currentUser }) => {
   useEffect(() => {
     const getAllArticles = async () => {
       try {
-        
-        const response = await fetch(
-          `/api/articles/post/published/true`,
-          
-        );
+        const response = await fetch('/api/articles/post/published/true');
         const jsonData = await response.json();
         setAllArticles(jsonData);
       } catch (err) {

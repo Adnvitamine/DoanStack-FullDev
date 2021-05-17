@@ -4,28 +4,26 @@ import { Link } from "react-router-dom";
 //import ArticleId from "./articeId";
 
 const BlogArticlesCateg = ({ category }) => {
-  const [allArticles, setAllArticles] = useState([]);
+  const [allNewsArticles, setAllNewsArticles] = useState([]);
   const [sortButton, setSortButton] = useState(true);
   const postLimit = 3;
-  const totalPages = Math.ceil(allArticles.length/postLimit);
+  const totalPages = Math.ceil(allNewsArticles.length/postLimit);
   const pagesArray = [];
   const [currentPage, setCurrentPage] = useState(1);
   const [lastPost, setLastPost] = useState(3);
   const [firstPost, setFirstPost] = useState(0);
 
   useEffect(() => {
-    const getAllArticles = async () => {
+    const getAllNewsArticles = async () => {
       try {
-        const response = await fetch(
-          `/api/articles/post/${category}`
-        );
+        const response = await fetch(`/api/articles/post/${category}`);
         const jsonData = await response.json();
-        setAllArticles(jsonData);
+        setAllNewsArticles(jsonData);
       } catch (err) {
         console.log(err.message);
       }
     };
-    getAllArticles();
+    getAllNewsArticles();
   }, [category]);
 
   useEffect(()=>{
@@ -64,7 +62,7 @@ const BlogArticlesCateg = ({ category }) => {
   let showPage;
   if(currentPage){
       if(sortButton === true){
-        showPage = <div>{allArticles.sort(({id: previousID} , {id: currentID} )=> currentID -previousID).slice(firstPost, lastPost).map((article) => (
+        showPage = <div>{allNewsArticles.sort(({id: previousID} , {id: currentID} )=> currentID -previousID).slice(firstPost, lastPost).map((article) => (
           <div className="blogFrame" key={article.id}>
             <div className="blogInfo">
                   <ul>
@@ -136,7 +134,7 @@ const BlogArticlesCateg = ({ category }) => {
           </div>
         ))}</div>;
       }else{
-        showPage = <div>{allArticles.sort(({id: previousID} , {id: currentID} )=> previousID -currentID).slice(firstPost, lastPost).map((article) => (
+        showPage = <div>{allNewsArticles.sort(({id: previousID} , {id: currentID} )=> previousID -currentID).slice(firstPost, lastPost).map((article) => (
           <div className="blogFrame" key={article.id}>
             <div className="blogInfo">
                   <ul>

@@ -1,21 +1,40 @@
 //const config = require("../config/db.config.js");
-const env = require("../config/db.heroku.js");
+//const env = require("../config/db.heroku.js");
 
 const Sequelize = require("sequelize");
 
-/**/
-
-const sequelize = new Sequelize(env.database, env.username, env.password, {
+/*{
+  database: env.database,
+  username: env.username,
+  password: env.password,
   host: env.host,
+  port: env.port,
   dialect: env.dialect,
+  dialectOptions: {
+    ssl: {
+      require: true, // This will help you. But you will see nwe error
+      rejectUnauthorized: false // This line will fix new error
+    }
+  },
   operatorsAliases: false,
- 
   pool: {
     max: env.max,
     min: env.pool.min,
     acquire: env.pool.acquire,
     idle: env.pool.idle
   }
+}*/
+
+const sequelize = new Sequelize(process.env.DATABASE_URL, {
+  ssl: true,
+  dialect: 'postgres',
+  protocol: 'postgres',
+  dialectOptions: {
+        ssl: {
+            require: true,
+            rejectUnauthorized: false
+        }
+    }
 });
 
 /*const sequelize = new Sequelize(config.DB, config.USER, config.PASSWORD, {

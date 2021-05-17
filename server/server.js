@@ -1,5 +1,5 @@
 const express = require("express");
-const bodyParser = require("body-parser");
+//const bodyParser = require("body-parser");
 const cors = require("cors");
 const cloudinary = require("./config/cloudinaryConfig");
 const { uploader } = require ('cloudinary');
@@ -25,10 +25,10 @@ app.use(express.static("public"));
 newStart();
 
 // parse requests of content-type - application/x-www-form-urlencoded
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.urlencoded({ extended: true }));
 
 // parse requests of content-type - application/json
-app.use(bodyParser.json({ limit: "800kb" }));
+app.use(express.json({ limit: "800kb" }));
 
 
 require("./routes/auth.routes")(app);
@@ -116,7 +116,6 @@ return res.status(200).send({ url: image })
 }
 
 });
-
 
 app.get('*', function(req, res) {
   res.sendFile( path.join(__dirname, 'public/index.html') );

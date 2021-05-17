@@ -79,7 +79,7 @@ const QuillEdit = ({ product }) => {
 
   // MULTI: storing the recived file from backend
   const [previews, setPreviews] = useState([]);
-  const [file, setFile] = useState(); // storing the uploaded files
+  const [file, setFile] = useState([]); // storing the uploaded files
   const [uploaderror, setUploaderror] = useState();
   const imgmax = 5;
   const [pathurl, setPathurl] = useState([]);
