@@ -19,7 +19,7 @@ class blogCateg extends Component {
       </div>
         <div className="BrowserNavbar">
           <p>
-            Read all {this.props.match.params.category}'s topics - DoanStack.be
+            Read all {this.props.match.params.category}'s topics - DoanStack.com
           </p>
         </div>
         <div id="BlogBody">
