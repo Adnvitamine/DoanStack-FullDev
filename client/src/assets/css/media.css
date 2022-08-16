@@ -72,13 +72,13 @@
   #menuToggle a {
     display: inline-block;
     text-decoration: none;
-    color: rgb(0, 162, 255);
-
-    transition: color 0.3s ease;
+    color: #8ac3ff;
+    transition: color 0.5s ease;
   }
 
   #menuToggle a:hover {
-    color: tomato;
+    color: orange;
+    transition: color 0.5s ease;
   }
 
   #menuToggle #menuToggleInput {
@@ -175,8 +175,7 @@
     padding: 0px 60px 10px 20px;
     margin: 0px 0px 0px 0px;
     background: rgba(255, 255, 255, 1);
-    box-shadow: 5px 5px 6px rgba(51, 133, 164, 0.7),
-      -5px -5px 6px rgba(51, 133, 164, 0.7);
+    box-shadow: 5px 5px 6px #007bff88, -5px -5px 6px #007bff75;
     border-radius: 0px 0px 0px 30px;
 
     list-style-type: none;
@@ -197,8 +196,7 @@
     padding: 0px 60px 10px 20px;
     margin: 0px 0px 0px 0px;
     background: rgba(255, 255, 255, 1);
-    box-shadow: 5px 5px 6px rgba(51, 133, 164, 0.7),
-      -5px -5px 6px rgba(51, 133, 164, 0.7);
+    box-shadow: 5px 5px 6px #007bff88, -5px -5px 6px #007bff75;
     border-radius: 0px 0px 0px 30px;
 
     list-style-type: none;
@@ -315,8 +313,7 @@
     flex-direction: row;
     flex-wrap: wrap;
     background: rgba(255, 255, 255, 1);
-    box-shadow: 5px 5px 6px rgba(51, 133, 164, 0.7),
-      -5px -5px 6px rgba(51, 133, 164, 0.7);
+    box-shadow: 5px 5px 6px #007bff88, -5px -5px 6px #007bff75;
     border-radius: 0px 0px 0px 30px;
 
     list-style-type: none;
@@ -340,8 +337,7 @@
     flex-direction: row;
     flex-wrap: wrap;
     background: rgba(255, 255, 255, 1);
-    box-shadow: 5px 5px 6px rgba(51, 133, 164, 0.7),
-      -5px -5px 6px rgba(51, 133, 164, 0.7);
+    box-shadow: 5px 5px 6px #007bff88, -5px -5px 6px #007bff75;
     border-radius: 0px 0px 0px 30px;
 
     list-style-type: none;

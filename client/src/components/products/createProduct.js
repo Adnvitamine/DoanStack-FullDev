@@ -107,7 +107,7 @@ const CreateProduct = ({ currentUser }) => {
       <div id="productCreate">
         <div className="ComponentTitle">
           <div>
-            <h1>Add a new product</h1>
+            <h1>New product</h1>
           </div>
         </div>
         <div className="form-row">

@@ -43,8 +43,8 @@ const ListArticles = ({ currentUser }) => {
       <div className="container text-center" id="articlesList">
         <div className="ComponentTitle">
           <div>
-            <h1>
-              All {currentUser.username}'s articles ({articles.length})
+          <h1>
+              {currentUser.username}'s posts ({articles.length})
             </h1>
           </div>
         </div>

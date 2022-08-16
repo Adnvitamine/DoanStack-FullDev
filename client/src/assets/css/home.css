@@ -72,14 +72,80 @@ ul {
   color: white;
 }
 
-.homeBody {
+.homeFrameOne {
   margin: auto;
   min-height: 100vh;
-  width: 90%;
-  max-width: 1000px;
-  display: grid;
-  place-items: center;
-  background-color: rgba(255, 255, 255, 0);
+  width: 100%;
+  background: url('https://images.unsplash.com/photo-1546146830-2cca9512c68e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2080&q=80');
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  transition: background 1s;
+}
+
+.anchorLink{
+  position: fixed;
+  display: inline-block;
+  font-family: "PublicSans-ExtraBold";
+  margin-left: 2%;
+  padding: 1%;
+}
+
+.anchorLink a{
+  color: black;
+  text-decoration: none;
+  transition: color 1s linear;
+}
+
+.anchorLink a:hover{
+  color: #01c6fd;
+  text-decoration: none;
+  transition: color 1s linear;
+}
+
+.anchorFrameFour h2{
+  font-family: "PublicSans-ExtraBoldItalic";
+  font-size: 32px;
+  background: linear-gradient(yellow, red);
+  /* clip hackery */
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: font-size 0.5s linear;
+}
+.anchorFrameFour:hover h2{
+  font-size: 35px;
+  transition: font-size 0.5s linear;
+}
+
+.homeFrameTwo{
+  margin: auto;
+  min-height: 100vh;
+  width: 100%;
+  background: url('https://images.unsplash.com/photo-1508873699372-7aeab60b44ab?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80');
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  transition: background 1s;
+}
+
+.homeFrameThree{
+  margin: auto;
+  min-height: 100vh;
+  width: 100%;
+  background: url('https://images.unsplash.com/photo-1565843714144-d5a3292ae82d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2072&q=80');
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  transition: background 1s;
+}
+
+.homeFrameFour{
+  margin: auto;
+  min-height: 100vh;
+  width: 100%;
 }
 
 #InlineSVG_2 {

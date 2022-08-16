@@ -1,5 +1,5 @@
 import React from "react";
-import { Component, Fragment } from "react";
+import { Fragment } from "react";
 import AuthService from "../services/auth.service";
 import UserService from "../services/user.service";
 import EditUser from "./users/editUser";
@@ -52,7 +52,7 @@ export default class Profile extends React.Component {
       return (
         <Fragment>
           <div id="TitleLink">
-            <h2>Manage your account</h2>
+            <h2>PROFILE SETTINGS</h2>
           </div>
           <div className="BrowserNavbar">
             <p>{!currentUser.avatar && (

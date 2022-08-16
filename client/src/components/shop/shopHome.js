@@ -37,10 +37,10 @@ class ShopHome extends Component {
     return (
       <Fragment>
       <div id="TitleLink">
-        <h2>Shop</h2>
+        <h2>SHOP</h2>
       </div>
         <div className="BrowserNavbar">
-          <p>My Eshop project - DoanStack.com</p>
+          <p>My Shop project - DoanStack.com</p>
         </div>
         <div id="ShopBody">
           <div id="ShopNav">

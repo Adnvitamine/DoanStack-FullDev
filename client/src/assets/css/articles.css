@@ -8,8 +8,8 @@
 }
 
 #articlesList:hover {
-  box-shadow: 0px 2px 0px rgba(255, 0, 0, 1), 0px 4px 0px rgba(6, 1, 255, 1),
-    0px -2px 0px rgba(6, 1, 255, 1), 0px -4px 0px rgba(255, 0, 0, 1);
+  box-shadow: 0px 2px 0px yellow, 0px 4px 0px red,
+    0px -2px 0px red, 0px -4px 0px yellow;
   width: 100%;
   transition: box-shadow 2s, background-color 2s linear;
 }
@@ -25,8 +25,8 @@
 }
 
 #articleCreate:hover {
-  box-shadow: 0px 2px 0px rgba(255, 0, 0, 1), 0px 4px 0px rgba(6, 1, 255, 1),
-    0px -2px 0px rgba(6, 1, 255, 1), 0px -4px 0px rgba(255, 0, 0, 1);
+  box-shadow: 0px 2px 0px yellow, 0px 4px 0px red,
+    0px -2px 0px red, 0px -4px 0px yellow;
   width: 100%;
   transition: box-shadow 2s, background-color 2s linear;
 }
@@ -94,7 +94,7 @@
 .articleCardContent {
   width: 100%;
   max-width: 336px;
-  font-family: "Open Sans";
+  /* font-family: "Open Sans"; */
   font-size: 14px;
   height: 250px;
   margin: auto;

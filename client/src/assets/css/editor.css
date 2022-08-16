@@ -1,5 +1,5 @@
 .editor {
-  font-family: "Open Sans";
+  /* font-family: "Open Sans"; */
   line-height: 1.5;
   font-size: 17px;
   border: 1px solid hsla(0, 0%, 0%, 0.15);
@@ -24,7 +24,7 @@
 }
 .ql-container {
   font-size: 17px !important;
-  font-family: "Open Sans" !important;
+  /* font-family: "Open Sans" !important; */
   max-width: 780px;
   margin: auto !important;
 }
@@ -49,4 +49,10 @@
 .ql-editor img {
   max-width: 100%;
   height: auto;
+}
+.ql-editor table {
+  width: 100%;
+}
+.ql-editor table td {
+  border: 1px solid #dee2e6;
 }

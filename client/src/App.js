@@ -103,7 +103,6 @@ class App extends React.Component {
               <nav className="navbar navbar-expand" id="fixedNavbar">
                 <Link to={"/"} id="LogoNav">
                   <div className="DoanStackLogo">
-                    <div className="DoanStackLogoImg"></div>
                     <div className="DoanStackLogoName">
                       <p id="LogoText">DoanStack</p>
                     </div>
@@ -117,12 +116,12 @@ class App extends React.Component {
                   </li>
                   <li className="nav-item">
                     <Link to={"/blog"} className="nav-link">
-                      Blog
+                      News
                     </Link>
                   </li>
                   <li className="nav-item">
                     <Link to={"/shop"} className="nav-link">
-                      Eshop
+                      Shop
                     </Link>
                   </li>
                 </div>
@@ -141,12 +140,12 @@ class App extends React.Component {
                         </li>
                         <li className="mobilenav-item" id="MobileBlog" onClick={this.handleClick}>
                           <Link to={"/blog"} className="nav-link">
-                            Blog
+                            News
                           </Link>
                         </li>
                         <li className="mobilenav-item" id="MobileShop" onClick={this.handleClick}>
                           <Link to={"/shop"} className="nav-link">
-                            Eshop
+                            Shop
                           </Link>
                         </li>
 
@@ -206,7 +205,7 @@ class App extends React.Component {
                         </li>
                         <li className="mobilenav-item" id="MobileBlog" onClick={this.handleClick}>
                           <Link to={"/blog"} className="nav-link">
-                            Blog
+                            News
                           </Link>
                         </li>
                         <li className="mobilenav-item" id="MobileShop" onClick={this.handleClick}>

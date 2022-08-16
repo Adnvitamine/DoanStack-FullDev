@@ -37,7 +37,7 @@ class BlogHome extends Component {
     return (
       <Fragment>
       <div id="TitleLink">
-        <h2>Blog</h2>
+        <h2>NEWS</h2>
       </div>
         <div className="BrowserNavbar">
           <p>Read all my topics - DoanStack.com</p>

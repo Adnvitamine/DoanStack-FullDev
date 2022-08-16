@@ -81,7 +81,7 @@
 }
 
 #createButton p {
-  font-family: Oxygen;
+  /* font-family: Oxygen; */
   margin: 0;
   padding: 0;
   border: none;
@@ -175,7 +175,7 @@
 }
 
 #uploadButton p {
-  font-family: Oxygen;
+  /* font-family: Oxygen; */
   margin: 0;
   padding: 0;
   border: none;
@@ -294,7 +294,7 @@
 }
 
 .miniDeleteButton p {
-  font-family: Oxygen;
+  /* font-family: Oxygen; */
   margin: 0;
   padding: 0;
   border: none;
@@ -340,7 +340,7 @@
 }
 
 #miniViewButton p {
-  font-family: Oxygen;
+  /* font-family: Oxygen; */
   margin: 0;
   padding: 0;
   border: none;
@@ -384,7 +384,7 @@
 }
 
 #editButton p {
-  font-family: Oxygen;
+  /* font-family: Oxygen; */
   margin: 0;
   padding: 0;
   border: none;
@@ -453,7 +453,7 @@
 }
 
 #miniEditButton p {
-  font-family: Oxygen;
+  /* font-family: Oxygen; */
   margin: 0;
   padding: 0;
   border: none;

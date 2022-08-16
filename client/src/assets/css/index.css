@@ -1,60 +1,39 @@
-@font-face {
-  font-family: Oxygen;
-  src: url(../fonts/Oxygen-Regular.ttf);
+html{
+  scroll-behavior: smooth;
 }
 
 @font-face {
-  font-family: OxygenBold;
-  src: url(../fonts/Oxygen-Bold.ttf);
+  font-family: "PublicSans-Regular";
+  src: url(../fonts/PublicSans-Regular.ttf);
 }
 
 @font-face {
-  font-family: MontR;
-  src: url(../fonts/Montserrat-Regular.ttf);
+  font-family: "PublicSans-SemiBold";
+  src: url(../fonts/PublicSans-SemiBold.ttf);
 }
 
 @font-face {
-  font-family: MontB;
-  src: url(../fonts/Montserrat-Bold.ttf);
+  font-family: "PublicSans-ExtraBold";
+  src: url(../fonts/PublicSans-ExtraBold.ttf);
 }
 
 @font-face {
-  font-family: MontI;
-  src: url(../fonts/Montserrat-Italic.ttf);
+  font-family: "PublicSans-SemiBoldItalic";
+  src: url(../fonts/PublicSans-SemiBoldItalic.ttf);
 }
 
 @font-face {
-  font-family: MontIB;
-  src: url(../fonts/Montserrat-BoldItalic.ttf);
+  font-family: "PublicSans-BoldItalic";
+  src: url(../fonts/PublicSans-BoldItalic.ttf);
 }
 
 @font-face {
-  font-family: RobotR;
-  src: url(../fonts/Roboto-Regular.ttf);
+  font-family: "PublicSans-ExtraBoldItalic";
+  src: url(../fonts/PublicSans-ExtraBoldItalic.ttf);
 }
 
-@font-face {
-  font-family: RobotB;
-  src: url(../fonts/Roboto-Bold.ttf);
-}
-
-@font-face {
-  font-family: RobotI;
-  src: url(../fonts/Roboto-Italic.ttf);
-}
-
-@font-face {
-  font-family: RobotIB;
-  src: url(../fonts/Roboto-BoldItalic.ttf);
-}
-
-@font-face {
-  font-family: LatoReg;
-  src: url(../fonts/Lato-Regular.ttf);
-}
 body {
   margin: 0;
-  font-family: "Open Sans";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   --ck-z-default: 100;
@@ -69,7 +48,7 @@ body {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  font-family: "Open Sans";
+  font-family: "PublicSans-Regular";
   font-size: 17px;
   line-height: 1.5 !important;
   letter-spacing: 0.01rem;
@@ -92,7 +71,7 @@ body {
   position: relative;
   left: 5px;
   min-width: 100px;
-  background-color: rgba(0, 0, 0, 0.1);
+  background-color: rgba(10, 10, 10, 0.5);
   border-radius: 100px;
   margin: 0;
   margin-right: 50px;
@@ -107,8 +86,8 @@ body {
   transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 .names {
+  font-family: "PublicSans-SemiBold";
   font-size: 10px;
-  font-weight: bolder;
   width: 65%;
   margin-left: 17.5%;
   margin-top: 0.5%;
@@ -117,8 +96,14 @@ body {
   justify-content: space-between;
   user-select: none;
 }
+
+.light{
+  opacity: 1;
+}
+
 .dark {
-  opacity: 0.5;
+  color: white;
+  opacity: 1;
 }
 
 #switch:checked + #FullFrame {
@@ -128,21 +113,87 @@ body {
 #switch:checked + #FullFrame #fixedNavbar {
   background-color: black;
 }
+
+#switch:checked + #FullFrame #fixedNavbar .nav-link{
+  color: #01c6fd;
+  transition: color 1s;
+}
+
+#switch:checked + #FullFrame #fixedNavbar .nav-item:hover .nav-link{
+  color: orange;
+  transition: color 1s;
+}
+
+#switch:checked + #FullFrame .DoanStackLogo{
+  box-shadow: 5px 5px 6px #01c6fd, -5px -5px 6px #01c6fd;
+  transition: background 1s, box-shadow 1s;
+}
+
+
+#switch:checked + #FullFrame #fixedNavbar #LogoNav .DoanStackLogo{
+  background-color: black;
+}
+
 #switch:checked + #FullFrame #fixedNavbar #Label {
   color: white;
 }
-#switch:checked + #FullFrame #TitleLink {
-  background-color: rgba(0, 0, 0, 1);
+
+#switch:checked + #FullFrame .homeFrameOne{
+  margin: auto;
+  min-height: 100vh;
+  width: 100%;
+  background: url('https://images.unsplash.com/photo-1622988766425-8ecbae9cef6c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80');
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  transition: background 1s;
 }
+
+#switch:checked + #FullFrame .anchorLink a{
+  color: #01c6fd;
+  text-decoration: none;
+  transition: color 1s linear;
+}
+
+#switch:checked + #FullFrame .anchorLink a:hover{
+  color: orange;
+  text-decoration: none;
+  transition: color 1s linear;
+}
+
+#switch:checked + #FullFrame .homeFrameTwo{
+  margin: auto;
+  min-height: 100vh;
+  width: 100%;
+  background: url('https://images.unsplash.com/photo-1503437313881-503a91226402?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1932&q=80');
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  transition: background 1s;
+}
+
+#switch:checked + #FullFrame .homeFrameThree{
+  margin: auto;
+  min-height: 100vh;
+  width: 100%;
+  background: url('https://images.unsplash.com/photo-1529589402286-203183a8259e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2074&q=80');
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  transition: background 1s;
+}
+
 
 #switch:checked + #FullFrame #TitleLink h2 {
   font-size: 2vw;
-  background: linear-gradient(rgba(6, 2, 247, 1), rgb(255, 0, 0, 1));
+  background: linear-gradient(yellow, red);
   /* clip hackery */
   background-clip: text;
   -webkit-text-fill-color: transparent;
-  animation: fontSizeReverse 1s linear reverse,
-    neon2 3s ease-in-out infinite alternate;
+  animation: fontSizeReverse 1s linear reverse;
 }
 #switch:checked + #FullFrame .mainBoard .homeBody #InlineSVG_2 {
   stroke: white;
@@ -209,17 +260,8 @@ body {
 #switch:checked + #FullFrame .shopFrame {
   background-color: black;
 }
-
-#switch:checked
-  + #FullFrame
-  .mainBoard
-  #ShopBody
-  #ShopHome
-  #ShopHomeProducts
-  #ShopLink
-  .shopFrame
-  .shopInfo {
-  background-color: black;
+#switch:checked + #FullFrame .shopFrame:hover{
+  box-shadow: inset 0 0 2px 2px orange;
 }
 
 #switch:checked
@@ -420,9 +462,10 @@ body {
 #switch:checked + #FullFrame .mainBoard #BlogBody .blogFrame {
   background-color: black;
 }
+
 #switch:checked + #FullFrame .mainBoard #BlogBody .blogFrame ul {
-  background-color: #fc6384;
-}
+  box-shadow: inset 0 0 3px 2px orange;
+ }
 
 #switch:checked + #FullFrame .mainBoard #BlogBody .blogFrame ul li {
   color: white !important;
@@ -433,7 +476,7 @@ body {
 }
 
 #switch:checked + #FullFrame .mainBoard #BlogBody .blogFrame:hover {
-  box-shadow: inset 0px -1px 4px #ffe601, inset -1px 0px 4px #ff7300;
+  box-shadow: inset 0 0 2px 2px orange;
 }
 
 #switch:checked + #FullFrame .mainBoard #ProfileFrame #userProfile:hover {
@@ -594,17 +637,15 @@ body {
   }
 }
 
-@keyframes neon2 {
+/* @keyframes neon2 {
   to {
     background: linear-gradient(orange, yellow);
     background-clip: text;
     -webkit-text-fill-color: transparent;
-    text-shadow: 0 0 5px rgba(255, 248, 0, 0.5), 0 0 7px rgba(255, 248, 0, 0.5),
-      0 0 9px rgba(255, 248, 0, 0.5), 0 0 11px rgba(255, 248, 0, 0.5),
-      0 0 13px rgba(255, 248, 0, 0.5), 0 0 15px rgba(255, 248, 0, 0.5),
-      0 0 17px rgba(255, 248, 0, 0.5), 0 0 19px rgba(255, 248, 0, 0.5);
+    text-shadow: 0 0 1px rgba(255, 248, 0, 0.5), 0 0 2px rgba(255, 248, 0, 0.5),
+      0 0 3px rgba(255, 72, 0, 0.5), 0 0 4px rgba(255, 72, 0, 0.5);
   }
-}
+} */
 
 #switch:checked + #FullFrame #fixedNavbar .toggle {
   transform: translateX(100%);

@@ -134,7 +134,7 @@ const ShopAllProducts = ({ currentUser }) => {
       {pagesArray.map((page)=>(<div key={page}>
         {(currentPage===page && (<button className="btn btn-success" onClick={() => pageChange(page)} style={{padding: "2px 5px", marginRight: "5px"}}>
         {page}
-      </button>))||(<button className="btn btn-primary" onClick={() => pageChange(page)} style={{padding: "2px 5px", marginRight: "5px"}}>
+      </button>))||(<button className="btn btn-warning" onClick={() => pageChange(page)} style={{padding: "2px 5px", marginRight: "5px"}}>
         {page}
       </button>)}
       

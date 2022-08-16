@@ -111,7 +111,7 @@ const CreateArticle = ({ currentUser }) => {
         <div className="ComponentTitle">
           <div>
             {" "}
-            <h1>Add a new article</h1>
+            <h1>New post</h1>
           </div>
         </div>
         <div className="form-row">

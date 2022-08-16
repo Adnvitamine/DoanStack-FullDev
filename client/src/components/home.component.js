@@ -1,6 +1,5 @@
 import React from "react";
 import { Fragment } from "react";
-import HomeSVG from "./homeSVG";
 import UserService from "../services/user.service";
 
 export default class Home extends React.Component {
@@ -33,14 +32,39 @@ export default class Home extends React.Component {
   render() {
     return (
       <Fragment>
-      <div id="TitleLink">
-        <h2>Coding from scratch!</h2>
-      </div>
+      <div className="homeFrameOne">
+        <a id="INTRO" href="./"> </a>
+        <div id="TitleLink"></div>
         <div className="BrowserNavbar">
-          <p>"A fullstack developer's journey"</p>
+          <p>"A Web Developer's journey"</p>
         </div>
-        <div className="homeBody">
-          <HomeSVG />
+        <div className="anchorLink">
+        <div className="anchorFrameTwo">
+            <a href="#INTRO"><h2>.Intro</h2></a>
+          </div>
+          <div className="anchorFrameTwo">
+            <a href="#ABOUT"><h2>.About Me</h2></a>
+          </div>
+          <div className="anchorFrameThree">
+            <a href="#SKILLS"><h2>.My Skills</h2></a>
+          </div>
+          <div className="anchorFrameFour">
+            <a href="#AboutDoanStack"><h2>.DoanStack</h2></a>
+          </div>
+        </div>
+        
+        </div>
+
+        <div className="homeFrameTwo">
+          <a id="ABOUT" href="./"> </a>
+        </div>
+
+        <div className="homeFrameThree">
+        <a id="SKILLS" href="./"> </a>
+        </div>
+
+        <div className="homeFrameFour">
+        <a id="AboutDoanStack" href="./"> </a>
         </div>
       </Fragment>
     );

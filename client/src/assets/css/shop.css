@@ -10,6 +10,7 @@
 
 #ShopNav {
   position: relative;
+  font-family: "PublicSans-SemiBold";
   width: 100%;
   margin: auto;
   margin-top: 5px;
@@ -61,12 +62,13 @@
   margin-right: 10px;
   background-color: white;
   border: 1px solid rgba(182, 182, 182, 0.877);
+  border-radius: 10px;
   width: 300px;
   overflow: hidden;
 }
 
 .shopFrame:hover {
-  box-shadow: inset 0px -1px 4px #1101ff, inset -1px 0px 4px #ff2600;
+  box-shadow: inset 0px -1px 4px orange, inset -1px 0px 4px red;
   transition: box-shadow 2s;
 }
 
@@ -102,7 +104,7 @@
 .shopBody {
   width: 100%;
   max-width: 336px;
-  font-family: "Open Sans";
+  /* font-family: "Open Sans"; */
   font-size: 14px;
   height: 250px;
   margin: auto;
@@ -326,14 +328,14 @@
 }
 
 .relatedProducts:hover {
-  box-shadow: 0px 2px 0px rgba(255, 0, 0, 1), 0px 4px 0px rgba(6, 1, 255, 1),
-    0px -2px 0px rgba(6, 1, 255, 1), 0px -4px 0px rgba(255, 0, 0, 1);
+  box-shadow: 0px 2px 0px yellow, 0px 4px 0px red,
+    0px -2px 0px red, 0px -4px 0px yellow;
   transition: box-shadow 2s;
 }
 
 .relatedProducts:hover h1 {
   font-size: 40px;
-  background: linear-gradient(rgba(6, 2, 247, 1), rgb(255, 0, 0, 1));
+  background: linear-gradient(yellow, red);
   /* clip hackery */
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -373,8 +375,8 @@
   clear: both;
 }
 .rateThisProduct:hover {
-  box-shadow: 0px 2px 0px rgba(255, 0, 0, 1), 0px 4px 0px rgba(6, 1, 255, 1),
-    0px -2px 0px rgba(6, 1, 255, 1), 0px -4px 0px rgba(255, 0, 0, 1);
+  box-shadow: 0px 2px 0px yellow, 0px 4px 0px red,
+    0px -2px 0px red, 0px -4px 0px yellow;
 
   transition: box-shadow 2s;
 }
@@ -385,7 +387,7 @@
 
 .rateThisProduct:hover h1 {
   font-size: 40px;
-  background: linear-gradient(rgba(6, 2, 247, 1), rgb(255, 0, 0, 1));
+  background: linear-gradient(yellow, red);
   /* clip hackery */
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -531,8 +533,8 @@
 }
 
 .reviewProduct:hover {
-  box-shadow: 0px 2px 0px rgba(255, 0, 0, 1), 0px 4px 0px rgba(6, 1, 255, 1),
-    0px -2px 0px rgba(6, 1, 255, 1), 0px -4px 0px rgba(255, 0, 0, 1);
+  box-shadow: 0px 2px 0px yellow, 0px 4px 0px red,
+    0px -2px 0px red, 0px -4px 0px yellow;
   transition: box-shadow 2s;
 }
 
@@ -542,7 +544,7 @@
 }
 .reviewProduct:hover h1 {
   font-size: 40px;
-  background: linear-gradient(rgba(6, 2, 247, 1), rgb(255, 0, 0, 1));
+  background: linear-gradient(yellow, red);
   /* clip hackery */
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -558,8 +560,8 @@
   padding-bottom: 20px;
 }
 .readReviews:hover {
-  box-shadow: 0px 2px 0px rgba(255, 0, 0, 1), 0px 4px 0px rgba(6, 1, 255, 1),
-    0px -2px 0px rgba(6, 1, 255, 1), 0px -4px 0px rgba(255, 0, 0, 1);
+  box-shadow: 0px 2px 0px yellow, 0px 4px 0px red,
+    0px -2px 0px red, 0px -4px 0px yellow;
 
   transition: box-shadow 2s;
 }
@@ -576,7 +578,7 @@
 
 .readReviews:hover h1 {
   font-size: 40px;
-  background: linear-gradient(rgba(6, 2, 247, 1), rgb(255, 0, 0, 1));
+  background: linear-gradient(yellow, red);
   /* clip hackery */
   background-clip: text;
   -webkit-text-fill-color: transparent;

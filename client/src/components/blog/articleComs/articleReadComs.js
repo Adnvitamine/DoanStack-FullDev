@@ -28,8 +28,7 @@ const ArticleReadComs = ({ articleId, articleName }) => {
         <div className="ComponentTitle">
           <div>
           <h1>
-              0 comment for 
-              <span style={{ color: "blue" }}> {articleName}</span>
+              No comment yet
             </h1>
           </div>
         </div>

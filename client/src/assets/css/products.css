@@ -7,8 +7,8 @@
 }
 
 #productsList:hover {
-  box-shadow: 0px 2px 0px rgba(255, 0, 0, 1), 0px 4px 0px rgba(6, 1, 255, 1),
-    0px -2px 0px rgba(6, 1, 255, 1), 0px -4px 0px rgba(255, 0, 0, 1);
+  box-shadow: 0px 2px 0px yellow, 0px 4px 0px red,
+    0px -2px 0px red, 0px -4px 0px yellow;
   width: 100%;
   transition: box-shadow 2s, background-color 2s linear;
 }
@@ -24,8 +24,8 @@
 }
 
 #productCreate:hover {
-  box-shadow: 0px 2px 0px rgba(255, 0, 0, 1), 0px 4px 0px rgba(6, 1, 255, 1),
-    0px -2px 0px rgba(6, 1, 255, 1), 0px -4px 0px rgba(255, 0, 0, 1);
+  box-shadow: 0px 2px 0px yellow, 0px 4px 0px red,
+    0px -2px 0px red, 0px -4px 0px yellow;
   width: 100%;
   transition: box-shadow 2s, background-color 2s linear;
 }
@@ -100,16 +100,16 @@ p[data-value]:after {
   border-radius: 10px;
   background: #f5f6f7;
   box-shadow: -5px 5px 4px rgba(197, 227, 255, 0.5),
-    5px 0px 4px rgba(255, 195, 207, 0.5);
+    5px 0px 4px rgba(197, 227, 255, 0.5);
   padding-bottom: 20px;
   margin-bottom: 20px;
-  transition: box-shadow 2s;
+  transition: box-shadow 1s;
 }
 
 .uploadContainer:hover {
-  box-shadow: -5px 5px 4px rgba(119, 132, 198, 0.5),
-    5px 0px 4px rgba(214, 47, 121, 0.5);
-  transition: box-shadow 2s;
+  box-shadow: -5px 5px 4px #8ac3ff,
+    5px 0px 4px #8ac3ff;
+  transition: box-shadow 1s;
 }
 
 .file-upload {
@@ -363,7 +363,7 @@ p[data-value]:after {
 .productCardDescription {
   width: 100%;
   max-width: 336px;
-  font-family: "Open Sans";
+  /* font-family: "Open Sans"; */
   font-size: 14px;
   height: 250px;
   margin: auto;

@@ -48,8 +48,8 @@ const ListProducts = ({ currentUser }) => {
       <div className="container text-center" id="productsList">
         <div className="ComponentTitle">
           <div>
-            <h1>
-              All {currentUser.username}'s products ({products.length})
+          <h1>
+              {currentUser.username}'s products ({products.length})
             </h1>
           </div>
         </div>
@@ -116,24 +116,6 @@ const ListProducts = ({ currentUser }) => {
               </button>
             </div>
           </div>
-
-          /*<tr key={product.id}>
-            <td>{product.name}</td>
-            <td>{product.image}</td>
-            <td>{product.category}</td>
-            <td>{product.price}$</td>
-            <td>{product.vendor}</td>
-            {product.status === false &&
-            <td>Waiting</td>
-            }
-            {product.status === true &&
-            <td>On Sale</td>
-            }
-            <td><ViewProduct product={product} /></td>                      
-            <td><EditProduct product={product} /></td>
-            <td><button id="miniDeleteButton" onClick={()=> deleteProduct(product.id)} ><i className="las la-trash-alt"><p>Delete</p></i></button></td>
-        </tr>
-        */
         ))}
       </div>
     </Fragment>

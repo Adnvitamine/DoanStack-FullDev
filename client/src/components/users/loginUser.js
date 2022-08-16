@@ -47,10 +47,10 @@ const LoginUser = () =>{
     return(
         <Fragment>
                 <div id="TitleLink">
-                <h2>Log In</h2>
+                <h2>LOG IN</h2>
                 </div>
                 <div className="BrowserNavbar">
-                    <p>Log in to access my Eshop project!</p>
+                    <p>Login to access my Shop project!</p>
                 </div>
                 <div className="col-md-12" id="Register">
                     <div className="card card-container">

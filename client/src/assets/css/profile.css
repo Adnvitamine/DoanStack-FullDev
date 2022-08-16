@@ -13,8 +13,8 @@
 }
 
 #userProfile:hover {
-  box-shadow: 0px 2px 0px rgba(255, 0, 0, 1), 0px 4px 0px rgba(6, 1, 255, 1),
-    0px -2px 0px rgba(6, 1, 255, 1), 0px -4px 0px rgba(255, 0, 0, 1);
+  box-shadow: 0px 2px 0px yellow, 0px 4px 0px red,
+    0px -2px 0px red, 0px -4px 0px yellow;
   padding-bottom: 20px;
   transition: box-shadow 2s;
 }
@@ -24,11 +24,17 @@
   border-radius: 10px;
   background: #f5f6f7;
   box-shadow: -5px 5px 4px rgba(197, 227, 255, 0.5),
-    5px 0px 4px rgba(255, 195, 207, 0.5);
+    5px 0px 4px rgba(197, 227, 255, 0.5);
   display: inline-block;
   margin: auto;
   margin-bottom: 10px;
   transition: box-shadow 2s;
+}
+
+#profileCard:hover {
+  box-shadow: -5px 5px 4px #8ac3ff,
+    5px 0px 4px #8ac3ff;
+  transition: box-shadow 1s;
 }
 
 #profileCard p {
@@ -50,8 +56,8 @@
 }
 
 #userEdit:hover {
-  box-shadow: 0px 2px 0px rgba(255, 0, 0, 1), 0px 4px 0px rgba(6, 1, 255, 1),
-    0px -2px 0px rgba(6, 1, 255, 1), 0px -4px 0px rgba(255, 0, 0, 1);
+  box-shadow: 0px 2px 0px yellow, 0px 4px 0px red,
+    0px -2px 0px red, 0px -4px 0px yellow;
   padding-bottom: 20px;
   transition: box-shadow 2s, background-color 2s linear;
 }
@@ -67,9 +73,16 @@
   border-radius: 10px;
   background: #f5f6f7;
   box-shadow: -5px 5px 4px rgba(197, 227, 255, 0.5),
-    5px 0px 4px rgba(255, 195, 207, 0.5);
+    5px 0px 4px rgba(197, 227, 255, 0.5);
   padding: 25px 0px 25px 0px;
   margin: auto;
   margin-top: 20px;
   padding: 2rem;
+  transition: box-shadow 1s;
+}
+
+.editUserForm form:hover {
+  box-shadow: -5px 5px 4px #8ac3ff,
+    5px 0px 4px #8ac3ff;
+  transition: box-shadow 1s;
 }
