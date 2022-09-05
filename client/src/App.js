@@ -1,12 +1,8 @@
 import React from "react";
 import { Fragment } from "react";
 import { BrowserRouter } from "react-router-dom";
-import ReactDOMServer from 'react-dom/server';
-import {
-  Switch,
-  Route,
-  Link
-} from "react-router-dom";
+import ReactDOMServer from "react-dom/server";
+import { Switch, Route, Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "react-image-gallery/styles/css/image-gallery.css";
 import "./assets/css/App.css";
@@ -55,12 +51,11 @@ class App extends React.Component {
       showModeratorBoard: false,
       showAdminBoard: false,
       currentUser: undefined,
-      isToggleOn: true
+      isToggleOn: true,
     };
 
     this.handleClick = this.handleClick.bind(this);
     this.handleClickTrue = this.handleClickTrue.bind(this);
- 
   }
 
   componentDidMount() {
@@ -76,15 +71,14 @@ class App extends React.Component {
   }
 
   handleClick() {
-    this.setState(state => ({
-      isToggleOn: !state.isToggleOn
+    this.setState((state) => ({
+      isToggleOn: !state.isToggleOn,
     }));
-    
   }
 
   handleClickTrue() {
-    this.setState(state => ({
-      isToggleOn: true
+    this.setState((state) => ({
+      isToggleOn: true,
     }));
   }
 
@@ -98,230 +92,277 @@ class App extends React.Component {
     return (
       <BrowserRouter>
         <Fragment>
-            <input id="switch" type="checkbox" />
-            <div id="FullFrame">
-              <nav className="navbar navbar-expand" id="fixedNavbar">
-                <Link to={"/"} id="LogoNav">
-                  <div className="DoanStackLogo">
-                    <div className="DoanStackLogoName">
-                      <p id="LogoText">DoanStack</p>
-                    </div>
-                  </div>
-                </Link>
-                <div className="navbar-nav mr-auto" id="leftMenu">
-                  <li className="nav-item">
-                    <Link to={"/home"} className="nav-link">
-                      Home
-                    </Link>
-                  </li>
-                  <li className="nav-item">
-                    <Link to={"/blog"} className="nav-link">
-                      News
-                    </Link>
-                  </li>
-                  <li className="nav-item">
-                    <Link to={"/shop"} className="nav-link">
-                      Shop
-                    </Link>
-                  </li>
-                </div>
-                <div id="MobileMenu">
-                  <div id="menuToggle">
-                    {this.state.isToggleOn ? <input type="checkbox" id="menuToggleInput"></input>:<input type="checkbox" id="menuToggleInput1" onClick={this.handleClickTrue}></input>}
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    {currentUser ? (
-                      <ul id={this.state.isToggleOn ? "menu":"menu1"}>
-                        <li className="mobilenav-item" id="MobileHome" onClick={this.handleClick}>
-                          <Link to={"/home"} className="nav-link">
-                            Home
-                          </Link>
-                        </li>
-                        <li className="mobilenav-item" id="MobileBlog" onClick={this.handleClick}>
-                          <Link to={"/blog"} className="nav-link">
-                            News
-                          </Link>
-                        </li>
-                        <li className="mobilenav-item" id="MobileShop" onClick={this.handleClick}>
-                          <Link to={"/shop"} className="nav-link">
-                            Shop
-                          </Link>
-                        </li>
-
-                        {showModeratorBoard && (
-                          <li className="mobilenav-item" onClick={this.handleClick}>
-                            <Link to={"/mod"} className="nav-link">
-                              Posts
-                            </Link>
-                          </li>
-                        )}
-
-                        {currentUser && (
-                          <li className="mobilenav-item" onClick={this.handleClick}>
-                            <Link to={"/user"} className="nav-link">
-                              Products
-                            </Link>
-                          </li>
-                        )}
-
-                        {currentUser && !showAdminBoard && (
-                          <li className="mobilenav-item" onClick={this.handleClick}>
-                            <Link to={"/mail"} className="nav-link">
-                              Mail
-                            </Link>
-                          </li>
-                        )}
-                        
-                        {showAdminBoard && (
-                          <li className="mobilenav-item"  onClick={this.handleClick}>
-                            <Link to={"/admin"} className="nav-link">
-                              Admin
-                            </Link>
-                          </li>
-                        )}
-
-                        <li className="mobilenav-item" onClick={this.handleClick}>
-                          <Link to={"/profile"} className="nav-link" >
-                            {currentUser.username}
-                          </Link>
-                        </li>
-                        <li className="mobilenav-item" onClick={this.handleClick}>
-                          <a
-                            href="/login"
-                            className="nav-link"
-                            onClick={this.logOut}
-                          >
-                            <i className="fas fa-sign-out-alt"></i>
-                          </a>
-                        </li>
-                      </ul>
-                    ) : (
-                      <ul id="menu">
-                        <li className="mobilenav-item" id="MobileHome" onClick={this.handleClick}>
-                          <Link to={"/home"} className="nav-link">
-                            Home
-                          </Link>
-                        </li>
-                        <li className="mobilenav-item" id="MobileBlog" onClick={this.handleClick}>
-                          <Link to={"/blog"} className="nav-link">
-                            News
-                          </Link>
-                        </li>
-                        <li className="mobilenav-item" id="MobileShop" onClick={this.handleClick}>
-                          <Link to={"/shop"} className="nav-link">
-                            Shop
-                          </Link>
-                        </li>
-                        <li className="mobilenav-item" onClick={this.handleClick}>
-                          <Link to={"/register"} className="nav-link">
-                            Sign Up
-                          </Link>
-                        </li>
-                        <li className="mobilenav-item" onClick={this.handleClick}>
-                          <Link to={"/login"} className="nav-link">
-                            Log In
-                          </Link>
-                        </li>
-                      </ul>
-                    )}
+          <input id="switch" type="checkbox" />
+          <div id="FullFrame">
+            <nav className="navbar navbar-expand" id="fixedNavbar">
+              <Link to={"/"} id="LogoNav">
+                <div className="DoanStackLogo">
+                  <div className="DoanStackLogoName">
+                    <p id="LogoText">DoanStack</p>
                   </div>
                 </div>
-
-                {currentUser ? (
-                  <div className="navbar-nav ml-auto" id="rightMenu">
-                    
-                    {showModeratorBoard && (
-                      <li className="nav-item">
-                        <Link to={"/mod"} className="nav-link">
-                          Posts
-                        </Link>
-                      </li>
-                    )}
-                    
-                    {currentUser && (
-                      <li className="nav-item">
-                        <Link to={"/user"} className="nav-link">
-                          Products
-                        </Link>
-                      </li>
-                    )}
-                    
-                    {currentUser && !showAdminBoard && (
-                      <li className="nav-item">
-                        <Link to={"/mail"} className="nav-link">
-                          Mail
-                        </Link>
-                      </li>
-                    )}
-
-                    {showAdminBoard && (
-                      <li className="nav-item">
-                        <Link to={"/admin"} className="nav-link">
-                          Admin
-                        </Link>
-                      </li>
-                    )}
-                    
-                    <li className="nav-item">
-                      <Link to={"/profile"} className="nav-link">
-                        {currentUser.username}
-                      </Link>
-                    </li>
-                    <li className="nav-item">
-                      <a
-                        href="/login"
-                        className="nav-link"
-                        onClick={this.logOut}
-                      >
-                        <i className="fas fa-sign-out-alt"></i>
-                      </a>
-                    </li>
-                  </div>
-                ) : (
-                  <div className="navbar-nav ml-auto" id="rightMenu">
-                    <li className="nav-item">
-                      <Link to={"/register"} className="nav-link">
-                        Sign Up
-                      </Link>
-                    </li>
-                    <li className="nav-item">
-                      <Link to={"/login"} className="nav-link">
-                        Log In
-                      </Link>
-                    </li>
-                  </div>
-                )}
-                <label htmlFor="switch" id="Label">
-                  <div className="toggle"></div>
-                  <div className="names">
-                    <p className="light">Light</p>
-                    <p className="dark">Dark</p>
-                  </div>
-                </label>
-              </nav>
-
-              <div className="mainBoard">
-                <Switch>
-                  <Route exact path={["/", "/home"]} component={Home} />
-                  <Route exact path="/blog" component={Blog} />
-                  <Route exact path="/blog/:category" component={BlogCateg} />
-                  <Route exact path="/blog/:category/:id/:title" component={BlogId} />
-                  <Route exact path="/shop" component={Shop} />
-                  <Route exact path="/shop/:category" component={ShopCateg} />
-                  <Route exact path="/shop/:category/:id/:title" component={ShopId} />
-                  <Route exact path="/register" component={Subscribe} />
-                  <Route exact path="/login" component={SignIn} />
-                  <Route exact path="/profile" component={Profile} />
-                  <Route path="/user" component={BoardUser} />
-                  <Route path="/mail" component={BoardMail} />
-                  <Route path="/mod" component={BoardModerator} />
-                  <Route path="/admin" component={BoardAdmin} />
-                </Switch>
+              </Link>
+              <div className="navbar-nav" id="leftMenu">
+                <li className="nav-item">
+                  <Link to={"/home"} className="nav-link">
+                    Home
+                  </Link>
+                </li>
+                <li className="nav-item">
+                  <Link to={"/blog"} className="nav-link">
+                    News
+                  </Link>
+                </li>
+                <li className="nav-item">
+                  <Link to={"/shop"} className="nav-link">
+                    Shop
+                  </Link>
+                </li>
               </div>
-              <Footer />
+              <div id="MobileMenu">
+                <div id="menuToggle">
+                  {this.state.isToggleOn ? (
+                    <input type="checkbox" id="menuToggleInput"></input>
+                  ) : (
+                    <input
+                      type="checkbox"
+                      id="menuToggleInput1"
+                      onClick={this.handleClickTrue}
+                    ></input>
+                  )}
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  {currentUser ? (
+                    <ul id={this.state.isToggleOn ? "menu" : "menu1"}>
+                      <li
+                        className="mobilenav-item"
+                        id="MobileHome"
+                        onClick={this.handleClick}
+                      >
+                        <Link to={"/home"} className="nav-link">
+                          Home
+                        </Link>
+                      </li>
+                      <li
+                        className="mobilenav-item"
+                        id="MobileBlog"
+                        onClick={this.handleClick}
+                      >
+                        <Link to={"/blog"} className="nav-link">
+                          News
+                        </Link>
+                      </li>
+                      <li
+                        className="mobilenav-item"
+                        id="MobileShop"
+                        onClick={this.handleClick}
+                      >
+                        <Link to={"/shop"} className="nav-link">
+                          Shop
+                        </Link>
+                      </li>
+
+                      {showModeratorBoard && (
+                        <li
+                          className="mobilenav-item"
+                          onClick={this.handleClick}
+                        >
+                          <Link to={"/mod"} className="nav-link">
+                            Posts
+                          </Link>
+                        </li>
+                      )}
+
+                      {currentUser && (
+                        <li
+                          className="mobilenav-item"
+                          onClick={this.handleClick}
+                        >
+                          <Link to={"/user"} className="nav-link">
+                            Products
+                          </Link>
+                        </li>
+                      )}
+
+                      {currentUser && !showAdminBoard && (
+                        <li
+                          className="mobilenav-item"
+                          onClick={this.handleClick}
+                        >
+                          <Link to={"/mail"} className="nav-link">
+                            Mail
+                          </Link>
+                        </li>
+                      )}
+
+                      {showAdminBoard && (
+                        <li
+                          className="mobilenav-item"
+                          onClick={this.handleClick}
+                        >
+                          <Link to={"/admin"} className="nav-link">
+                            Admin
+                          </Link>
+                        </li>
+                      )}
+
+                      <li className="mobilenav-item" onClick={this.handleClick}>
+                        <Link to={"/profile"} className="nav-link">
+                          {currentUser.username}
+                        </Link>
+                      </li>
+                      <li className="mobilenav-item" onClick={this.handleClick}>
+                        <a
+                          href="/login"
+                          className="nav-link"
+                          onClick={this.logOut}
+                        >
+                          <i className="fas fa-sign-out-alt"></i>
+                        </a>
+                      </li>
+                    </ul>
+                  ) : (
+                    <ul id="menu">
+                      <li
+                        className="mobilenav-item"
+                        id="MobileHome"
+                        onClick={this.handleClick}
+                      >
+                        <Link to={"/home"} className="nav-link">
+                          Home
+                        </Link>
+                      </li>
+                      <li
+                        className="mobilenav-item"
+                        id="MobileBlog"
+                        onClick={this.handleClick}
+                      >
+                        <Link to={"/blog"} className="nav-link">
+                          News
+                        </Link>
+                      </li>
+                      <li
+                        className="mobilenav-item"
+                        id="MobileShop"
+                        onClick={this.handleClick}
+                      >
+                        <Link to={"/shop"} className="nav-link">
+                          Shop
+                        </Link>
+                      </li>
+                      <li className="mobilenav-item" onClick={this.handleClick}>
+                        <Link to={"/register"} className="nav-link">
+                          SignUp
+                        </Link>
+                      </li>
+                      <li className="mobilenav-item" onClick={this.handleClick}>
+                        <Link to={"/login"} className="nav-link">
+                          LogIn
+                        </Link>
+                      </li>
+                    </ul>
+                  )}
+                </div>
+              </div>
+
+              {currentUser ? (
+                <div className="navbar-nav ml-auto" id="rightMenu">
+                  {showModeratorBoard && (
+                    <li className="nav-item">
+                      <Link to={"/mod"} className="nav-link">
+                        Posts
+                      </Link>
+                    </li>
+                  )}
+
+                  {currentUser && (
+                    <li className="nav-item">
+                      <Link to={"/user"} className="nav-link">
+                        Products
+                      </Link>
+                    </li>
+                  )}
+
+                  {currentUser && !showAdminBoard && (
+                    <li className="nav-item">
+                      <Link to={"/mail"} className="nav-link">
+                        Mail
+                      </Link>
+                    </li>
+                  )}
+
+                  {showAdminBoard && (
+                    <li className="nav-item">
+                      <Link to={"/admin"} className="nav-link">
+                        Admin
+                      </Link>
+                    </li>
+                  )}
+
+                  <li className="nav-item">
+                    <Link to={"/profile"} className="nav-link">
+                      {currentUser.username}
+                    </Link>
+                  </li>
+                  <li className="nav-item">
+                    <a href="/login" className="nav-link" onClick={this.logOut}>
+                      <i className="fas fa-sign-out-alt"></i>
+                    </a>
+                  </li>
+                </div>
+              ) : (
+                <div className="navbar-nav ml-auto" id="rightMenu">
+                  <li className="nav-item">
+                    <Link to={"/register"} className="nav-link">
+                      Sign Up
+                    </Link>
+                  </li>
+                  <li className="nav-item">
+                    <Link to={"/login"} className="nav-link">
+                      Log In
+                    </Link>
+                  </li>
+                </div>
+              )}
+              <label htmlFor="switch" id="Label">
+                <div className="toggle"></div>
+                <div className="names">
+                  <p className="light">Light</p>
+                  <p className="dark">Dark</p>
+                </div>
+              </label>
+            </nav>
+
+            <div className="mainBoard">
+              <Switch>
+                <Route exact path={["/", "/home"]} component={Home} />
+                <Route exact path="/blog" component={Blog} />
+                <Route exact path="/blog/:category" component={BlogCateg} />
+                <Route
+                  exact
+                  path="/blog/:category/:id/:title"
+                  component={BlogId}
+                />
+                <Route exact path="/shop" component={Shop} />
+                <Route exact path="/shop/:category" component={ShopCateg} />
+                <Route
+                  exact
+                  path="/shop/:category/:id/:title"
+                  component={ShopId}
+                />
+                <Route exact path="/register" component={Subscribe} />
+                <Route exact path="/login" component={SignIn} />
+                <Route exact path="/profile" component={Profile} />
+                <Route path="/user" component={BoardUser} />
+                <Route path="/mail" component={BoardMail} />
+                <Route path="/mod" component={BoardModerator} />
+                <Route path="/admin" component={BoardAdmin} />
+              </Switch>
             </div>
-      </Fragment>
+            <Footer />
+          </div>
+        </Fragment>
       </BrowserRouter>
     );
   }
@@ -329,4 +370,4 @@ class App extends React.Component {
 
 export default App;
 
-ReactDOMServer.renderToString(<App/>);
+ReactDOMServer.renderToString(<App />);

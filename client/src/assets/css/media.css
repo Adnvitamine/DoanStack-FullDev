@@ -4,16 +4,19 @@
     margin: 1.75rem auto;
   }
 }
+
 @media (min-width: 900px) {
   .modal-xl {
     max-width: 90%;
   }
 }
+
 @media (min-width: 992px) {
   .modal-xl {
     max-width: 80%;
   }
 }
+
 @media (min-width: 1200px) {
   .modal-xl {
     max-width: 70%;
@@ -24,15 +27,19 @@
   .productBody {
     flex-direction: column;
   }
+
   #ShopBody {
     width: 100% !important;
   }
+
   #BlogBody {
     width: 100% !important;
   }
+
   #ProfileFrame {
     flex-direction: column;
   }
+
   #userEdit {
     margin-top: 3rem !important;
   }
@@ -42,10 +49,12 @@
   .modal-content {
     border: none;
   }
+
   .modal-body {
     padding: 0 var(--ck-spacing-standard) !important;
   }
 }
+
 @media only screen and (max-width: 960px) {
   .productBody {
     flex-direction: column;
@@ -57,6 +66,7 @@
     position: absolute;
     right: 0;
   }
+
   #menuToggle {
     position: relative;
     float: right;
@@ -92,11 +102,14 @@
 
     cursor: pointer;
 
-    opacity: 0; /* hide this */
-    z-index: 2; /* and place it over the hamburger */
+    opacity: 0;
+    /* hide this */
+    z-index: 2;
+    /* and place it over the hamburger */
 
     -webkit-touch-callout: none;
   }
+
   #menuToggle #menuToggleInput1 {
     position: absolute;
     float: right;
@@ -108,8 +121,10 @@
 
     cursor: pointer;
 
-    opacity: 0; /* hide this */
-    z-index: 2; /* and place it over the hamburger */
+    opacity: 0;
+    /* hide this */
+    z-index: 2;
+    /* and place it over the hamburger */
 
     -webkit-touch-callout: none;
   }
@@ -117,12 +132,13 @@
   #menuToggle span {
     display: block;
     top: 5px;
+    left: 10px;
     width: 48px;
     height: 6px;
     margin-bottom: 8px;
     position: relative;
 
-    background: rgba(39, 104, 128, 1);
+    background: orange;
     border-radius: 3px;
 
     z-index: 1;
@@ -145,7 +161,7 @@
      * Transform all the slices of hamburger
      * into a crossmark.
      */
-  #menuToggle #menuToggleInput:checked ~ span {
+  #menuToggle #menuToggleInput:checked~span {
     opacity: 1;
     transform: rotate(45deg) translate(-2px, -1px);
     background: #fc2626;
@@ -154,7 +170,7 @@
   /*
      * But let's hide the middle one.
      */
-  #menuToggle #menuToggleInput:checked ~ span:nth-last-child(3) {
+  #menuToggle #menuToggleInput:checked~span:nth-last-child(3) {
     opacity: 0;
     transform: rotate(0deg) scale(0.2, 0.2);
   }
@@ -162,7 +178,7 @@
   /*
      * Ohyeah and the last one should go the other direction
      */
-  #menuToggle #menuToggleInput:checked ~ span:nth-last-child(2) {
+  #menuToggle #menuToggleInput:checked~span:nth-last-child(2) {
     transform: rotate(-45deg) translate(0, -1px);
   }
 
@@ -175,8 +191,7 @@
     padding: 0px 60px 10px 20px;
     margin: 0px 0px 0px 0px;
     background: rgba(255, 255, 255, 1);
-    box-shadow: 5px 5px 6px #007bff88, -5px -5px 6px #007bff75;
-    border-radius: 0px 0px 0px 30px;
+    border-radius: 0px 0px 0px 20px;
 
     list-style-type: none;
     -webkit-font-smoothing: antialiased;
@@ -187,6 +202,7 @@
 
     transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
   }
+
   #menu1 {
     position: absolute;
     top: -2px;
@@ -208,6 +224,7 @@
 
     transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
   }
+
   .mobilenav-item {
     text-align: center;
     font-size: 18px;
@@ -226,9 +243,10 @@
   /*
      * And let's slide it in from the left
      */
-  #menuToggle #menuToggleInput:checked ~ #menu {
+  #menuToggle #menuToggleInput:checked~#menu {
     transform: none;
   }
+
   #rightMenu {
     display: none;
   }
@@ -238,18 +256,19 @@
   }
 
   #Label {
-    top: 40px;
-    left: 20px;
+    margin-right: 70px;
   }
 
   #TitleLink {
     height: 100px;
     padding-top: 75px;
   }
+
   @keyframes fontSize2 {
     from {
       font-size: 18px;
     }
+
     to {
       font-size: 22px;
     }
@@ -258,20 +277,38 @@
   #MoreProducts {
     max-width: 15% !important;
   }
+
   #MoreProducts span {
     display: none;
   }
+
   #MoreProducts .body .list {
     flex-direction: column !important;
   }
+
   #MoreArticles {
     max-width: 15% !important;
   }
+
   #MoreArticles span {
     display: none;
   }
+
   #MoreArticles .body .list {
     flex-direction: column !important;
+  }
+
+  .ex1-layer {
+    width: 50vw;
+    height: 80vw;
+  }
+
+  .ex1-layer:before {
+    font-size: 4vw;
+  }
+
+  .ex1-layer:after {
+    font-size: 4vw;
   }
 }
 
@@ -279,12 +316,15 @@
   .productBody {
     flex-direction: column;
   }
+
   .productDescription {
     width: 100%;
   }
+
   #Label {
-    margin-left: auto;
+    margin-left: 10px;
   }
+
   #leftMenu {
     display: none;
   }
@@ -292,9 +332,11 @@
   #MobileHome {
     display: inline-block;
   }
+
   #MobileBlog {
     display: inline-block;
   }
+
   #MobileShop {
     display: inline-block;
   }
@@ -307,14 +349,13 @@
     left: -80px;
     top: -2px;
     right: 0px;
-    padding: 100px 30px 10px 30px;
+    padding: 50px 0px 10px 40px;
     margin: 0px 0px 0px 0px;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     background: rgba(255, 255, 255, 1);
-    box-shadow: 5px 5px 6px #007bff88, -5px -5px 6px #007bff75;
-    border-radius: 0px 0px 0px 30px;
+    border-radius: 0px 0px 0px 20px;
 
     list-style-type: none;
     -webkit-font-smoothing: antialiased;
@@ -325,6 +366,7 @@
 
     transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
   }
+
   #menu1 {
     position: absolute;
     width: 140px;
@@ -337,8 +379,7 @@
     flex-direction: row;
     flex-wrap: wrap;
     background: rgba(255, 255, 255, 1);
-    box-shadow: 5px 5px 6px #007bff88, -5px -5px 6px #007bff75;
-    border-radius: 0px 0px 0px 30px;
+    border-radius: 0px 0px 0px 20px;
 
     list-style-type: none;
     -webkit-font-smoothing: antialiased;
@@ -358,20 +399,23 @@
     from {
       font-size: 3vw;
     }
+
     to {
       font-size: 4vw;
     }
   }
 
-  #switch:checked + #FullFrame #TitleLink h2 {
+  #switch:checked+#FullFrame #TitleLink h2 {
     font-size: 4vw;
     animation: fontSizeReverse2 1s linear reverse,
       neon2 3s ease-in-out infinite alternate;
   }
+
   @keyframes fontSizeReverse2 {
     from {
       font-size: 4vw;
     }
+
     to {
       font-size: 3vw;
     }
@@ -384,44 +428,55 @@
   .BrowserNavbar p:hover {
     font-size: 18px;
   }
+
   #ShopNav {
     font-size: 14px !important;
   }
+
   #ShopNav ul li:hover {
     font-size: 18px !important;
   }
+
   #BlogNav {
     font-size: 14px !important;
   }
+
   #BlogNav ul li:hover {
     font-size: 18px !important;
   }
 }
+
 @media only screen and (max-width: 805px) {
   #Footer {
     display: flex;
     flex-direction: column;
   }
+
   .background {
     width: 100%;
   }
+
   #contact-bar {
     display: block;
     width: 100%;
   }
+
   #FooterContact {
     display: block;
     margin: auto;
     width: 100%;
   }
+
   #articleCreate {
     padding-left: 0 !important;
     padding-right: 0 !important;
   }
+
   #productCreate {
     padding-left: 0 !important;
     padding-right: 0 !important;
   }
+
   .blogFrame {
     width: 100%;
   }
@@ -432,9 +487,11 @@
     width: 20px !important;
     height: 20px !important;
   }
+
   .blogArticle {
     flex-direction: column;
   }
+
   .mailbox {
     font-size: 13px !important;
   }
@@ -444,44 +501,53 @@
   #MoreArticles {
     display: none;
   }
+
   #MoreProducts {
     display: none;
   }
+
   #BlogNav ul li {
     padding: 0px 5px 0px 5px !important;
     width: auto !important;
   }
+
   #ShopNav ul li {
     padding: 0px 5px 0px 5px !important;
     width: auto;
   }
+
   .BrowserNavbar p {
     animation: slide1 15s linear infinite;
   }
 }
+
 @media only screen and (max-width: 470px) {
   #TitleLink h2 {
     font-size: 4vw;
     animation: fontSize 1s linear forwards;
   }
+
   @keyframes fontSize {
     from {
       font-size: 4vw;
     }
+
     to {
       font-size: 5vw;
     }
   }
 
-  #switch:checked + #FullFrame #TitleLink h2 {
+  #switch:checked+#FullFrame #TitleLink h2 {
     font-size: 5vw;
     animation: fontSizeReverse2 1s linear reverse,
       neon2 3s ease-in-out infinite alternate;
   }
+
   @keyframes fontSizeReverse2 {
     from {
       font-size: 5vw;
     }
+
     to {
       font-size: 4vw;
     }
@@ -490,12 +556,15 @@
   #ShopNav {
     font-size: 12px !important;
   }
+
   #ShopNav ul li a:hover {
     font-size: 14px !important;
   }
+
   #BlogNav {
     font-size: 12px !important;
   }
+
   #BlogNav ul li a:hover {
     font-size: 14px !important;
   }
@@ -516,6 +585,7 @@
     padding: 100px 30px 10px 20px;
     margin: 0px 0px 0px 0px;
   }
+
   #menu1 {
     position: absolute;
     width: 100px;
@@ -525,23 +595,30 @@
     padding: 100px 30px 10px 20px;
     margin: 0px 0px 0px 0px;
   }
+
   #Label {
-    left: 40px;
+    top: 5px;
+    margin-right: 5px;
   }
+
 }
+
 @media only screen and (max-width: 400px) {
   .DoanStackLogoImg {
     width: 40px;
     height: 40px;
     background-size: 40px 40px;
   }
+
   .DoanStackLogoName p {
     font-size: 20px;
   }
+
   .DoanStackLogoName:hover p {
     font-size: 22px;
   }
 }
+
 @media only screen and (max-width: 320px) {
   .BrowserNavbar p {
     font-size: 12px;

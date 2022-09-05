@@ -1,9 +1,11 @@
 #fixedNavbar {
-  position: fixed; /* Sticky/fixed navbar */
+  position: fixed;
+  /* Sticky/fixed navbar */
   width: 100%;
-  top: 0; /* At the top */
+  top: 0;
+  /* At the top */
   z-index: 150;
-  height: 40px;
+  height: 3vh;
   background-color: white;
   padding: 0;
 }
@@ -13,23 +15,23 @@
   top: 0;
   border-radius: 5px;
   margin-right: 10px;
-  transition: color 1s linear;
+  transition: color 0.5s ease;
 }
 
-.nav-link{
+.nav-link {
   color: black;
   font-family: "PublicSans-ExtraBold";
-  transition: color 1s;
+  transition: color 0.5s ease;
 }
 
-.nav-item:hover .nav-link{
-  color: orange;
-  transition: color 1s;
+.nav-item:hover .nav-link {
+  color: #01c6fd;
+  transition: color 0.5s ease;
 }
 
-.nav-item:active .nav-link{
-  color: red;
-  transition: color 1s;
+.nav-item:active .nav-link {
+  color: #0159fd;
+  transition: color 0.5s ease;
 }
 
 #leftMenu {
@@ -46,7 +48,8 @@
 
 .BrowserNavbar {
   overflow: hidden;
-  border-radius: 0px; /* Sticky/fixed navbar */
+  border-radius: 0px;
+  /* Sticky/fixed navbar */
   width: 100%;
   z-index: 99;
 }
@@ -80,6 +83,7 @@
     left: 0;
     transform: translateX(0);
   }
+
   100% {
     left: 100%;
     transform: translateX(-100%);
@@ -91,6 +95,7 @@
     text-shadow: 0 0 1px yellow, 0 0 1px yellow,
       0 0 1px yellow;
   }
+
   to {
     text-shadow: 0 0 1px orange, 0 0 1px orange,
       0 0 1px orange;
@@ -102,6 +107,7 @@
     text-shadow: 0 0 1px yellow, 0 0 1px yellow,
       0 0 1px yellow;
   }
+
   to {
     text-shadow: 0 0 1px orange, 0 0 1px orange,
       0 0 1px orange;
@@ -113,6 +119,7 @@
     text-shadow: 0 0 1px yellow, 0 0 1px yellow,
       0 0 1px yellow;
   }
+
   to {
     text-shadow: 0 0 1px orange, 0 0 1px orange,
       0 0 1px orange;
@@ -122,6 +129,7 @@
 #LogoNav {
   text-decoration: none;
 }
+
 .DoanStackLogo {
   display: inline-flex;
   position: relative;
@@ -142,6 +150,7 @@
   height: 50px;
   z-index: 12;
 }
+
 .DoanStackLogoName p {
   position: relative;
   top: 5px;
@@ -164,6 +173,7 @@
   transition: background 1s, font-size 1s;
   font-size: 35px;
 }
+
 #MobileMenu {
   display: none;
 }
@@ -175,9 +185,11 @@
 #MobileHome {
   display: none;
 }
+
 #MobileBlog {
   display: none;
 }
+
 #MobileShop {
   display: none;
 }

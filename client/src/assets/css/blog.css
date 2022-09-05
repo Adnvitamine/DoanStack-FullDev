@@ -18,12 +18,14 @@
   background: #e0e0e0;
   box-shadow: 8px 8px 16px #acacac, -8px -8px 16px #ffffff;
 }
+
 #BlogNav ul {
   display: flex;
   flex-direction: row;
   padding: 0;
   margin: 0;
 }
+
 #BlogNav ul li {
   display: block;
   margin: auto;
@@ -55,8 +57,7 @@
 .blogFrame {
   position: relative;
   margin: auto;
-  margin-bottom: 25px;
-  border: 1px solid rgba(182, 182, 182, 0.877);
+  margin-bottom: 40px;
   width: 80%;
   display: flex;
   flex-direction: column;
@@ -66,10 +67,6 @@
   overflow: hidden;
 }
 
-.blogFrame:hover {
-  box-shadow: inset 0px -1px 4px orange, inset -1px 0px 4px red;
-  transition: box-shadow 2s;
-}
 
 .blogArticle {
   display: flex;
@@ -81,6 +78,7 @@
   color: black;
   text-decoration: none;
 }
+
 .blogImg {
   display: grid;
   place-items: center;
@@ -88,10 +86,12 @@
   margin: auto;
   overflow: hidden;
 }
+
 .blogImg img {
   max-height: 270px;
   object-fit: contain;
 }
+
 #Link {
   text-decoration: none;
   color: black;
@@ -134,6 +134,7 @@
   height: 30px;
   transition: height 1s;
 }
+
 .blogFrame:hover ul li {
   display: inline-block;
   margin: auto;
@@ -152,6 +153,7 @@
 .blogContent figure img {
   max-width: 100%;
 }
+
 .blogContent p {
   width: 100%;
   word-wrap: break-word;
@@ -273,6 +275,7 @@
   padding: 5px 10px 5px 10px;
   border: none;
 }
+
 #ArticleCommentSubmit p {
   font-size: 20px;
   margin: 0;
@@ -297,6 +300,7 @@
   text-align: center;
   margin-bottom: 20px;
 }
+
 .commentArticle:hover h1 {
   font-size: 40px;
   background: linear-gradient(yellow, red);
@@ -304,9 +308,11 @@
   background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+
 .commentArticle p {
   text-align: center;
 }
+
 .readComments {
   width: 100%;
   max-width: 780px;
@@ -330,6 +336,7 @@
   padding: 0px 10px;
   background-color: rgb(255, 255, 255);
 }
+
 .readComments h1 {
   text-align: center;
   margin-bottom: 20px;
@@ -351,6 +358,7 @@
   justify-content: space-evenly;
   padding: 5px 0px;
 }
+
 .commentInfo p {
   margin-bottom: 0;
 }
