@@ -1,3 +1,65 @@
+html {
+  scroll-behavior: smooth;
+}
+
+@font-face {
+  font-family: "PublicSans-Regular";
+  src: url(../fonts/PublicSans-Regular.ttf);
+}
+
+@font-face {
+  font-family: "PublicSans-SemiBold";
+  src: url(../fonts/PublicSans-SemiBold.ttf);
+}
+
+@font-face {
+  font-family: "PublicSans-ExtraBold";
+  src: url(../fonts/PublicSans-ExtraBold.ttf);
+}
+
+@font-face {
+  font-family: "PublicSans-Italic";
+  src: url(../fonts/PublicSans-Italic.ttf);
+}
+
+@font-face {
+  font-family: "PublicSans-SemiBoldItalic";
+  src: url(../fonts/PublicSans-SemiBoldItalic.ttf);
+}
+
+@font-face {
+  font-family: "PublicSans-BoldItalic";
+  src: url(../fonts/PublicSans-BoldItalic.ttf);
+}
+
+@font-face {
+  font-family: "PublicSans-ExtraBoldItalic";
+  src: url(../fonts/PublicSans-ExtraBoldItalic.ttf);
+}
+
+body {
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  --ck-z-default: 100;
+  --ck-z-modal: calc(var(--ck-z-default) + 999);
+  min-width: 320px;
+}
+
+
+#root {
+  width: 100%;
+  /*background-color: #e9f3fb;*/
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  font-family: "PublicSans-Regular";
+  font-size: 17px;
+  line-height: 1.5 !important;
+  letter-spacing: 0.01rem;
+}
+
 #FullFrame {
   width: 100vw;
 }

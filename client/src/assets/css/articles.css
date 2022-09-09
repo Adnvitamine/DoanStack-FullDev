@@ -139,6 +139,7 @@
 .articleContainer {
   min-height: 500px;
 }
+
 .articleHeader {
   border-bottom: 1px solid #dee2e6;
 }
@@ -147,11 +148,13 @@
   max-width: 100%;
   margin-right: 10px;
 }
+
 .articleName {
   font-size: 3rem;
   position: relative;
   top: 10px;
 }
+
 .articleBody {
   display: flex;
   flex-direction: row;

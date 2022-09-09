@@ -4,7 +4,6 @@ import { CKEditor } from "@ckeditor/ckeditor5-react";
 import InlineEditor from "@ckeditor/ckeditor5-build-inline";
 import CustomUpload from "../../js/CustomUploader";
 
-
 const EditArcticle = ({ article }) => {
   const [title, setTitle] = useState(article.title);
   const [author_id] = useState(article.author_id);
@@ -81,14 +80,11 @@ const EditArcticle = ({ article }) => {
           published,
           author_avatar,
         };
-        const response = await fetch(
-          `/api/articles/${article.id}`,
-          {
-            method: "PUT",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(body),
-          }
-        );
+        const response = await fetch(`/api/articles/${article.id}`, {
+          method: "PUT",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(body),
+        });
 
         window.location = "";
         console.log(response);
@@ -110,14 +106,11 @@ const EditArcticle = ({ article }) => {
           published,
           author_avatar,
         };
-        const response = await fetch(
-          `/api/articles/${article.id}`,
-          {
-            method: "PUT",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(body),
-          }
-        );
+        const response = await fetch(`/api/articles/${article.id}`, {
+          method: "PUT",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(body),
+        });
 
         window.location = "";
         console.log(response);
@@ -290,11 +283,11 @@ const EditArcticle = ({ article }) => {
                         className="form-control"
                         onChange={(e) => setCategory(e.target.value)}
                       >
-                        <option value={category} >{category}</option>
+                        <option value={category}>{category}</option>
                         {category !== "News" && <option>News</option>}
-                        {category !== "BackEnd" && <option>BackEnd</option>}
+                        {category !== "Portfolio" && <option>Portfolio</option>}
                         {category !== "FrontEnd" && <option>FrontEnd</option>}
-                        {category !== "Life" && <option>Life</option>}
+                        {category !== "BackEnd" && <option>BackEnd</option>}
                         {category !== "Others" && <option>Others</option>}
                       </select>
                     </div>

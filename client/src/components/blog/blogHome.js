@@ -36,9 +36,9 @@ class BlogHome extends Component {
     const { currentUser } = this.state;
     return (
       <Fragment>
-      <div id="TitleLink">
-        <h2>NEWS</h2>
-      </div>
+        <div id="TitleLink">
+          <h2>NEWS</h2>
+        </div>
         <div className="BrowserNavbar">
           <p>Read all my topics - DoanStack.com</p>
         </div>
@@ -46,13 +46,21 @@ class BlogHome extends Component {
           <div id="BlogNav">
             <ul>
               <li>
-                <Link to="/blog" style={{ fontSize: "18px",color: "rgb(0, 162, 255)" }}>
+                <Link
+                  to="/blog"
+                  style={{ fontSize: "18px", color: "rgb(0, 162, 255)" }}
+                >
                   <b>All</b>
                 </Link>
               </li>
               <li>
                 <Link to="/blog/News">
                   <b>News</b>
+                </Link>
+              </li>
+              <li>
+                <Link to="/blog/Portfolio">
+                  <b>Portfolio</b>
                 </Link>
               </li>
               <li>
@@ -63,11 +71,6 @@ class BlogHome extends Component {
               <li>
                 <Link to="/blog/BackEnd">
                   <b>BackEnd</b>
-                </Link>
-              </li>
-              <li>
-                <Link to="/blog/Life">
-                  <b>Life</b>
                 </Link>
               </li>
               <li>

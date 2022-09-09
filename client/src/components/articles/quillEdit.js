@@ -95,14 +95,11 @@ const QuillEdit = ({ article }) => {
           published,
           author_avatar,
         };
-        const response = await fetch(
-          `/api/articles/${article.id}`,
-          {
-            method: "PUT",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(body),
-          }
-        );
+        const response = await fetch(`/api/articles/${article.id}`, {
+          method: "PUT",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(body),
+        });
 
         window.location = "";
         console.log(response);
@@ -124,14 +121,11 @@ const QuillEdit = ({ article }) => {
           published,
           author_avatar,
         };
-        const response = await fetch(
-          `/api/articles/${article.id}`,
-          {
-            method: "PUT",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(body),
-          }
-        );
+        const response = await fetch(`/api/articles/${article.id}`, {
+          method: "PUT",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(body),
+        });
 
         window.location = "";
         console.log(response);
@@ -311,11 +305,11 @@ const QuillEdit = ({ article }) => {
                         className="form-control"
                         onChange={(e) => setCategory(e.target.value)}
                       >
-                        <option value={category} >{category}</option>
+                        <option value={category}>{category}</option>
                         {category !== "News" && <option>News</option>}
-                        {category !== "BackEnd" && <option>BackEnd</option>}
+                        {category !== "Portfolio" && <option>Portfolio</option>}
                         {category !== "FrontEnd" && <option>FrontEnd</option>}
-                        {category !== "Life" && <option>Life</option>}
+                        {category !== "BackEnd" && <option>BackEnd</option>}
                         {category !== "Others" && <option>Others</option>}
                       </select>
                     </div>

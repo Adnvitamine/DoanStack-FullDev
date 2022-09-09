@@ -294,13 +294,18 @@ ul {
   font-size: 10vw;
   font-family: "PublicSans-ExtraBoldItalic";
   color: #01C6FD;
-  text-shadow: 0 0 15px #FFFFFF;
+  /* text-shadow: 0 0 15px #FFFFFF; */
 }
 
 .bg-w1-opacity {
-  color: yellow;
+  background: url('../img/bgAnim.gif') center center no-repeat;
+  background-size: 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
   opacity: 0;
 }
+
 
 .s1-bg-cover-w2 {
   position: absolute;
@@ -544,11 +549,11 @@ ul {
   border-radius: 20px;
   height: 40vw;
   width: 30vw;
-  background: url('../img/TwerkDog.gif') left center no-repeat, url('../img/talenttogrow.gif') right top no-repeat;
+  background: url('../img/space.gif') left center no-repeat, url('../img/talenttogrow.gif') right top no-repeat;
   background-size: 30%, 20%;
   border: 2% solid rgb(221, 91, 5);
   transform-style: preserve-3d;
-  animation: dog-twerk 4s linear infinite;
+  animation: dog-twerk 8s ease-in-out infinite;
 }
 
 
@@ -567,7 +572,7 @@ ul {
 }
 
 .ex1-layer:before {
-  content: "Doan Nguyen \A - Code Addict \A - Problem Solver \A - Design Maker \A - Passionate";
+  content: "Doan Nguyen \A - Code Addict \A - Problem Solver \A - Design Artist \A - Passionate";
   white-space: pre;
   position: absolute;
   z-index: -2;
@@ -620,6 +625,13 @@ ul {
   text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.5);
   transform: translateZ(100px);
   filter: drop-shadow(1px 1px 1px rgba(255, 255, 255, 0.5));
+  transition: box-shadow 1s ease-in-out;
+}
+
+#switch:checked+#FullFrame .ex1-layer:after {
+  -webkit-box-shadow: #FFF 0 -1px 4px, rgb(173, 249, 252) 0 -2px 10px, #00ccff 0 -10px 20px, rgb(0, 102, 255) 0 -18px 40px, inset 5px 5px 15px 5px rgba(0, 0, 0, 0);
+  box-shadow: #FFF 0 -1px 4px, rgb(173, 249, 252) 0 -2px 10px, #00ccff 0 -10px 20px, rgb(0, 102, 255) 0 -18px 40px, inset 5px 5px 15px 5px rgba(0, 0, 0, 0);
+  transition: box-shadow 1s ease-in-out;
 }
 
 

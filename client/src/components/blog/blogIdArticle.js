@@ -1,7 +1,5 @@
 import { Fragment, useEffect, useState } from "react";
-import {
-  Link
-} from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useHistory } from "react-router";
 import ArticleCreateCom from "./articleComs/articleCreateCom";
 import ArticleReadComs from "./articleComs/articleReadComs";
@@ -18,9 +16,7 @@ const BlogIdArticle = ({ articleId, currentUser }) => {
   useEffect(() => {
     const getArticle = async () => {
       try {
-        const response = await fetch(
-          `/api/articles/${articleId}`
-        );
+        const response = await fetch(`/api/articles/${articleId}`);
         const jsonData = await response.json();
         setArticle(jsonData);
       } catch (err) {
@@ -33,9 +29,7 @@ const BlogIdArticle = ({ articleId, currentUser }) => {
   useEffect(() => {
     const getListArticles = async () => {
       try {
-        const response = await fetch(
-          `/api/articles/post/${article.category}`
-        );
+        const response = await fetch(`/api/articles/post/${article.category}`);
         const jsonData = await response.json();
         setListArticles(jsonData);
       } catch (err) {
@@ -48,27 +42,31 @@ const BlogIdArticle = ({ articleId, currentUser }) => {
   let test = new Date();
   let dateformat = Date.parse(test.toString(article.createdAt));
 
-  const back = () =>{
+  const back = () => {
     history.goBack();
-  }
+  };
 
-  const activeClick1 = () =>{
+  const activeClick1 = () => {
     setClick1("true");
-  }
+  };
 
   let clickStatus1;
-  if(click1==="true"){
-    clickStatus1 = <Fragment>
-    <div className="BrowserNavbar">
-        <p>Sign in to comment this post</p>
-    </div><BlogLogin></BlogLogin></Fragment>;
+  if (click1 === "true") {
+    clickStatus1 = (
+      <Fragment>
+        <div className="BrowserNavbar">
+          <p>Sign in to comment this post</p>
+        </div>
+        <BlogLogin></BlogLogin>
+      </Fragment>
+    );
   }
 
   return (
     <Fragment>
-    <div id="TitleLink">
-      <h2>{article.title}</h2>
-    </div>
+      <div id="TitleLink">
+        <h2>{article.title}</h2>
+      </div>
       <div className="BrowserNavbar">
         {user === "Visitor" && (
           <p>
@@ -135,11 +133,11 @@ const BlogIdArticle = ({ articleId, currentUser }) => {
                 }}
               ></img>
             )}{" "}
-            {article.author}. Logged as 
+            {article.author}. Logged as
             {!user.avatar && (
               <img
-                src= "//ssl.gstatic.com/accounts/ui/avatar_2x.png"
-                alt= "guest"
+                src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"
+                alt="guest"
                 className="profile-img-card"
                 style={{
                   width: "25px",
@@ -147,21 +145,22 @@ const BlogIdArticle = ({ articleId, currentUser }) => {
                   display: "inline-block",
                   marginBottom: "0",
                   marginRight: "2px",
-                }}></img>
+                }}
+              ></img>
             )}
             {user.avatar && (
               <img
-              src={user.avatar}
-              alt= {user.username}
-              className="profile-img-card"
-              style={{
-                width: "25px",
-                height: "25px",
-                display: "inline-block",
-                marginBottom: "0",
-                marginRight: "2px",
-              }}>
-              </img>
+                src={user.avatar}
+                alt={user.username}
+                className="profile-img-card"
+                style={{
+                  width: "25px",
+                  height: "25px",
+                  display: "inline-block",
+                  marginBottom: "0",
+                  marginRight: "2px",
+                }}
+              ></img>
             )}
             {user.username}."
           </p>
@@ -177,7 +176,10 @@ const BlogIdArticle = ({ articleId, currentUser }) => {
             </li>
             <li>
               {(article.category === "News" && (
-                <Link to="/blog/News" style={{ fontSize: "18px",color: "rgb(0, 162, 255)" }}>
+                <Link
+                  to="/blog/News"
+                  style={{ fontSize: "18px", color: "rgb(0, 162, 255)" }}
+                >
                   <b>News</b>
                 </Link>
               )) || (
@@ -187,8 +189,25 @@ const BlogIdArticle = ({ articleId, currentUser }) => {
               )}
             </li>
             <li>
+              {(article.category === "Portfolio" && (
+                <Link
+                  to="/blog/Portfolio"
+                  style={{ fontSize: "18px", color: "rgb(0, 162, 255)" }}
+                >
+                  <b>Portfolio</b>
+                </Link>
+              )) || (
+                <Link to="/blog/Portfolio">
+                  <b>Portfolio</b>
+                </Link>
+              )}
+            </li>
+            <li>
               {(article.category === "FrontEnd" && (
-                <Link to="/blog/FrontEnd" style={{ fontSize: "18px",color: "rgb(0, 162, 255)" }}>
+                <Link
+                  to="/blog/FrontEnd"
+                  style={{ fontSize: "18px", color: "rgb(0, 162, 255)" }}
+                >
                   <b>FrontEnd</b>
                 </Link>
               )) || (
@@ -199,7 +218,10 @@ const BlogIdArticle = ({ articleId, currentUser }) => {
             </li>
             <li>
               {(article.category === "BackEnd" && (
-                <Link to="/blog/BackEnd" style={{ fontSize: "18px",color: "rgb(0, 162, 255)" }}>
+                <Link
+                  to="/blog/BackEnd"
+                  style={{ fontSize: "18px", color: "rgb(0, 162, 255)" }}
+                >
                   <b>BackEnd</b>
                 </Link>
               )) || (
@@ -209,19 +231,11 @@ const BlogIdArticle = ({ articleId, currentUser }) => {
               )}
             </li>
             <li>
-              {(article.category === "Life" && (
-                <Link to="/blog/Life" style={{ fontSize: "18px",color: "rgb(0, 162, 255)" }}>
-                  <b>Life</b>
-                </Link>
-              )) || (
-                <Link to="/blog/Life">
-                  <b>Life</b>
-                </Link>
-              )}
-            </li>
-            <li>
               {(article.category === "Others" && (
-                <Link to="/blog/Others" style={{ fontSize: "18px",color: "rgb(0, 162, 255)" }}>
+                <Link
+                  to="/blog/Others"
+                  style={{ fontSize: "18px", color: "rgb(0, 162, 255)" }}
+                >
                   <b>Others</b>
                 </Link>
               )) || (
@@ -234,17 +248,19 @@ const BlogIdArticle = ({ articleId, currentUser }) => {
         </div>
         <div id="BlogHome">
           <div className="backbutton" style={{ marginBottom: "25px" }}>
-            <button type="button" className="btn btn-warning" onClick={back} style={{ color: "white", textDecoration: "none"}}>
+            <button
+              type="button"
+              className="btn btn-warning"
+              onClick={back}
+              style={{ color: "white", textDecoration: "none" }}
+            >
               Back
             </button>
           </div>
           <div id="BlogHomeArticle">
             <div className="articleSoloHeader">
               <div id="ImageFrame">
-                <img
-                  src={article.image}
-                  alt={article.title}
-                ></img>
+                <img src={article.image} alt={article.title}></img>
               </div>
               <div className="articleSoloInfo">
                 <ul>
@@ -300,23 +316,32 @@ const BlogIdArticle = ({ articleId, currentUser }) => {
               </div>
             </div>
             <div className="articleSoloContent">
-              <div className="ql-editor" dangerouslySetInnerHTML={{ __html: article.content }} />
+              <div
+                className="ql-editor"
+                dangerouslySetInnerHTML={{ __html: article.content }}
+              />
             </div>
             <div className="relatedArticles">
-            <div className="ComponentTitle">
+              <div className="ComponentTitle">
                 <div>
                   <h1>Related posts</h1>
                 </div>
               </div>
               <ul>
-                  {listArticles.map((listarticle)=>(
-                    <Link to={`/blog/${listarticle.category}/${listarticle.id}/${listarticle.title}`} key={listarticle.id} style={{ textDecoration: "none"}}>
-                        { listarticle.id !== article.id && (
-                          <li><p>{listarticle.title}</p></li>
-                        )}
-                    </Link>
-                  ))}
-                </ul>
+                {listArticles.map((listarticle) => (
+                  <Link
+                    to={`/blog/${listarticle.category}/${listarticle.id}/${listarticle.title}`}
+                    key={listarticle.id}
+                    style={{ textDecoration: "none" }}
+                  >
+                    {listarticle.id !== article.id && (
+                      <li>
+                        <p>{listarticle.title}</p>
+                      </li>
+                    )}
+                  </Link>
+                ))}
+              </ul>
             </div>
             <div className="commentArticle">
               <div className="ComponentTitle">
@@ -324,19 +349,24 @@ const BlogIdArticle = ({ articleId, currentUser }) => {
                   <h1>Write a comment</h1>
                 </div>
               </div>
-              {user === "Visitor" && (<p>
-                To comment, please: &nbsp;
-                <button type="button" className="btn btn-warning" onClick={activeClick1}>Sign in</button> 
-              </p>)}
+              {user === "Visitor" && (
+                <p>
+                  To comment, please: &nbsp;
+                  <button
+                    type="button"
+                    className="btn btn-warning"
+                    onClick={activeClick1}
+                  >
+                    Sign in
+                  </button>
+                </p>
+              )}
               {user.username && (
                 <ArticleCreateCom articleId={articleId} user={user} />
               )}
               {clickStatus1}
             </div>
-              <ArticleReadComs
-                articleId={articleId}
-                articleName={article.name}
-              />
+            <ArticleReadComs articleId={articleId} articleName={article.name} />
           </div>
         </div>
       </div>

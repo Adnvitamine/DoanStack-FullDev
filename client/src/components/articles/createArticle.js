@@ -122,7 +122,7 @@ const CreateArticle = ({ currentUser }) => {
                 ref={el}
                 onChange={handleChange}
                 className="inputImage"
-                style= {{ overflow: `hidden`}}
+                style={{ overflow: `hidden` }}
               />
               <p style={{ width: `${progress}%` }} data-value={progress}></p>
 
@@ -213,7 +213,7 @@ const CreateArticle = ({ currentUser }) => {
                 const data = editor.getData();
                 setContent(data);
 
-                console.log({ event, editor, data});
+                console.log({ event, editor, data });
               }}
               onBlur={(event, editor) => {
                 console.log("Blur.", editor);
@@ -254,7 +254,7 @@ const CreateArticle = ({ currentUser }) => {
                   <option>News</option>
                   <option>BackEnd</option>
                   <option>FrontEnd</option>
-                  <option>Life</option>
+                  <option>Portfolio</option>
                 </select>
               </div>
             </div>

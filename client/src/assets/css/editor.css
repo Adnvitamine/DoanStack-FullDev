@@ -1,7 +1,6 @@
 .editor {
   /* font-family: "Open Sans"; */
   line-height: 1.5;
-  font-size: 17px;
   border: 1px solid hsla(0, 0%, 0%, 0.15);
   background-color: white;
   width: 100%;
@@ -22,12 +21,14 @@
   width: 100%;
   margin: auto;
 }
+
 .ql-container {
   font-size: 17px !important;
   /* font-family: "Open Sans" !important; */
   max-width: 780px;
   margin: auto !important;
 }
+
 .ql-editor {
   width: 100% !important;
   padding: 0 var(--ck-spacing-standard) !important;
@@ -39,20 +40,23 @@
   width: 0 !important;
 }
 
-.ql-editor > :first-child {
+.ql-editor> :first-child {
   margin-top: var(--ck-spacing-large);
 }
 
-.ql-editor > :last-child {
+.ql-editor> :last-child {
   margin-bottom: var(--ck-spacing-large);
 }
+
 .ql-editor img {
   max-width: 100%;
   height: auto;
 }
+
 .ql-editor table {
   width: 100%;
 }
+
 .ql-editor table td {
   border: 1px solid #dee2e6;
 }

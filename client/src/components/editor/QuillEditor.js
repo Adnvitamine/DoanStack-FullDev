@@ -5,6 +5,7 @@ import BlotFormatter from "quill-blot-formatter";
 import axios from "axios";
 
 const QuillClipboard = Quill.import("modules/clipboard");
+Quill.debug("false");
 
 class Clipboard extends QuillClipboard {
   getMetaTagElements = (stringContent) => {
@@ -88,7 +89,6 @@ class ImageBlot extends BlockEmbed {
 ImageBlot.blotName = "image";
 ImageBlot.tagName = "img";
 Quill.register(ImageBlot);
-
 
 class VideoBlot extends BlockEmbed {
   static create(value) {
@@ -271,38 +271,36 @@ class QuillEditor extends React.Component {
       };
       formData.append("file", file);
 
-      axios
-        .post("/uploadfiles", formData, config)
-        .then((response) => {
-          if (response.data.success) {
-            const quill = this.reactQuillRef.getEditor();
-            quill.focus();
+      axios.post("/uploadfiles", formData, config).then((response) => {
+        if (response.data.success) {
+          const quill = this.reactQuillRef.getEditor();
+          quill.focus();
 
-            let range = quill.getSelection();
-            let position = range ? range.index : 0;
+          let range = quill.getSelection();
+          let position = range ? range.index : 0;
 
-            //먼저 노드 서버에다가 이미지를 넣은 다음에   여기 아래에 src에다가 그걸 넣으면 그게
-            //이미지 블롯으로 가서  크리에이트가 이미지를 형성 하며 그걸 발류에서     src 랑 alt 를 가져간후에  editorHTML에 다가 넣는다.
-            quill.insertEmbed(position, "image", {
-              src: response.data.url,
-              alt: response.data.fileName,
-            });
-            quill.setSelection(position + 1);
+          //먼저 노드 서버에다가 이미지를 넣은 다음에   여기 아래에 src에다가 그걸 넣으면 그게
+          //이미지 블롯으로 가서  크리에이트가 이미지를 형성 하며 그걸 발류에서     src 랑 alt 를 가져간후에  editorHTML에 다가 넣는다.
+          quill.insertEmbed(position, "image", {
+            src: response.data.url,
+            alt: response.data.fileName,
+          });
+          quill.setSelection(position + 1);
 
-            if (this._isMounted) {
-              this.setState(
-                {
-                  files: [...this.state.files, file],
-                },
-                () => {
-                  this.props.onFilesChange(this.state.files);
-                }
-              );
-            }
-          } else {
-            return alert("failed to upload file");
+          if (this._isMounted) {
+            this.setState(
+              {
+                files: [...this.state.files, file],
+              },
+              () => {
+                this.props.onFilesChange(this.state.files);
+              }
+            );
           }
-        });
+        } else {
+          return alert("failed to upload file");
+        }
+      });
     }
   };
 
@@ -400,50 +398,58 @@ class QuillEditor extends React.Component {
     return (
       <div>
         <div id={this.props.toolbarId}>
-        <span className="ql-formats">
-          <select className="ql-size" defaultValue={""} onChange={e=> e.persist()}>
-            <option value="small">Size 1</option>
-            <option value="">Size 2</option>
-            <option value="large">Size 3</option>
-          </select>
-          <select className="ql-header" defaultValue={""} onChange={e => e.persist()}>
-            <option value="1" />
-            <option value="2" />
-            <option value="" />
-          </select>
-        </span>
-        <span className="ql-formats">
-          <button className="ql-bold" />
-          <button className="ql-italic" />
-          <button className="ql-underline" />
-          <button className="ql-strike" />
-        </span>
-        <span className="ql-formats">
-          <button className="ql-list" value="ordered" />
-          <button className="ql-list" value="bullet" />
-          <button className="ql-indent" value="-1" />
-          <button className="ql-indent" value="+1" />
-        </span>
-        <span className="ql-formats">
-          <button className="ql-script" value="super" />
-          <button className="ql-script" value="sub" />
-          <button className="ql-blockquote" />
-          <button className="ql-direction" />
-        </span>
-        <span className="ql-formats">
-          <select className="ql-align" />
-          <select className="ql-color" />
-          <select className="ql-background" />
-        </span>
-        <span className="ql-formats">
-          <button className="ql-link" />
-          <button className="ql-image" />
-          <button className="ql-video" />
-        </span>
-        <span className="ql-formats">
-          <button className="ql-code-block" />
-          <button className="ql-clean" />
-        </span>
+          <span className="ql-formats">
+            <select
+              className="ql-size"
+              defaultValue={""}
+              onChange={(e) => e.persist()}
+            >
+              <option value="small">Size 1</option>
+              <option value="">Size 2</option>
+              <option value="large">Size 3</option>
+            </select>
+            <select
+              className="ql-header"
+              defaultValue={""}
+              onChange={(e) => e.persist()}
+            >
+              <option value="1" />
+              <option value="2" />
+              <option value="" />
+            </select>
+          </span>
+          <span className="ql-formats">
+            <button className="ql-bold" />
+            <button className="ql-italic" />
+            <button className="ql-underline" />
+            <button className="ql-strike" />
+          </span>
+          <span className="ql-formats">
+            <button className="ql-list" value="ordered" />
+            <button className="ql-list" value="bullet" />
+            <button className="ql-indent" value="-1" />
+            <button className="ql-indent" value="+1" />
+          </span>
+          <span className="ql-formats">
+            <button className="ql-script" value="super" />
+            <button className="ql-script" value="sub" />
+            <button className="ql-blockquote" />
+            <button className="ql-direction" />
+          </span>
+          <span className="ql-formats">
+            <select className="ql-align" />
+            <select className="ql-color" />
+            <select className="ql-background" />
+          </span>
+          <span className="ql-formats">
+            <button className="ql-link" />
+            <button className="ql-image" />
+            <button className="ql-video" />
+          </span>
+          <span className="ql-formats">
+            <button className="ql-code-block" />
+            <button className="ql-clean" />
+          </span>
         </div>
         <ReactQuill
           ref={(el) => {
@@ -514,7 +520,7 @@ class QuillEditor extends React.Component {
     "video",
     "color",
     "background",
-    "code-block"
+    "code-block",
   ];
 }
 
