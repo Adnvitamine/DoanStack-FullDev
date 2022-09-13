@@ -2,8 +2,8 @@ import { Fragment, Component } from "react";
 import { Link } from "react-router-dom";
 import BlogAllArticles from "./blogAllArticles";
 
-import UserService from "../../services/user.service";
-import authService from "../../services/auth.service";
+// import UserService from "../../services/user.service";
+// import authService from "../../services/auth.service";
 
 class BlogHome extends Component {
   constructor(props) {
@@ -11,29 +11,29 @@ class BlogHome extends Component {
 
     this.state = {
       content: "",
-      currentUser: authService.getCurrentUser(),
+      // currentUser: authService.getCurrentUser(),
     };
   }
 
-  componentDidMount() {
-    UserService.getPublicContent().then(
-      (response) => {
-        this.setState({
-          content: response.data,
-        });
-      },
-      (error) => {
-        this.setState({
-          content:
-            (error.response && error.response.data) ||
-            error.message ||
-            error.toString(),
-        });
-      }
-    );
-  }
+  // componentDidMount() {
+  //   UserService.getPublicContent().then(
+  //     (response) => {
+  //       this.setState({
+  //         content: response.data,
+  //       });
+  //     },
+  //     (error) => {
+  //       this.setState({
+  //         content:
+  //           (error.response && error.response.data) ||
+  //           error.message ||
+  //           error.toString(),
+  //       });
+  //     }
+  //   );
+  // }
   render() {
-    const { currentUser } = this.state;
+    // const { currentUser } = this.state;
     return (
       <Fragment>
         <div id="TitleLink">
@@ -46,11 +46,10 @@ class BlogHome extends Component {
           <div id="BlogNav">
             <ul>
               <li>
-                <Link
-                  to="/blog"
-                  style={{ fontSize: "18px", color: "rgb(0, 162, 255)" }}
-                >
-                  <b>All</b>
+                <Link to="/blog" style={{ color: "rgb(0, 162, 255)" }}>
+                  <b style={{ fontSize: "18px", color: "rgb(0, 162, 255)" }}>
+                    All
+                  </b>
                 </Link>
               </li>
               <li>
@@ -58,11 +57,7 @@ class BlogHome extends Component {
                   <b>News</b>
                 </Link>
               </li>
-              <li>
-                <Link to="/blog/Portfolio">
-                  <b>Portfolio</b>
-                </Link>
-              </li>
+
               <li>
                 <Link to="/blog/FrontEnd">
                   <b>FrontEnd</b>
@@ -74,15 +69,18 @@ class BlogHome extends Component {
                 </Link>
               </li>
               <li>
+                <Link to="/blog/Life">
+                  <b>Life</b>
+                </Link>
+              </li>
+              <li>
                 <Link to="/blog/Others">
                   <b>Others</b>
                 </Link>
               </li>
             </ul>
           </div>
-          <div id="BlogHome">
-            <BlogAllArticles currentUser={currentUser} />
-          </div>
+          <BlogAllArticles />
         </div>
       </Fragment>
     );

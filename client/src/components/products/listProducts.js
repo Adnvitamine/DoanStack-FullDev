@@ -7,16 +7,21 @@ import QuillEdit from "./quillEdit";
 const ListProducts = ({ currentUser }) => {
   const [products, setProducts] = useState([]);
 
+  useEffect(() => {
+    // "document.documentElement.scrollTo" is the magic for React Router Dom v6
+    document.documentElement.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "instant", // Optional if you want to skip the scrolling animation
+    });
+  }, []);
   // DELETE PRODUCT FUNCTION
 
   const deleteProduct = async (id) => {
     try {
-      const deleteProduct = await fetch(
-        `/api/products/${id}`,
-        {
-          method: "DELETE",
-        }
-      );
+      const deleteProduct = await fetch(`/api/products/${id}`, {
+        method: "DELETE",
+      });
       //window.location="/";
 
       setProducts(products.filter((product) => product.id !== id));
@@ -48,7 +53,7 @@ const ListProducts = ({ currentUser }) => {
       <div className="container text-center" id="productsList">
         <div className="ComponentTitle">
           <div>
-          <h1>
+            <h1>
               {currentUser.username}'s products ({products.length})
             </h1>
           </div>
@@ -81,7 +86,10 @@ const ListProducts = ({ currentUser }) => {
               />
             </div>
             <div className="productCardDescription">
-              <div className="ql-editor" dangerouslySetInnerHTML={{ __html: product.description }} />
+              <div
+                className="ql-editor"
+                dangerouslySetInnerHTML={{ __html: product.description }}
+              />
             </div>
 
             <div className="productCardPrice">

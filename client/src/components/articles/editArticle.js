@@ -4,14 +4,18 @@ import { CKEditor } from "@ckeditor/ckeditor5-react";
 import InlineEditor from "@ckeditor/ckeditor5-build-inline";
 import CustomUpload from "../../js/CustomUploader";
 
-const EditArcticle = ({ article }) => {
+const EditArcticle = ({ article, currentUser }) => {
   const [title, setTitle] = useState(article.title);
   const [author_id] = useState(article.author_id);
   const [author, setAuthor] = useState(article.author);
-  const [author_avatar] = useState(article.author_avatar);
+  const [author_avatar] = useState(`${currentUser.avatar}`);
+  const [description, setDescription] = useState(article.description);
+  const [color, setColor] = useState(article.color);
   const [content, setContent] = useState(article.content);
   const [category, setCategory] = useState(article.category);
   const [published, setPublished] = useState(article.published);
+  const [link, setLink] = useState(article.link);
+  const [upload, setUpload] = useState(article.image);
   // storing the recived file from backend
   const [data, getFile] = useState({ name: "", path: "" });
   const [progress, setProgess] = useState(0); // progess bar
@@ -66,14 +70,17 @@ const EditArcticle = ({ article }) => {
   const UpdateArticle = async (e) => {
     //console.log(data.path);
     if (data.path === "") {
-      const image = article.image;
+      const image = upload;
       //console.log(image);
       e.preventDefault();
       try {
         const body = {
           title,
           author,
+          link,
           author_id,
+          description,
+          color,
           image,
           content,
           category,
@@ -99,8 +106,11 @@ const EditArcticle = ({ article }) => {
         const body = {
           title,
           author,
+          link,
           author_id,
           image,
+          description,
+          color,
           content,
           category,
           published,
@@ -218,8 +228,27 @@ const EditArcticle = ({ article }) => {
               </div>
 
               <form className="mt-5">
+                {upload ? (
+                  <div className="form-row">
+                    <div className="form-group col-md-12">
+                      <div className="input-group ">
+                        <div className="input-group-prepend">
+                          <span className="input-group-text">Upload</span>
+                        </div>
+                        <input
+                          type="text"
+                          className="form-control"
+                          value={upload}
+                          onChange={(e) => setUpload(e.target.value)}
+                        ></input>
+                      </div>
+                    </div>
+                  </div>
+                ) : (
+                  ""
+                )}
                 <div className="form-row">
-                  <div className="form-group col-md-6">
+                  <div className="form-group col-md-4">
                     <div className="input-group ">
                       <div className="input-group-prepend">
                         <span className="input-group-text">Title:</span>
@@ -233,7 +262,7 @@ const EditArcticle = ({ article }) => {
                     </div>
                   </div>
 
-                  <div className="form-group col-md-6">
+                  <div className="form-group col-md-4">
                     <div className="input-group ">
                       <div className="input-group-prepend">
                         <span className="input-group-text">Author:</span>
@@ -246,9 +275,103 @@ const EditArcticle = ({ article }) => {
                       ></input>
                     </div>
                   </div>
+                  {category === "Projects" ? (
+                    <div className="form-group col-md-4">
+                      <div className="input-group ">
+                        <div className="input-group-prepend">
+                          <span className="input-group-text">Link:</span>
+                        </div>
+                        {link ? (
+                          <input
+                            type="text"
+                            className="form-control"
+                            value={link}
+                            onChange={(e) => setLink(e.target.value)}
+                          ></input>
+                        ) : (
+                          ""
+                        )}
+                        {!link ? (
+                          <input
+                            type="text"
+                            className="form-control"
+                            placeholder="project link..."
+                            onChange={(e) => setLink(e.target.value)}
+                          ></input>
+                        ) : (
+                          ""
+                        )}
+                      </div>
+                    </div>
+                  ) : (
+                    ""
+                  )}
+                  {category === "Snippets" ? (
+                    <div className="form-group col-md-4">
+                      <div className="input-group ">
+                        <div className="input-group-prepend">
+                          <span className="input-group-text">Reference:</span>
+                        </div>
+                        {link ? (
+                          <input
+                            type="text"
+                            className="form-control"
+                            value={link}
+                            onChange={(e) => setLink(e.target.value)}
+                          ></input>
+                        ) : (
+                          ""
+                        )}
+                        {!link ? (
+                          <input
+                            type="text"
+                            className="form-control"
+                            placeholder="reference link..."
+                            onChange={(e) => setLink(e.target.value)}
+                          ></input>
+                        ) : (
+                          ""
+                        )}
+                      </div>
+                    </div>
+                  ) : (
+                    ""
+                  )}
+
+                  {category !== "Snippets" && category !== "Projects" ? (
+                    <div className="form-group col-md-4">
+                      <div className="input-group ">
+                        <div className="input-group-prepend">
+                          <span className="input-group-text">Image:</span>
+                        </div>
+                        {link ? (
+                          <input
+                            type="text"
+                            className="form-control"
+                            value={link}
+                            onChange={(e) => setLink(e.target.value)}
+                          ></input>
+                        ) : (
+                          ""
+                        )}
+                        {!link ? (
+                          <input
+                            type="text"
+                            className="form-control"
+                            placeholder="image link..."
+                            onChange={(e) => setLink(e.target.value)}
+                          ></input>
+                        ) : (
+                          ""
+                        )}
+                      </div>
+                    </div>
+                  ) : (
+                    ""
+                  )}
                 </div>
-                <div className="form-row mt-3">
-                  <div className="form-group col-md-6">
+                <div className="form-row">
+                  <div className="form-group col-md-4">
                     <div className="input-group ">
                       <div className="input-group-prepend">
                         <span className="input-group-text">Publish:</span>
@@ -274,7 +397,7 @@ const EditArcticle = ({ article }) => {
                     </div>
                   </div>
 
-                  <div className="form-group col-md-6">
+                  <div className="form-group col-md-4">
                     <div className="input-group ">
                       <div className="input-group-prepend">
                         <span className="input-group-text">Category:</span>
@@ -284,12 +407,50 @@ const EditArcticle = ({ article }) => {
                         onChange={(e) => setCategory(e.target.value)}
                       >
                         <option value={category}>{category}</option>
+                        {category !== "Others" && <option>Others</option>}
                         {category !== "News" && <option>News</option>}
-                        {category !== "Portfolio" && <option>Portfolio</option>}
                         {category !== "FrontEnd" && <option>FrontEnd</option>}
                         {category !== "BackEnd" && <option>BackEnd</option>}
-                        {category !== "Others" && <option>Others</option>}
+                        {category !== "Life" && <option>Life</option>}
+                        {category !== "Projects" && <option>Projects</option>}
+                        {category !== "Snippets" && <option>Snippets</option>}
                       </select>
+                    </div>
+                  </div>
+                  <div className="form-group col-md-4">
+                    <div className="input-group ">
+                      <div className="input-group-prepend">
+                        <span className="input-group-text">Color:</span>
+                      </div>
+                      <input
+                        type="text"
+                        className="form-control"
+                        placeholder="Set Color..."
+                        value={color ? color : "rgba(255, 255, 255, 0)"}
+                        onChange={(e) => setColor(e.target.value)}
+                      ></input>
+                    </div>
+                  </div>
+                </div>
+                <div className="form-row">
+                  <div className="form-group col-md-12">
+                    <div className="input-group ">
+                      <div className="input-group-prepend">
+                        <span className="input-group-text">Description:</span>
+                      </div>
+                      <textarea
+                        className="form-control"
+                        placeholder="Enter a description..."
+                        value={description}
+                        onChange={(e) => setDescription(e.target.value)}
+                        style={{ minHeight: "150px" }}
+                      ></textarea>
+                      {/* <input
+                  type="text"
+                  className="form-control"
+                  placeholder="Description..."
+                  onChange={(e) => setDescription(e.target.value)}
+                ></input> */}
                     </div>
                   </div>
                 </div>

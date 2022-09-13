@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 const BlogArticlesCateg = ({ category }) => {
   const [allArticles, setallArticles] = useState([]);
   const [sortButton, setSortButton] = useState(true);
-  const postLimit = 3;
+  const postLimit = 6;
   const totalPages = Math.ceil(allArticles.length / postLimit);
   const pagesArray = [];
   const [currentPage, setCurrentPage] = useState(1);
@@ -63,37 +63,48 @@ const BlogArticlesCateg = ({ category }) => {
   if (currentPage) {
     if (sortButton === true) {
       showPage = (
-        <div>
+        <div id="BlogHome">
           {allArticles
             .sort(
               ({ id: previousID }, { id: currentID }) => currentID - previousID
             )
             .slice(firstPost, lastPost)
             .map((article) => (
-              <div
-                className="blogFrame"
-                key={article.id}
-                style={{
-                  background: `url("${article.image}") center center no-repeat`,
-                  backgroundSize: "cover",
-                }}
-              >
+              <div className="blogFrame" key={article.id}>
                 <Link
                   to={`/blog/${article.category}/${article.id}/${article.title}`}
                   id="Link"
                 >
                   <div className="blogArticle">
-                    <div className="blogInfo">
+                    <div
+                      className="blogInfo"
+                      style={{
+                        background: `url("${
+                          !article.link && !article.image
+                            ? "https://images.unsplash.com/photo-1529400971008-f566de0e6dfc?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80"
+                            : article.image
+                            ? article.image
+                            : article.link
+                        }") center center no-repeat`,
+                        backgroundSize: "contain",
+                        backgroundColor: "white",
+                      }}
+                    >
                       <h1>{article.title}</h1>
                     </div>
-                    <div className="blogContent">
-                      <div
+                    <div className="blogDescription">
+                      <p>
+                        {article.description.length > 490
+                          ? `${article.description.substring(0, 450)}...`
+                          : article.description + "..."}
+                      </p>
+                      {/* <div
                         className="ql-editor"
                         dangerouslySetInnerHTML={{ __html: article.content }}
-                      />
+                      /> */}
                     </div>
                     <div className="blogDatum">
-                      <h2>
+                      <p>
                         {new Intl.DateTimeFormat("nl-BE", {
                           year: "numeric",
                           month: "long",
@@ -130,11 +141,11 @@ const BlogArticlesCateg = ({ category }) => {
                         )}
                         {"  "}
                         {article.author}
-                      </h2>
+                      </p>
                     </div>
-                    <div className="blogFooter">
-                      <h2>Read more...</h2>
-                    </div>
+                  </div>
+                  <div className="blogFooter">
+                    <h2>Read more...</h2>
                   </div>
                 </Link>
               </div>
@@ -143,37 +154,48 @@ const BlogArticlesCateg = ({ category }) => {
       );
     } else {
       showPage = (
-        <div>
+        <div id="BlogHome">
           {allArticles
             .sort(
               ({ id: previousID }, { id: currentID }) => previousID - currentID
             )
             .slice(firstPost, lastPost)
             .map((article) => (
-              <div
-                className="blogFrame"
-                key={article.id}
-                style={{
-                  background: `url("${article.image}") center center no-repeat`,
-                  backgroundSize: "cover",
-                }}
-              >
+              <div className="blogFrame" key={article.id}>
                 <Link
                   to={`/blog/${article.category}/${article.id}/${article.title}`}
                   id="Link"
                 >
                   <div className="blogArticle">
-                    <div className="blogInfo">
+                    <div
+                      className="blogInfo"
+                      style={{
+                        background: `url("${
+                          !article.link && !article.image
+                            ? "https://images.unsplash.com/photo-1529400971008-f566de0e6dfc?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80"
+                            : article.image
+                            ? article.image
+                            : article.link
+                        }") center center no-repeat`,
+                        backgroundSize: "contain",
+                        backgroundColor: "white",
+                      }}
+                    >
                       <h1>{article.title}</h1>
                     </div>
-                    <div className="blogContent">
-                      <div
+                    <div className="blogDescription">
+                      <p>
+                        {article.description.length > 490
+                          ? `${article.description.substring(0, 450)}...`
+                          : article.description + "..."}
+                      </p>
+                      {/* <div
                         className="ql-editor"
                         dangerouslySetInnerHTML={{ __html: article.content }}
-                      />
+                      /> */}
                     </div>
                     <div className="blogDatum">
-                      <h2>
+                      <p>
                         {new Intl.DateTimeFormat("nl-BE", {
                           year: "numeric",
                           month: "long",
@@ -210,11 +232,11 @@ const BlogArticlesCateg = ({ category }) => {
                         )}
                         {"  "}
                         {article.author}
-                      </h2>
+                      </p>
                     </div>
-                    <div className="blogFooter">
-                      <h2>Read more...</h2>
-                    </div>
+                  </div>
+                  <div className="blogFooter">
+                    <h2>Read more...</h2>
                   </div>
                 </Link>
               </div>
@@ -235,6 +257,7 @@ const BlogArticlesCateg = ({ category }) => {
           flexFlow: "row wrap",
           justifyContent: "space-around",
           margin: "auto",
+          marginTop: "2%",
         }}
       >
         <b>Sort by: </b>

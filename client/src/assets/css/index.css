@@ -56,6 +56,7 @@
   background-color: #000000;
 }
 
+
 #switch:checked+#FullFrame #fixedNavbar {
   background-color: black;
 }
@@ -65,7 +66,7 @@
   transition: color 1s;
 }
 
-#switch:checked+#FullFrame #fixedNavbar .nav-item:hover .nav-link {
+#switch:checked+#FullFrame #fixedNavbar .nav-link:hover {
   color: orange;
   transition: color 1s;
 }
@@ -187,7 +188,6 @@
 #switch:checked+#FullFrame .mainBoard #BlogBody #BlogNav {
   border-radius: 50px;
   background: #272626;
-  box-shadow: 8px 8px 16px #1e1d1d, -8px -8px 16px #1e1d1d;
 }
 
 #switch:checked+#FullFrame .mainBoard #BlogBody .articleSoloInfo ul {
@@ -308,6 +308,13 @@
   transition: font-size 1s, text-shadow 5s;
 }
 
+
+
+
+#switch:checked+#FullFrame .relatedArticles {
+  background-color: black;
+}
+
 #switch:checked+#FullFrame .relatedArticles:hover {
   box-shadow: 0px 2px 0px rgba(255, 136, 0, 1), 0px 4px 0px rgba(255, 238, 0, 1),
     0px -2px 0px rgba(255, 136, 0, 1), 0px -4px 0px rgba(255, 238, 0, 1);
@@ -338,6 +345,10 @@
   transition: font-size 1s, text-shadow 5s;
 }
 
+#switch:checked+#FullFrame .commentArticle {
+  background-color: black;
+}
+
 #switch:checked+#FullFrame .commentArticle:hover {
   box-shadow: 0px 2px 0px rgba(255, 136, 0, 1), 0px 4px 0px rgba(255, 238, 0, 1),
     0px -2px 0px rgba(255, 136, 0, 1), 0px -4px 0px rgba(255, 238, 0, 1);
@@ -351,6 +362,10 @@
   text-shadow: 0 0 30px rgba(255, 248, 0, 1), 0 0 35px rgba(255, 248, 0, 1),
     0 0 40px rgba(255, 248, 0, 1);
   transition: font-size 1s, text-shadow 5s;
+}
+
+#switch:checked+#FullFrame .readComments {
+  background-color: black;
 }
 
 #switch:checked+#FullFrame .readComments:hover {
@@ -382,12 +397,13 @@
   background-color: black;
 }
 
-#switch:checked+#FullFrame .mainBoard #BlogBody .blogInfo {
+/* #switch:checked+#FullFrame .mainBoard #BlogBody .blogInfo {
+  
   background-color: black;
   color: white;
   transition: color 0.5s linear,
     background-color 0.5s linear;
-}
+} */
 
 #switch:checked+#FullFrame .mainBoard #BlogBody .blogArticle {
   background-color: rgba(0, 0, 0, 0.8);
@@ -576,20 +592,19 @@ iframe {
 
 #ImageFrame {
   position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 50vh;
+  width: 90%;
+  padding-bottom: 20%;
   /* max-width: 50%; */
   margin: auto;
   margin-bottom: 10px;
-  overflow: hidden;
 }
 
 #ImageFrame img {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
-  object-fit: contain;
+  border-radius: 5px;
 }
 
 #ImageFrame:hover #ShopProductZoom {

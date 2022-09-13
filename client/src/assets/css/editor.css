@@ -6,6 +6,7 @@
   width: 100%;
   max-width: 780px;
   margin: auto;
+  margin-bottom: 10px;
 }
 
 .ck.ck-toolbar .ck.ck-toolbar__items {

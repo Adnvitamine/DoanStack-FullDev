@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 //import ArticleId from "./articeId";
 
-const BlogAllArticles = ({ currentUser }) => {
+const PortfolioArticlesCateg = ({ category }) => {
   const [allArticles, setAllArticles] = useState([]);
   const [sortButton, setSortButton] = useState(true);
   const postLimit = 6;
@@ -14,18 +14,11 @@ const BlogAllArticles = ({ currentUser }) => {
   const [firstPost, setFirstPost] = useState(0);
 
   useEffect(() => {
-    // "document.documentElement.scrollTo" is the magic for React Router Dom v6
-    document.documentElement.scrollTo({
-      top: 0,
-      left: 0,
-      behavior: "instant", // Optional if you want to skip the scrolling animation
-    });
-  }, []);
-
-  useEffect(() => {
     const getAllArticles = async () => {
       try {
-        const response = await fetch("/api/articles/post/published/true");
+        const response = await fetch(
+          `/api/articles/portfolio/${category}/true`
+        );
         const jsonData = await response.json();
         setAllArticles(jsonData);
       } catch (err) {
@@ -33,7 +26,7 @@ const BlogAllArticles = ({ currentUser }) => {
       }
     };
     getAllArticles();
-  }, []);
+  }, [category]);
 
   useEffect(() => {
     setLastPost(currentPage * postLimit);
@@ -89,11 +82,11 @@ const BlogAllArticles = ({ currentUser }) => {
                       className="blogInfo"
                       style={{
                         background: `url("${
-                          !article.link && !article.image
-                            ? "https://images.unsplash.com/photo-1529400971008-f566de0e6dfc?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80"
+                          !article.image
+                            ? article.category === "Snippets"
+                              ? "https://images.unsplash.com/photo-1550063873-ab792950096b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80"
+                              : "https://images.unsplash.com/photo-1510936111840-65e151ad71bb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2090&q=80"
                             : article.image
-                            ? article.image
-                            : article.link
                         }") center center no-repeat`,
                         backgroundSize: "contain",
                         backgroundColor: "white",
@@ -112,6 +105,12 @@ const BlogAllArticles = ({ currentUser }) => {
                         dangerouslySetInnerHTML={{ __html: article.content }}
                       /> */}
                     </div>
+                    {/* <div className="blogContent">
+                      <div
+                        className="ql-editor"
+                        dangerouslySetInnerHTML={{ __html: article.content }}
+                      />
+                    </div> */}
                     <div className="blogDatum">
                       <p>
                         {new Intl.DateTimeFormat("nl-BE", {
@@ -153,11 +152,36 @@ const BlogAllArticles = ({ currentUser }) => {
                       </p>
                     </div>
                   </div>
-
                   <div className="blogFooter">
                     <h2>Read more...</h2>
                   </div>
                 </Link>
+                {article.category === "Projects" ? (
+                  article.link ? (
+                    <div className="projectLink">
+                      <a href={article.link}>
+                        <h2>Project Repository</h2>
+                      </a>
+                    </div>
+                  ) : (
+                    ""
+                  )
+                ) : (
+                  ""
+                )}
+                {article.category === "Snippets" ? (
+                  article.link ? (
+                    <div className="projectLink">
+                      <a href={article.link}>
+                        <h2>Codepen Demo</h2>
+                      </a>
+                    </div>
+                  ) : (
+                    ""
+                  )
+                ) : (
+                  ""
+                )}
               </div>
             ))}
         </div>
@@ -181,11 +205,11 @@ const BlogAllArticles = ({ currentUser }) => {
                       className="blogInfo"
                       style={{
                         background: `url("${
-                          !article.link && !article.image
-                            ? "https://images.unsplash.com/photo-1529400971008-f566de0e6dfc?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80"
+                          !article.image
+                            ? article.category === "Snippets"
+                              ? "https://images.unsplash.com/photo-1550063873-ab792950096b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80"
+                              : "https://images.unsplash.com/photo-1510936111840-65e151ad71bb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2090&q=80"
                             : article.image
-                            ? article.image
-                            : article.link
                         }") center center no-repeat`,
                         backgroundSize: "contain",
                         backgroundColor: "white",
@@ -204,6 +228,12 @@ const BlogAllArticles = ({ currentUser }) => {
                         dangerouslySetInnerHTML={{ __html: article.content }}
                       /> */}
                     </div>
+                    {/* <div className="blogContent">
+                      <div
+                        className="ql-editor"
+                        dangerouslySetInnerHTML={{ __html: article.content }}
+                      />
+                    </div> */}
                     <div className="blogDatum">
                       <p>
                         {new Intl.DateTimeFormat("nl-BE", {
@@ -245,11 +275,36 @@ const BlogAllArticles = ({ currentUser }) => {
                       </p>
                     </div>
                   </div>
-
                   <div className="blogFooter">
                     <h2>Read more...</h2>
                   </div>
                 </Link>
+                {article.category === "Projects" ? (
+                  article.link ? (
+                    <div className="projectLink">
+                      <a href={article.link}>
+                        <h2>Project Repository</h2>
+                      </a>
+                    </div>
+                  ) : (
+                    ""
+                  )
+                ) : (
+                  ""
+                )}
+                {article.category === "Snippets" ? (
+                  article.link ? (
+                    <div className="projectLink">
+                      <a href={article.link}>
+                        <h2>Codepen Demo</h2>
+                      </a>
+                    </div>
+                  ) : (
+                    ""
+                  )
+                ) : (
+                  ""
+                )}
               </div>
             ))}
         </div>
@@ -271,7 +326,7 @@ const BlogAllArticles = ({ currentUser }) => {
           marginTop: "2%",
         }}
       >
-        <b>Sort by:</b>
+        <b>Sort by: </b>
         <div>
           {sortButton === true && (
             <button
@@ -293,6 +348,7 @@ const BlogAllArticles = ({ currentUser }) => {
               Oldest <i className="fas fa-arrow-down"></i>
             </button>
           )}
+          {/*message*/}
         </div>
       </div>
       <div
@@ -360,4 +416,4 @@ const BlogAllArticles = ({ currentUser }) => {
   );
 };
 
-export default BlogAllArticles;
+export default PortfolioArticlesCateg;

@@ -17,6 +17,8 @@ const CreateArticle = ({ currentUser }) => {
   const [author_id, setAuthor_id] = useState(`${currentUser.id}`);
   const [author_avatar, setAuthor_avatar] = useState(`${currentUser.avatar}`);
   const [image, setImage] = useState("");
+  const [description, setDescription] = useState();
+  const [color, setColor] = useState();
   const [content, setContent] = useState();
   const [category, setCategory] = useState("Others");
   const [published, setPublished] = useState();
@@ -35,9 +37,7 @@ const CreateArticle = ({ currentUser }) => {
 
     setFile(file); // storing file
     if (!e.target.files[0]) {
-      setImage({
-        file: null,
-      });
+      setImage("");
     } else {
       setImage({
         file: URL.createObjectURL(e.target.files[0]),
@@ -81,6 +81,8 @@ const CreateArticle = ({ currentUser }) => {
         author_id,
         author_avatar,
         image,
+        description,
+        color,
         content,
         category,
         published,
@@ -191,41 +193,8 @@ const CreateArticle = ({ currentUser }) => {
               ></input>
             </div>
           </div>
-
-          {/* <textarea className="form-control mt-3" placeholder={description} onChange={e => setDescription(e.target.value)}></textarea>*/}
-          <div className="editor">
-            {/*config={ {
-                   
-                   toolbar: ['heading', '|', 'bold', 'italic', '|', 'undo', 'redo', '|', 'mediaEmbed' ]
-               } }*/}
-            <CKEditor
-              editor={InlineEditor}
-              data="<p>Write something here..</p>"
-              config={{
-                extraPlugins: [CustomUpload],
-              }}
-              onReady={(editor) => {
-                // You can store the "editor" and use when it is needed.
-                console.log("Editor is ready to use!", editor);
-              }}
-              onChange={(event, editor) => {
-                console.log(event);
-                const data = editor.getData();
-                setContent(data);
-
-                console.log({ event, editor, data });
-              }}
-              onBlur={(event, editor) => {
-                console.log("Blur.", editor);
-              }}
-              onFocus={(event, editor) => {
-                console.log("Focus.", editor);
-              }}
-            />
-          </div>
-
-          <div className="form-row mt-3">
-            <div className="form-group col-md-6">
+          <div className="form-row">
+            <div className="form-group col-md-4">
               <div className="input-group ">
                 <div className="input-group-prepend">
                   <span className="input-group-text">Publish:</span>
@@ -240,7 +209,7 @@ const CreateArticle = ({ currentUser }) => {
                 </select>
               </div>
             </div>
-            <div className="form-group col-md-6">
+            <div className="form-group col-md-4">
               <div className="input-group ">
                 <div className="input-group-prepend">
                   <span className="input-group-text">Category:</span>
@@ -252,12 +221,77 @@ const CreateArticle = ({ currentUser }) => {
                 >
                   <option>Others</option>
                   <option>News</option>
-                  <option>BackEnd</option>
                   <option>FrontEnd</option>
-                  <option>Portfolio</option>
+                  <option>BackEnd</option>
+                  <option>Life</option>
+                  <option>Project</option>
+                  <option>Snippets</option>
                 </select>
               </div>
             </div>
+            <div className="form-group col-md-4">
+              <div className="input-group ">
+                <div className="input-group-prepend">
+                  <span className="input-group-text">Color:</span>
+                </div>
+                <input
+                  type="text"
+                  className="form-control"
+                  placeholder="Set Color..."
+                  onChange={(e) => setColor(e.target.value)}
+                ></input>
+              </div>
+            </div>
+          </div>
+          <div className="form-row">
+            <div className="form-group col-md-12">
+              <div className="input-group ">
+                <textarea
+                  className="form-control"
+                  placeholder="Enter a description..."
+                  onChange={(e) => setDescription(e.target.value)}
+                ></textarea>
+                {/* <input
+                  type="text"
+                  className="form-control"
+                  placeholder="Description..."
+                  onChange={(e) => setDescription(e.target.value)}
+                ></input> */}
+              </div>
+            </div>
+          </div>
+
+          {/* <textarea className="form-control mt-3" placeholder={description} onChange={e => setDescription(e.target.value)}></textarea>*/}
+          <div className="editor">
+            {/*config={ {
+                   
+                   toolbar: ['heading', '|', 'bold', 'italic', '|', 'undo', 'redo', '|', 'mediaEmbed' ]
+               } }*/}
+            <CKEditor
+              editor={InlineEditor}
+              data="<p>Write your article...</p>"
+              config={{
+                extraPlugins: [CustomUpload],
+              }}
+              onReady={(editor) => {
+                // You can store the "editor" and use when it is needed.
+                console.log("Editor is ready to use!", editor);
+              }}
+              onChange={(event, editor) => {
+                console.log(event);
+                const data = editor.getData();
+
+                setContent(data);
+
+                console.log({ event, editor, data });
+              }}
+              onBlur={(event, editor) => {
+                console.log("Blur.", editor);
+              }}
+              onFocus={(event, editor) => {
+                console.log("Focus.", editor);
+              }}
+            />
           </div>
           <div className="wrap">
             <button id="createButton" onClick={(e) => setImage(data.path)}>

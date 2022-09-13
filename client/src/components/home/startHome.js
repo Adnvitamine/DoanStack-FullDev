@@ -1,8 +1,18 @@
 import { Fragment, useEffect } from "react";
 import plane from "../../assets/img/planehd.png";
+// import doanPic from "../../assets/img/doanPic.png";
 import cloud2 from "../../assets/img/cloud2.png";
 import star from "../../assets/img/star2d.png";
 const StartHome = () => {
+  useEffect(() => {
+    // "document.documentElement.scrollTo" is the magic for React Router Dom v6
+    document.documentElement.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "instant", // Optional if you want to skip the scrolling animation
+    });
+  }, []);
+
   useEffect(() => {
     let constrain = 20;
     let mouseOverContainer = document.getElementById("ex1");
@@ -92,20 +102,39 @@ const StartHome = () => {
     const randomColor = Math.floor(Math.random() * 4);
 
     if (window.scrollY >= 80) {
-      h1.style.top = "80%";
-      star.style.bottom = "80%";
-      starTwo.style.bottom = "80%";
-      starThree.style.bottom = "80%";
-      bgW3.style.right = "60%";
-      bgW1.style.top = "65%";
-      bgW1opacity.style.animation = "opacity 3s forwards";
+      if (h1 !== null) {
+        h1.style.top = "80%";
+      }
+      if (star !== null) {
+        star.style.bottom = "80%";
+      }
+      if (starTwo !== null) {
+        starTwo.style.bottom = "80%";
+      }
+      if (starThree !== null) {
+        starThree.style.bottom = "80%";
+      }
+      if (bgW3 !== null) {
+        bgW3.style.right = "60%";
+      }
+      if (bgW1 !== null) {
+        bgW1.style.top = "65%";
+      }
+      if (bgW1opacity !== null) {
+        bgW1opacity.style.animation = "opacity 3s forwards";
+      }
       // if (window.scrollY >= 360) {
       //   s2BgWrapper.style.transform = `rotate(${window.scrollY - 360}deg)`;
       //   s2BgH1.style.transform = `rotate(-${window.scrollY - 360}deg)`;
       // }
     } else {
-      h1.style.top = `${window.scrollY}%`;
-      bgW1.style.top = `20%`;
+      if (h1 !== null) {
+        h1.style.top = `${window.scrollY}%`;
+      }
+      if (bgW1 !== null) {
+        bgW1.style.top = `20%`;
+      }
+
       bgW3.style.right = `${window.scrollY}%`;
       bgW1opacity.style.animation = "none";
 
@@ -204,30 +233,32 @@ const StartHome = () => {
       scene.style.setProperty("--seven", "rgba(255, 255, 255, 0)");
     };
 
-    //console.log(s1.hasOwnProperty("--c"));
-    switch (randomColor) {
-      case 0:
-        setPropertyNight(s1);
-        setPropertySunsetPlanet(s2);
-        // setPropertyMorning(s3);
-        break;
-      case 1:
-        setPropertyMorning(s1);
-        setPropertyNightPlanet(s2);
-        // setPropertySunset(s3);
-        break;
-      case 2:
-        setPropertySunset(s1);
-        setPropertyMorningPlanet(s2);
-        // setPropertyNight(s3);
-        break;
-      case 3:
-        setPropertyAfternoon(s1);
-        setPropertyAfternoonPlanet(s2);
-        // setPropertyAfternoon(s3);
-        break;
-      default:
-        break;
+    if (s1 !== null && s2 !== null) {
+      //console.log(s1.hasOwnProperty("--c"));
+      switch (randomColor) {
+        case 0:
+          setPropertyNight(s1);
+          setPropertySunsetPlanet(s2);
+          // setPropertyMorning(s3);
+          break;
+        case 1:
+          setPropertyMorning(s1);
+          setPropertyNightPlanet(s2);
+          // setPropertySunset(s3);
+          break;
+        case 2:
+          setPropertySunset(s1);
+          setPropertyMorningPlanet(s2);
+          // setPropertyNight(s3);
+          break;
+        case 3:
+          setPropertyAfternoon(s1);
+          setPropertyAfternoonPlanet(s2);
+          // setPropertyAfternoon(s3);
+          break;
+        default:
+          break;
+      }
     }
 
     // console.log(s2BgWrapper.style.height);
@@ -237,7 +268,7 @@ const StartHome = () => {
     window.addEventListener("scroll", scrollControl);
 
     return () => window.removeEventListener("scroll", scrollControl);
-  });
+  }, []);
 
   return (
     <Fragment>

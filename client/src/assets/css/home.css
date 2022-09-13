@@ -82,7 +82,7 @@ ul {
 
 .startHome {
   height: 200vh;
-  width: 100vw;
+  width: 100%;
 }
 
 @property --one {
@@ -169,7 +169,7 @@ ul {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  width: 100vw;
+  width: 100%;
   background: radial-gradient(circle, var(--one) 0%, var(--two) 12%, var(--three) 12%, var(--four) 14%, var(--five) 40%, var(--six) 41%, var(--seven) 45%);
   transition: --one 1.5s ease,
     --two 1.5s ease,
@@ -214,14 +214,14 @@ ul {
 .s2-mg {
   position: relative;
   z-index: 10;
-  width: 100vw;
+  width: 100%;
   height: 100vh;
 }
 
 .s2-fg {
   position: absolute;
   z-index: 2;
-  width: 100vw;
+  width: 100%;
   height: 100vh;
 }
 
@@ -521,7 +521,7 @@ ul {
 
 .ex1 {
   height: 100vh;
-  width: 100vw;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;

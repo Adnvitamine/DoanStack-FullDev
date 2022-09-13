@@ -4,9 +4,17 @@ import UserActivity from "./userActivity";
 //import EditUser from "./editUser";
 //import Truncate from 'react-truncate-html';
 
-const ListUsers = ({currentUser}) => {
+const ListUsers = ({ currentUser }) => {
   const [users, setUsers] = useState([]);
 
+  useEffect(() => {
+    // "document.documentElement.scrollTo" is the magic for React Router Dom v6
+    document.documentElement.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "instant", // Optional if you want to skip the scrolling animation
+    });
+  }, []);
   // DELETE PRODUCT FUNCTION
 
   const deleteUser = async (id) => {
@@ -110,12 +118,17 @@ const ListUsers = ({currentUser}) => {
               ))}
             </div>
 
-            {currentUser.roles[2]==="Role: ADMIN" && (<div className="userCardAction">
-              <button className="miniDeleteButton" onClick={() => deleteUser(user.id)}>
-                <i className="far fa-trash-alt"></i>
-                <p>Delete</p>
-              </button>
-            </div>)}
+            {currentUser.roles[2] === "Role: ADMIN" && (
+              <div className="userCardAction">
+                <button
+                  className="miniDeleteButton"
+                  onClick={() => deleteUser(user.id)}
+                >
+                  <i className="far fa-trash-alt"></i>
+                  <p>Delete</p>
+                </button>
+              </div>
+            )}
           </div>
 
           /*

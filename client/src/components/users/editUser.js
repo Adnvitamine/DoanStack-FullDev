@@ -1,4 +1,4 @@
-import { Fragment, useState, useRef } from "react";
+import { Fragment, useState, useRef, useEffect } from "react";
 import axios from "axios";
 
 const EditUser = ({ currentUser }) => {
@@ -15,6 +15,15 @@ const EditUser = ({ currentUser }) => {
   const [data, getFile] = useState({ name: "", path: "" });
   const [progress, setProgess] = useState(0); // progess bar
   const el = useRef(); // accessing input element
+
+  useEffect(() => {
+    // "document.documentElement.scrollTo" is the magic for React Router Dom v6
+    document.documentElement.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "instant", // Optional if you want to skip the scrolling animation
+    });
+  }, []);
 
   const handleChange = (e) => {
     setProgess(0);
@@ -60,72 +69,64 @@ const EditUser = ({ currentUser }) => {
   // Update user function
   const UpdateUser = async (e) => {
     console.log(data.path);
-    if(data.path === ""){
+    if (data.path === "") {
       const avatar = currentUser.avatar;
       e.preventDefault();
-    try {
-      const body = { username, email, password, avatar };
-      const response = await fetch(
-        `/api/user/${currentUser.id}`,
-        {
+      try {
+        const body = { username, email, password, avatar };
+        const response = await fetch(`/api/user/${currentUser.id}`, {
           method: "PUT",
           headers: { "Content-type": "application/json" },
           body: JSON.stringify(body),
-        }
-      );
-      
-      const update_localStorage = {
-        id: currentUser.id,
-        username: username,
-        avatar: avatar,
-        email: email,
-        password: password,
-        passwordcrypt: currentUser.passwordcrypt,
-        roles: currentUser.roles,
-        accessToken: currentUser.accessToken,
+        });
+
+        const update_localStorage = {
+          id: currentUser.id,
+          username: username,
+          avatar: avatar,
+          email: email,
+          password: password,
+          passwordcrypt: currentUser.passwordcrypt,
+          roles: currentUser.roles,
+          accessToken: currentUser.accessToken,
+        };
+
+        localStorage.setItem("user", JSON.stringify(update_localStorage));
+
+        window.location = "";
+        console.log(response);
+      } catch (err) {
+        console.error(err.message);
       }
-
-      localStorage.setItem("user", JSON.stringify(update_localStorage));
-
-      window.location = "";
-      console.log(response);
-      
-    } catch (err) {
-      console.error(err.message);
-    }
-    }else{
+    } else {
       const avatar = data.path;
       e.preventDefault();
-    try {
-      const body = { username, email, password, avatar };
-      const response = await fetch(
-        `/api/user/${currentUser.id}`,
-        {
+      try {
+        const body = { username, email, password, avatar };
+        const response = await fetch(`/api/user/${currentUser.id}`, {
           method: "PUT",
           headers: { "Content-type": "application/json" },
           body: JSON.stringify(body),
-        }
-      );
+        });
 
-      const update_localStorage = {
-        id: currentUser.id,
-        username: username,
-        avatar: avatar,
-        email: email,
-        password: password,
-        passwordcrypt: currentUser.passwordcrypt,
-        roles: currentUser.roles,
-        accessToken: currentUser.accessToken,
+        const update_localStorage = {
+          id: currentUser.id,
+          username: username,
+          avatar: avatar,
+          email: email,
+          password: password,
+          passwordcrypt: currentUser.passwordcrypt,
+          roles: currentUser.roles,
+          accessToken: currentUser.accessToken,
+        };
+
+        localStorage.setItem("user", JSON.stringify(update_localStorage));
+
+        window.location = "";
+        console.log(response);
+      } catch (err) {
+        console.error(err.message);
       }
-
-      localStorage.setItem("user", JSON.stringify(update_localStorage));
-      
-      window.location = "";
-      console.log(response);
-
-    } catch (err) {
-      console.error(err.message);
-    }
     }
   };
 
@@ -170,7 +171,7 @@ const EditUser = ({ currentUser }) => {
                 ref={el}
                 onChange={handleChange}
                 className="inputImage"
-                style= {{ overflow: `hidden`}}
+                style={{ overflow: `hidden` }}
               />
               <p style={{ width: `${progress}%` }} data-value={progress}></p>
 

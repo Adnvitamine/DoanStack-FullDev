@@ -38,6 +38,7 @@ html {
 }
 
 body {
+  width: 100%;
   margin: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -61,7 +62,7 @@ body {
 }
 
 #FullFrame {
-  width: 100vw;
+  width: 100%;
 }
 
 .App {
@@ -71,7 +72,7 @@ body {
 .mainBoard {
   position: relative;
   min-height: 100vh;
-  width: 100vw;
+  width: 100%;
 }
 
 .adminBoard {
@@ -234,11 +235,10 @@ body {
 }
 
 #TitleLink {
-  padding-top: 60px;
+  padding-top: 70px;
   width: 100%;
   /*background-color: rgba(233, 243, 251, 0.5);*/
   text-align: center;
-  margin: auto;
   z-index: 120;
 }
 

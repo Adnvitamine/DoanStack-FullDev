@@ -6,6 +6,8 @@
 }
 
 @media (min-width: 900px) {
+
+
   .modal-xl {
     max-width: 90%;
   }
@@ -23,18 +25,22 @@
   }
 }
 
+@media only screen and (max-width: 1500px) {
+  .blogFrame {
+    width: 400px;
+    height: 400px;
+  }
+}
+
+@media only screen and (max-width: 1200px) {
+  .blogFrame {
+    width: 300px;
+    height: 300px;
+  }
+}
+
+
 @media only screen and (max-width: 1000px) {
-  .productBody {
-    flex-direction: column;
-  }
-
-  #ShopBody {
-    width: 100% !important;
-  }
-
-  #BlogBody {
-    width: 100% !important;
-  }
 
   #ProfileFrame {
     flex-direction: column;
@@ -55,24 +61,27 @@
   }
 }
 
-@media only screen and (max-width: 960px) {
+@media only screen and (max-width: 1000px) {
   .productBody {
     flex-direction: column;
   }
 
   #MobileMenu {
     display: block;
-    width: 100px;
+    width: 60px;
+    height: 60px;
     position: absolute;
+    top: 5px;
     right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   #menuToggle {
     position: relative;
-    float: right;
-    top: 15px;
-    height: 60px;
-    width: 60px;
+    height: 100%;
+    width: 100%;
     z-index: 1;
 
     -webkit-user-select: none;
@@ -184,12 +193,15 @@
 
   #menu {
     position: absolute;
+    width: 140px;
+    left: -80px;
     top: -2px;
     right: 0px;
+    padding: 50px 0px 10px 40px;
+    margin: 0px 0px 0px 0px;
     display: flex;
     flex-direction: row;
-    padding: 0px 60px 10px 20px;
-    margin: 0px 0px 0px 0px;
+    flex-wrap: wrap;
     background: rgba(255, 255, 255, 1);
     border-radius: 0px 0px 0px 20px;
 
@@ -205,15 +217,17 @@
 
   #menu1 {
     position: absolute;
+    width: 140px;
+    left: -80px;
     top: -2px;
     right: 0px;
+    padding: 100px 30px 10px 30px;
+    margin: 0px 0px 0px 0px;
     display: flex;
     flex-direction: row;
-    padding: 0px 60px 10px 20px;
-    margin: 0px 0px 0px 0px;
+    flex-wrap: wrap;
     background: rgba(255, 255, 255, 1);
-    box-shadow: 5px 5px 6px #007bff88, -5px -5px 6px #007bff75;
-    border-radius: 0px 0px 0px 30px;
+    border-radius: 0px 0px 0px 20px;
 
     list-style-type: none;
     -webkit-font-smoothing: antialiased;
@@ -230,6 +244,7 @@
     font-size: 18px;
     margin-right: 10px;
   }
+
 
   .mobilenav-item .nav-link {
     padding: 2px;
@@ -259,9 +274,8 @@
     margin-right: 70px;
   }
 
-  #TitleLink {
-    height: 100px;
-    padding-top: 75px;
+  #TitleLink h2 {
+    font-size: 3vw !important;
   }
 
   @keyframes fontSize2 {
@@ -312,6 +326,13 @@
   }
 }
 
+@media only screen and (max-width: 910px) {
+  .blogFrame {
+    width: 250px;
+    height: 250px;
+  }
+}
+
 @media only screen and (max-width: 865px) {
   .productBody {
     flex-direction: column;
@@ -343,53 +364,6 @@
 }
 
 @media only screen and (max-width: 820px) {
-  #menu {
-    position: absolute;
-    width: 140px;
-    left: -80px;
-    top: -2px;
-    right: 0px;
-    padding: 50px 0px 10px 40px;
-    margin: 0px 0px 0px 0px;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    background: rgba(255, 255, 255, 1);
-    border-radius: 0px 0px 0px 20px;
-
-    list-style-type: none;
-    -webkit-font-smoothing: antialiased;
-    /* to stop flickering of text in safari */
-
-    transform-origin: 0% 0%;
-    transform: translate(150%, 0);
-
-    transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
-  }
-
-  #menu1 {
-    position: absolute;
-    width: 140px;
-    left: -80px;
-    top: -2px;
-    right: 0px;
-    padding: 100px 30px 10px 30px;
-    margin: 0px 0px 0px 0px;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    background: rgba(255, 255, 255, 1);
-    border-radius: 0px 0px 0px 20px;
-
-    list-style-type: none;
-    -webkit-font-smoothing: antialiased;
-    /* to stop flickering of text in safari */
-
-    transform-origin: 0% 0%;
-    transform: translate(150%, 0);
-
-    transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
-  }
 
   #TitleLink h2 {
     font-size: 3vw;
@@ -477,8 +451,12 @@
     padding-right: 0 !important;
   }
 
+}
+
+@media only screen and (max-width: 768px) {
   .blogFrame {
-    width: 100%;
+    width: 300px;
+    height: 300px;
   }
 }
 
@@ -495,7 +473,14 @@
   .mailbox {
     font-size: 13px !important;
   }
+
+  .blogFrame {
+    width: 250px;
+    height: 250px;
+  }
 }
+
+
 
 @media only screen and (max-width: 520px) {
   #MoreArticles {
@@ -518,6 +503,13 @@
 
   .BrowserNavbar p {
     animation: slide1 15s linear infinite;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .blogFrame {
+    width: 300px;
+    height: 300px;
   }
 }
 

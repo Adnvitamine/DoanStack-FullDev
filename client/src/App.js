@@ -1,7 +1,7 @@
 import React from "react";
+import ReactDOMServer from "react-dom/server";
 import { Fragment } from "react";
 import { BrowserRouter } from "react-router-dom";
-import ReactDOMServer from "react-dom/server";
 import { Switch, Route, Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "react-image-gallery/styles/css/image-gallery.css";
@@ -10,6 +10,7 @@ import "./assets/css/editor.css";
 import "./assets/css/buttons.css";
 import "./assets/css/products.css";
 import "./assets/css/users.css";
+//import "./assets/css/all.css";
 import "./assets/css/profile.css";
 import "./assets/css/home.css";
 import "./assets/css/articles.css";
@@ -19,7 +20,6 @@ import "./assets/css/shop.css";
 import "./assets/css/media.css";
 import "./assets/css/footer.css";
 import "./assets/css/contact.css";
-
 //import './css/line-awesome.css';
 
 import AuthService from "./services/auth.service";
@@ -41,6 +41,10 @@ import Shop from "./components/shop.component";
 import ShopCateg from "./components/shop/shopCateg";
 import ShopId from "./components/shop/shopId";
 import Footer from "./components/footer/footer";
+import Portfolio from "./components/portfolio/portfolio";
+//import PortfolioIdArticle from "./components/portfolio/portfolioIdArticle";
+import PortfolioId from "./components/portfolio/portfolioId";
+import PortfolioCateg from "./components/portfolio/portfolioCateg";
 
 class App extends React.Component {
   constructor(props) {
@@ -53,7 +57,6 @@ class App extends React.Component {
       currentUser: undefined,
       isToggleOn: true,
     };
-
     this.handleClick = this.handleClick.bind(this);
     this.handleClickTrue = this.handleClickTrue.bind(this);
   }
@@ -114,6 +117,11 @@ class App extends React.Component {
                   </Link>
                 </li>
                 <li className="nav-item">
+                  <Link to={"/portfolio"} className="nav-link">
+                    Portfolio
+                  </Link>
+                </li>
+                <li className="nav-item">
                   <Link to={"/shop"} className="nav-link">
                     Shop
                   </Link>
@@ -151,6 +159,15 @@ class App extends React.Component {
                       >
                         <Link to={"/blog"} className="nav-link">
                           News
+                        </Link>
+                      </li>
+                      <li
+                        className="mobilenav-item"
+                        id="MobileBlog"
+                        onClick={this.handleClick}
+                      >
+                        <Link to={"/portfolio"} className="nav-link">
+                          Portfolio
                         </Link>
                       </li>
                       <li
@@ -244,6 +261,15 @@ class App extends React.Component {
                       </li>
                       <li
                         className="mobilenav-item"
+                        id="MobileBlog"
+                        onClick={this.handleClick}
+                      >
+                        <Link to={"/portfolio"} className="nav-link">
+                          Portfolio
+                        </Link>
+                      </li>
+                      <li
+                        className="mobilenav-item"
                         id="MobileShop"
                         onClick={this.handleClick}
                       >
@@ -315,7 +341,7 @@ class App extends React.Component {
                 <div className="navbar-nav ml-auto" id="rightMenu">
                   <li className="nav-item">
                     <Link to={"/register"} className="nav-link">
-                      Sign Up
+                      Sign up
                     </Link>
                   </li>
                   <li className="nav-item">
@@ -334,10 +360,21 @@ class App extends React.Component {
               </label>
             </nav>
 
-            <div className="mainBoard">
+            <main className="mainBoard">
               <Switch>
                 <Route exact path={["/", "/home"]} component={Home} />
                 <Route exact path="/blog" component={Blog} />
+                <Route exact path="/portfolio" component={Portfolio} />
+                <Route
+                  exact
+                  path="/portfolio/:category"
+                  component={PortfolioCateg}
+                />
+                <Route
+                  exact
+                  path="/portfolio/:category/:id/:title"
+                  component={PortfolioId}
+                />
                 <Route exact path="/blog/:category" component={BlogCateg} />
                 <Route
                   exact
@@ -359,7 +396,7 @@ class App extends React.Component {
                 <Route path="/mod" component={BoardModerator} />
                 <Route path="/admin" component={BoardAdmin} />
               </Switch>
-            </div>
+            </main>
             <Footer />
           </div>
         </Fragment>
@@ -369,5 +406,4 @@ class App extends React.Component {
 }
 
 export default App;
-
 ReactDOMServer.renderToString(<App />);

@@ -7,10 +7,10 @@ const Footer = () => {
     <Fragment>
       <div id="Footer">
         <ContactBar />
-        <ContactFooter />        
+        <ContactFooter />
       </div>
     </Fragment>
   );
-}
+};
 
 export default Footer;

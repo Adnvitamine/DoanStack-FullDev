@@ -1,6 +1,7 @@
 import { Fragment, Component } from "react";
 import { Link } from "react-router-dom";
 import BlogArticlesCateg from "./blogArticlesCateg";
+// import authService from "../../services/auth.service";
 
 class blogCateg extends Component {
   constructor(props) {
@@ -8,6 +9,7 @@ class blogCateg extends Component {
 
     this.state = {
       content: "",
+      // currentUser: authService.getCurrentUser(),
     };
   }
 
@@ -45,20 +47,6 @@ class blogCateg extends Component {
                 )}
               </li>
               <li>
-                {(this.props.match.params.category === "Portfolio" && (
-                  <Link
-                    to="/blog/Portfolio"
-                    style={{ fontSize: "18px", color: "rgb(0, 162, 255)" }}
-                  >
-                    <b>Portfolio</b>
-                  </Link>
-                )) || (
-                  <Link to="/blog/Portfolio">
-                    <b>Portfolio</b>
-                  </Link>
-                )}
-              </li>
-              <li>
                 {(this.props.match.params.category === "FrontEnd" && (
                   <Link
                     to="/blog/FrontEnd"
@@ -87,6 +75,20 @@ class blogCateg extends Component {
                 )}
               </li>
               <li>
+                {(this.props.match.params.category === "Life" && (
+                  <Link
+                    to="/blog/Life"
+                    style={{ fontSize: "18px", color: "rgb(0, 162, 255)" }}
+                  >
+                    <b>Life</b>
+                  </Link>
+                )) || (
+                  <Link to="/blog/Life">
+                    <b>Life</b>
+                  </Link>
+                )}
+              </li>
+              <li>
                 {(this.props.match.params.category === "Others" && (
                   <Link
                     to="/blog/Others"
@@ -102,9 +104,7 @@ class blogCateg extends Component {
               </li>
             </ul>
           </div>
-          <div id="BlogHome">
-            <BlogArticlesCateg category={this.props.match.params.category} />
-          </div>
+          <BlogArticlesCateg category={this.props.match.params.category} />
         </div>
       </Fragment>
     );
